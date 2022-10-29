@@ -20,15 +20,15 @@ function Navbar() {
 
   return (
     <nav className="sticky shadow-2xl">
-      {/* Logo */}
-      <div className="flex justify-between font-bold bg-slate-100 px-12">
-        <div className='flex items-center cursor-pointer hover:animate-bounce'>
+      <div className="flex  font-bold justify-between bg-slate-100 px-12">
+        {/* logo */}
+        <div className='flex md:w-1/5 md:justify-start items-center cursor-pointer hover:animate-bounce'>
           <BiBot className="w-8 h-8 text-blue-500" />
           <span className="ml-2 py-4">ietech</span>
         </div>
 
         {/* Navigation bar */}
-        <ul className='hidden md:flex items-center space-x-2'>
+        <ul className='hidden md:w-3/5 md:justify-center md:flex items-center space-x-2'>
           <li>
             <a className='p-2 rounded-md hover:bg-blue-400 hover:text-white duration-300' href="#" aria-current="page">Trang chủ</a>
           </li>
@@ -61,7 +61,7 @@ function Navbar() {
         </ul>
 
         {/* Search and get stated button*/}
-        <div className='flex items-center space-x-2'>
+        <div className='flex md:w-1/5 md:justify-center items-center space-x-2'>
           <button>
             <FiSearch className="w-6 h-6 mr-4 hover:text-blue-800" />
           </button>

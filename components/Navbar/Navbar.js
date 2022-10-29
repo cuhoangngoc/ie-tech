@@ -20,9 +20,9 @@ function Navbar() {
 
   return (
     <nav className="sticky shadow-2xl">
-      <div className="flex  font-bold justify-between bg-slate-100 px-12">
+      <div className="flex font-bold justify-between bg-slate-100 px-12">
         {/* logo */}
-        <div className='flex md:w-1/5 md:justify-start items-center cursor-pointer hover:animate-bounce'>
+        <div className='flex md:w-1/5 md:justify-center items-center cursor-pointer hover:animate-bounce'>
           <BiBot className="w-8 h-8 text-blue-500" />
           <span className="ml-2 py-4">ietech</span>
         </div>

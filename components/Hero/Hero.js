@@ -1,4 +1,4 @@
-import heroImg from '../../asset/hero-img.png'
+import heroImg from '../../public/asset/hero-img.png'
 
 const Hero = () => (
   <section id="Home" className="flex flex-col md:flex-row justify-around px-8 py-12 items-center">

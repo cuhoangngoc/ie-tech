@@ -1,7 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
+import AboutCompany from "../components/AboutCompany/AboutCompany";
 import Hero from "../components/Hero/Hero";
 import Navbar from "../components/Navbar/Navbar";
+import WeCarry from "../components/WeCarry/WeCarry";
 import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
 
 export default function Home() {
@@ -16,9 +18,12 @@ export default function Home() {
 
       {/* main */}
       <div className="container mx-auto px-2 md:px-4">
-        <Hero />
-        <WhyChooseUs />
+        <Hero/>
+        <AboutCompany/>
+        <WhyChooseUs/>
+        <WeCarry/>
       </div>
+      
       {/* footer */}
     </>
   );

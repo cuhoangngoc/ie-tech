@@ -7,7 +7,7 @@ import {AiOutlineArrowRight} from "react-icons/ai"
 export const AboutCompany = () => {
   return (
     <div className='grid md:grid-cols-2'>
-        <div className='mx-20 '>
+        <div className='mx-4 sm:mx-20'>
             <h2 className='text-[50px] font-bold mb-6'>Your Partner for Software Innovation</h2>
             <p className='leading-8'>Engitech is the partner of choice for many of the world's leading enterprises, SMEs and technology challengers.
              We help businesses elevate their value through custom software development, product design, QA and consultancy 
@@ -28,7 +28,7 @@ export const AboutCompany = () => {
             </div>
         </div>
         <div>
-            <Image src={ACImg} alt="hero" width="950px" height="570px"/>
+            <Image src={ACImg} alt="company" className='w-screen md:w-[950px] md:h-[570px]'/>
             <div className='flex flex-row pl-20'>
                 <AiOutlineArrowRight size={20} color='rgb(59, 130, 246)' className='mr-4'></AiOutlineArrowRight>
                 <a href='#' className='text-blue-500 hover:pl-3'>LEANR MORE ABOUT US</a>

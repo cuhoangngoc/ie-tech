@@ -5,6 +5,7 @@ import Hero from "../components/Hero/Hero";
 import Navbar from "../components/Navbar/Navbar";
 import WeCarry from "../components/WeCarry/WeCarry";
 import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
+import Footer from "../components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       </div>
       
       {/* footer */}
+      <Footer/>
     </>
   );
 }

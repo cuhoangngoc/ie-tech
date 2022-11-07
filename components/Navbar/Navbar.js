@@ -23,7 +23,7 @@ function Navbar() {
       name: 'Dịch vụ', link: '#',
       subMenu: [
         { name: 'Dịch vụ IT', link: '#' },
-        { name: 'Web development', link: '#' }, ,
+        { name: 'Web development', link: '/web_development' }, ,
         { name: 'Mobile development', link: '#' }
       ]
     },

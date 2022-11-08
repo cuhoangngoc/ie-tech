@@ -3,7 +3,10 @@ import Image from "next/image";
 import Hero from "../components/Hero/Hero";
 import Navbar from "../components/Navbar/Navbar";
 import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
-
+import TopMobileFrameWork from "../components/TopMobileFrameWork/TopMobileFrameWork";
+import Gioithieu from "../components/Gioithieu/Gioithieu";
+import Card from "../components/Card/Card";
+import Mobiletech from "../components/Mobiletech/Mobiletech";
 export default function Home() {
   return (
     <>
@@ -16,8 +19,10 @@ export default function Home() {
 
       {/* main */}
       <div className="container mx-auto px-2 md:px-4">
-        <Hero />
-        <WhyChooseUs />
+        <Gioithieu />
+        <TopMobileFrameWork />
+        <Card />
+        <Mobiletech />
       </div>
       {/* footer */}
     </>

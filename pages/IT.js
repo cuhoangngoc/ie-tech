@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar/Navbar";
-import IT from "../components/IT/IT";
+import IT from "../components/IT_Service/IT";
 
 export default function IT_Page() {
     return (

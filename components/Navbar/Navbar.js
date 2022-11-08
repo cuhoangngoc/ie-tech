@@ -1,6 +1,7 @@
 import { FiMenu, FiSearch, FiChevronDown, FiX } from "react-icons/fi";
 import { BiBot } from "react-icons/bi";
 import style from "./Navbar.module.css";
+import Link from "next/link";
 
 function Navbar() {
 
@@ -17,28 +18,30 @@ function Navbar() {
   };
 
   const navLinks = [
-    { name: 'Trang chủ', link: '#' },
-    { name: 'Giới thiệu', link: '#' },
+    { name: 'Trang chủ', link: '/' },
+    { name: 'Giới thiệu', link: '/GioiThieu' },
     {
       name: 'Dịch vụ', link: '#',
       subMenu: [
-        { name: 'Dịch vụ IT', link: '#' },
+        { name: 'Dịch vụ IT', link: '/IT' },
         { name: 'Web development', link: '/web_development' }, ,
-        { name: 'Mobile development', link: '#' }
+        { name: 'Mobile development', link: '/mobile' }
       ]
     },
-    { name: 'Liên hệ', link: '#' },
+    { name: 'Liên hệ', link: '/contact' },
 
   ];
 
   return (
-    <nav className="sticky shadow-2xl">
+    <nav className="sticky shadow-2xl top-0 z-10">
       <div className="flex font-bold justify-between bg-slate-100 px-12 py-2">
         {/* logo */}
-        <div className='flex md:w-1/5 md:justify-center items-center cursor-pointer hover:animate-bounce'>
-          <BiBot className="w-8 h-8 text-blue-500" />
-          <span className="ml-2 py-4">ietech</span>
-        </div>
+        <Link href='/' legacyBehavior>
+          <a className='flex md:w-1/5 md:justify-center items-center cursor-pointer'>
+            <BiBot className="w-8 h-8 text-blue-500" />
+            <span className="ml-2 py-4">ietech</span>
+          </a>
+        </Link>
 
         {/* Navigation bar */}
         <ul className='hidden md:w-3/5 md:justify-center md:flex items-center space-x-2'>
@@ -54,7 +57,9 @@ function Navbar() {
                   <ul className="py-2 text-sm text-gray-700">
                     {navLink.subMenu.map((subMenu, index) => (
                       <li key={index}>
-                        <a href={subMenu.link} className="block py-2 px-4 hover:bg-gray-100">{subMenu.name}</a>
+                        <Link href={subMenu.link} legacyBehavior>
+                          <a className="block py-2 px-4 hover:bg-gray-100">{subMenu.name}</a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -63,7 +68,9 @@ function Navbar() {
 
             ) : (
               <li key={index}>
-                <a className='p-2 rounded-md hover:bg-blue-400 hover:text-white duration-300' href={navLink.link}>{navLink.name}</a>
+                <Link href={navLink.link} legacyBehavior >
+                  <a className='p-2 rounded-md hover:bg-blue-400 hover:text-white duration-300'>{navLink.name}</a>
+                </Link>
               </li>
             )
           ))}

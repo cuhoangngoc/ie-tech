@@ -1,4 +1,4 @@
-import { HiArrowLongRight } from "react-icons/hi2";
+import { FiArrowRight } from "react-icons/fi";
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -51,7 +51,7 @@ const WhyChooseUs = () => {
               <p className="mb-3 font-normal text-gray-700">{reason.description}</p>
               <a href="#" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
                 Read more
-                <HiArrowLongRight className="ml-2 -mr-1 w-4 h-4" />
+                <FiArrowRight className="ml-2 -mr-1 w-4 h-4" />
               </a>
             </div>
           </div>

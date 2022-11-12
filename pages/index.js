@@ -8,6 +8,7 @@ import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
 import Footer from "../components/Footer/Footer";
 import List_user from "../components/Web_development/List_user";
 import Our_clients from "../components/Web_development/Our_clients";
+import Slider from "../components/Slider/Slider"
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
 
       {/* main */}
       <div className="container mx-auto px-2 md:px-4">
+        <Slider/>
         <Hero />
         <List_user />
         <AboutCompany />

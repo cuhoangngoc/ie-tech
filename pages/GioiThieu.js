@@ -22,8 +22,9 @@ export default function GioiThieu() {
         <Cards />
         <WhatWeDo />
         <Team />
-        <Footer />
       </div>
+      <Footer />
+
     </>
   );
 }

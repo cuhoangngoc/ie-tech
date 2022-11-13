@@ -1,13 +1,14 @@
-import { BiBot } from "react-icons/bi";
 import { AiOutlineGlobal } from "react-icons/ai"
 import { AiFillMail } from "react-icons/ai"
 import { BsFillTelephoneFill } from "react-icons/bs"
+import Logo from "../../public/asset/Logo-only.png";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
     <div className="bg-[#211e3b] mt-10 pb-10">
-      <a href="#" className='flex justify-center items-center'>
-        <BiBot className="w-8 h-8 text-blue-500" />
+      <a href="#" className='flex justify-center items-center gap-2'>
+        <Image src={Logo} alt="logo" width={50} height={50} />
         <span className="text-white text-4xl my-10">ietech</span>
       </a>
 

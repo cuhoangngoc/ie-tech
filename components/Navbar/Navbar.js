@@ -1,7 +1,8 @@
 import { FiMenu, FiSearch, FiChevronDown, FiX } from "react-icons/fi";
-import { BiBot } from "react-icons/bi";
 import style from "./Navbar.module.css";
 import Link from "next/link";
+import Logo from "../../public/asset/Logo-only.png";
+import Image from "next/image";
 
 function Navbar() {
 
@@ -38,7 +39,7 @@ function Navbar() {
         {/* logo */}
         <Link href='/' legacyBehavior>
           <a className='flex md:w-1/5 md:justify-center items-center cursor-pointer'>
-            <BiBot className="w-8 h-8 text-blue-500" />
+            <Image src={Logo} alt="logo" width={50} height={50} />
             <span className="ml-2 py-4">ietech</span>
           </a>
         </Link>

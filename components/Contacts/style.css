@@ -1,0 +1,402 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header-page{
+    width: 100%;
+    height: 350px;
+    color: #43baff;
+    background-image: url(http://wpdemo.archiwp.com/engitech/wp-content/uploads/sites/4/2019/12/bg-pheader.jpg);
+}
+
+.nav-page{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* next-contacts */
+h1,
+.next-contacts{
+    margin: auto;
+}
+
+h1{
+    font-size: 48px;
+    padding: 10px 20px 10px 0;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.next-contacts{
+    display: flex;
+}
+
+.next-contacts a{
+    color: #aeaacb;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.next-contacts a:hover{
+    color: #fff;
+}
+
+
+.fa-caret-right{
+    font-size: 15px;
+    color: #43baff;
+    padding: 0 10px;
+}
+
+.next-contacts p{
+    font-size: 14px;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* center-contacts */
+.center-contacts{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding-top: 100px;
+    padding-right: 10px;
+    padding-left: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.contacts-us{
+    width: 580px;
+    height: 630px;
+    position: relative;
+}
+
+.all-contacts{
+    height: 500px;
+    width: 500px;
+    margin: 0 95px 0 0;
+    padding: 0 15px;
+    position: absolute;
+    top: 75px;
+}
+
+.all-contacts span{
+    color: #7141b1;
+    font-weight: 600;
+    margin: 0 0 2px;
+    font-size: 14px;
+}
+
+.all-contacts h2{
+    font-size: 36px;
+    font-weight: 800;
+    margin: auto;
+    line-height: 48px;
+}
+
+.all-contacts p{
+    font-size: 18px;
+    color: #6d6d6d;
+    line-height: 1.8;
+    padding-bottom: 20px;
+}
+
+
+.contacts-address{
+    display: flex;
+}
+
+.from-address p{
+    font-size: 16px;
+}
+
+.contacts-address:hover{
+    box-shadow: 15px 15px 38px 0 rgb(0 0 0 / 10%);
+}
+
+.contacts-address h6{
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.fa-globe,
+.fa-envelope,
+.fa-phone-alt{
+    font-size: 36px;
+    color:#43baff;
+}
+
+.fa-globe{
+    padding: 20px 20px 25px;
+}
+
+.fa-envelope,
+.fa-phone-alt{
+    padding: 10px 20px 25px;
+}
+
+.c-ti-item,
+.contacts-info{
+    margin-top: 15px;
+}
+
+/* send message submit */
+.send-gmail-contacts{
+    width: 560px;
+    height: 630px;
+    position: relative;
+    background-image: linear-gradient(90deg, #00deff 0%, #7141b1 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.all-gmail{
+    position: absolute;
+    display: flex;
+    width: 580px;
+    height: 100%;
+}
+
+.send-gmail{
+    width: 475px;
+    margin: auto;
+}
+
+.send-gmail h2{
+    font-size: 36px;
+    font-weight: 800;
+    margin: 0 0 10px;
+}
+
+.send-gmail h2 + p{
+    margin: 0 0 30px;
+}
+
+.send-gmail .form-group,
+textarea{
+    margin-bottom: 20px;
+}
+
+.send-gmail input,
+textarea{
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+}
+
+#name,
+#email{
+    width: 100%;
+    padding: 10px 20px;
+}
+
+.form-control,
+textarea{
+    max-width: 400px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+textarea {
+    width: 100%;
+    font-size: 16px;
+    height: 140px;
+    padding: 10px 20px;
+}
+
+.send-button{
+    border: none;
+    color: #000000;
+    background-color:#00deff;
+    font-weight: 700;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+
+.send-button:hover{
+    color: #fff;
+    background-color: #7141b1;
+}
+
+.alt-send-button{
+    padding-top: 10px;
+    width: 200px;
+    height: 30px;
+    transition: all .2s ease-in-out;
+}
+
+.send-text{
+    display: block;
+    margin-top: 10px;
+    padding-top: 5px;
+    font: 700 'Lato', sans-serif;
+    letter-spacing: 2px;
+}
+
+.alt-send-button:hover {
+    transform: translate3d(0px, -30px, 0px);
+}
+
+
+/* Map */
+#map{
+    padding-top: 100px;
+    max-width: 100%;
+}
+
+/* Mobile-M */
+@media only screen and (max-width: 539px) {
+    .nav-page,
+    .center-contacts{
+        display: block;
+    }
+
+    .header-page{
+        height: 200px;
+        max-width: 100%;
+    }
+
+    h1{
+        padding-top: 50px;
+        padding-left: 20px;
+        font-size: 30px;
+    }
+
+    .next-contacts{
+        padding-left: 20px;
+        font-size: 12px;
+    }
+
+    
+
+    .contacts-us{
+        width: 100%;
+        bottom: 50px;
+    }
+
+    .all-contacts,
+    .all-gmail{
+        height: 100%;
+        width: 100%;
+    }
+
+    .send-gmail-contacts{
+        width: 100%;
+        margin-top: 100px;
+        padding: 0 10px 0;
+        bottom: 100px;
+    }
+
+    .send-gmail{
+        width: 80%;
+    }
+    
+    .contacts-address:hover{
+        box-shadow: none;
+    }
+
+    #map{
+        padding-top: 0;
+    }
+}
+
+/* Mobile-L */
+@media only screen and (min-width: 540px) and (max-width: 767px) {
+    .nav-page,
+    .center-contacts{
+        display: block;
+    }
+
+    .header-page{
+        width: 100%;
+        height: 200px;
+    }
+
+    h1{
+        padding-top: 50px;
+        padding-left: 30px;
+        font-size: 30px;
+    }
+
+    .next-contacts{
+        padding-left: 30px;
+        font-size: 12px;
+    }
+
+    .center-contacts{
+        width: 100%;
+    }
+
+    .contacts-us,
+    .send-gmail-contacts{
+        width: 100%;
+        bottom: 100px;
+    }
+
+    .all-gmail{
+        padding-top: 20px;
+    }
+
+    .contacts-address:hover{
+        box-shadow: none;
+    }
+
+    #map{
+        padding-top: 0px;
+    }
+}
+
+/* Ipad-Tablet */
+@media only screen and (min-width: 768px) and (max-width: 989px) {
+    .nav-page{
+        width: 100%;
+        display: block;
+    }
+
+    h1{
+        padding-top: 100px;
+        padding-left: 30px;
+    }
+
+    .next-contacts{
+        padding-left: 30px;
+    }
+
+    .contacts-us,
+    .all-gmail,
+    .send-gmail-contacts{
+        width: 100%;
+        height: 660px;
+    }
+
+    .all-contacts,
+    .send-gmail{
+        width: 95%;
+    }
+
+    .contacts-address:hover{
+        box-shadow: none;
+    }
+}
+
+/* PC-M */
+@media only screen and (min-width: 990px) and (max-width: 1024px) {
+    .contacts-us,
+    .send-gmail-contacts{
+        height: 660px;
+        width: 450px;
+    }
+
+    .send-gmail,
+    .all-contacts{
+        width: 400px;
+    }
+}

@@ -12,10 +12,10 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 export const Slider = () => {
     const images = [
-        'VietNamimg.src',
-        'Chinaimg.src',
-        'USAimg.src',
-        'Englandimg.src'
+        VietNamimg,
+        Chinaimg,
+        USAimg,
+        Englandimg
     ]
 
   return (    
@@ -35,10 +35,11 @@ export const Slider = () => {
         modules={[Autoplay, Pagination, Navigation]}
         className="mySwiper"
       >
-        <SwiperSlide><Image src={VietNamimg}/></SwiperSlide>
-        <SwiperSlide><Image src={Chinaimg}/></SwiperSlide>
-        <SwiperSlide><Image src={USAimg}/></SwiperSlide>
-        <SwiperSlide><Image src={Englandimg}/></SwiperSlide>
+        {images.map((imagelink, index) => (
+          <div key={index} >
+            <SwiperSlide className='text-center'><Image width='500px' height='300px' src={imagelink}/></SwiperSlide>
+          </div>
+        ))}
       </Swiper>
     </div>
   );

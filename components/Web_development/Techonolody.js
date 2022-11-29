@@ -71,7 +71,7 @@ const handlediv3=()=>{
                     </div>
                 </div> 
             </div>
-                { hasWindow&& <ReactPlayer url='https://www.youtube.com/watch?v=wWgIAphfn2U' width='full' height='550px' playing={true} controls={true}/> }
+                { hasWindow&& <ReactPlayer url='https://www.youtube.com/watch?v=wWgIAphfn2U' width='full' height='550px' controls={true}/> }
         </div>
     </div>
   )

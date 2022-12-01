@@ -5,7 +5,7 @@ import {
   BsEnvelopeFill,
   BsFillHouseDoorFill,
 } from "react-icons/bs";
-import { cloneElement } from "react";
+import { cloneElement, useState } from "react";
 import style from "../components/Contact/Contact.module.css";
 
 const contact = () => {
@@ -30,10 +30,34 @@ const contact = () => {
     },
   ];
 
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [content, setContent] = useState("");
+  
+    function handleSubmit(e) {
+      e.preventDefault();
+      const postData = async () => {
+        const data = {
+          name: name,
+          email: email,
+          content: content
+        };
+  
+        const response = await fetch("/api/getinformation", {
+          method: "POST",
+          body: JSON.stringify(data),
+        });
+        return response.json();
+      };
+      postData().then(() => {
+        alert("Chúng tôi đã nhận được thông điệp của bạn!");
+      });
+      alert("Chúng tôi đã nhận được thông điệp của bạn!");
+    }
+
   return (
     <>
       <Navbar />
-
       <main className="container mx-auto mt-10">
         <section className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="sm:basis-1/2">
@@ -71,13 +95,15 @@ const contact = () => {
             </div>
           </div>
 
-          <form action="" className={`${style.form} sm:basis-1/2`}>
+          <form onSubmit={handleSubmit} action="" className={`${style.form} sm:basis-1/2`}>
             <h1 className={style.headerCenter}>Gửi thông điệp của bạn</h1>
 
             <input
               className={style.input}
               type="text"
-              name="name"
+              value={name}
+              id="name"
+              onChange={(e) => setName(e.target.value)}
               placeholder="Tên"
               required
             />
@@ -86,6 +112,9 @@ const contact = () => {
               className={style.input}
               type="email"
               name="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
               required
             />
@@ -94,11 +123,16 @@ const contact = () => {
               className={style.input}
               name="content"
               id="content"
+              value={content}
+              onChange={(e) => setContent(e.target.value)}
               placeholder="Nội dung..."
               rows="10"
             ></textarea>
 
-            <button className={`${style.button} bg-blue-700`} type="submit">
+            <button
+              className={`${style.button} bg-blue-700`}
+              type="submit"
+            >
               Gửi
             </button>
           </form>

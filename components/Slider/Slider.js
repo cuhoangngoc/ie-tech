@@ -1,9 +1,8 @@
 import React, { useState, useRef } from "react";
-import Image from "next/image";
-import VietNamimg from "../../public/asset/VietNamimg.png";
-import Chinaimg from "../../public/asset/Chinaimg.png";
-import USAimg from "../../public/asset/USAimg.png";
-import Englandimg from "../../public/asset/Englandimg.png"
+import teamwork1 from "../../public/asset/teamwork1.jpeg";
+import teamwork2 from "../../public/asset/teamwork2.jpg";
+import teamwork3 from "../../public/asset/teamwork3.jpg";
+import teamwork4 from "../../public/asset/teamwork4.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,37 +10,34 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export const Slider = () => {
-    const images = [
-        VietNamimg,
-        Chinaimg,
-        USAimg,
-        Englandimg
-    ]
+  const images = [teamwork1, teamwork2, teamwork3, teamwork4];
 
-  return (    
-    <div className="py-16">
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        loop={true}
-        autoplay={{
-          delay: 2000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-      >
-        {images.map((imagelink, index) => (
-          <div key={index} >
-            <SwiperSlide className='text-center'><Image width='500px' height='300px' src={imagelink}/></SwiperSlide>
-          </div>
-        ))}
-      </Swiper>
-    </div>
+  return (
+    <Swiper
+      spaceBetween={30}
+      centeredSlides={true}
+      loop={true}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false,
+      }}
+      pagination={{
+        clickable: true,
+      }}
+      navigation={true}
+      modules={[Autoplay, Pagination, Navigation]}
+      className="mySwiper"
+    >
+      {images.map((imagelink, index) => (
+        <div key={index}>
+          <SwiperSlide>
+            <div className="flex items-center justify-center">
+              <img className="w-full" src={imagelink.src} />
+            </div>
+          </SwiperSlide>
+        </div>
+      ))}
+    </Swiper>
   );
 };
 

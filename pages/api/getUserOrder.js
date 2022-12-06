@@ -8,7 +8,6 @@ export default async function handler(req, res) {
     user: "root",
     password: "",
     port: "3306",
-    socketPath: "/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock",
   });
 
   if (req.method === "POST") {

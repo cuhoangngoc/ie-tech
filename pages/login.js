@@ -10,13 +10,13 @@ import Link from "next/link";
 import { useAuth } from "../hooks/auth";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Layout from "../components/Layout/Layout";
 
 const Login = () => {
   const router = useRouter();
-
   const { login } = useAuth({
     middleware: "guest",
-    redirectIfAuthenticated: "/dashboard",
+    redirectIfAuthenticated: "/",
   });
 
   const [email, setEmail] = useState("");
@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <GuestLayout>
+    <Layout>
       <AuthCard
         logo={
           <Link href="/">
@@ -109,7 +109,7 @@ const Login = () => {
             </label>
           </div>
 
-          <div className="mt-4 flex items-center justify-end">
+          <div className="mt-4 flex items-center justify-between">
             <Link
               href="/forgot-password"
               className="text-sm text-gray-600 underline hover:text-gray-900"
@@ -117,11 +117,13 @@ const Login = () => {
               Forgot your password?
             </Link>
 
+            <Link href="/register">Register</Link>
+
             <Button className="ml-3">Login</Button>
           </div>
         </form>
       </AuthCard>
-    </GuestLayout>
+    </Layout>
   );
 };
 

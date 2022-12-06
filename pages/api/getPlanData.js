@@ -11,16 +11,11 @@ export default async function handler(req, res) {
   });
 
   try {
-    const { name, email, content } = JSON.parse(req.body);
-    const query =
-      "INSERT INTO CONTACTS (NAME, EMAIL, CONTENT) VALUE ('" +
-      name +
-      "', '" +
-      email +
-      "', '" +
-      content +
-      "');";
-    await connection.execute(query);
+    const query = "SELECT * FROM plans";
+    const values = [];
+    const [rows] = await connection.execute(query, values);
+    connection.end();
+    res.status(200).json(rows);
   } catch (e) {
     res.status(500).json({ message: e.message });
   }

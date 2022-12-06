@@ -11,15 +11,19 @@ export default async function handler(req, res) {
   });
 
   try {
-    const { name, email, content } = JSON.parse(req.body);
+    const { name, email, phone, address } = JSON.parse(req.body);
     const query =
-      "INSERT INTO CONTACTS (NAME, EMAIL, CONTENT) VALUE ('" +
+      "UPDATE USERS SET NAME = '" +
       name +
-      "', '" +
+      "', EMAIL = '" +
       email +
-      "', '" +
-      content +
-      "');";
+      "', PHONE = '" +
+      phone +
+      "', ADDRESS = '" +
+      address +
+      "' WHERE EMAIL = '" +
+      email +
+      "';";
     await connection.execute(query);
   } catch (e) {
     res.status(500).json({ message: e.message });

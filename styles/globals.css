@@ -9,6 +9,18 @@
   }
 }
 
+table,
+th,
+td,
+tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 10px;
+}
+
 body {
   font-family: "recoleta", "georgia", serif;
   background-color: #f3f3f3;

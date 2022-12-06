@@ -1,63 +1,57 @@
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
-import {
-  BsFillTelephoneFill,
-  BsEnvelopeFill,
-  BsFillHouseDoorFill,
-} from "react-icons/bs";
-import { cloneElement, useState } from "react";
+import Layout from "../components/Layout/Layout";
+import { FcDepartment, FcFeedback, FcPhone } from "react-icons/fc";
+
+import { useState } from "react";
 import style from "../components/Contact/Contact.module.css";
 
 const contact = () => {
   const contactInfo = [
     {
-      icon: <BsFillTelephoneFill size={30} />,
+      icon: <FcPhone size={50} />,
       title: "Điện thoại",
       href: "tel:0123456789",
       content: "0123456789",
     },
     {
-      icon: <BsEnvelopeFill size={30} />,
+      icon: <FcFeedback size={50} />,
       title: "Email",
       href: "mailto:info@uit.edu.vn",
       content: "info@uit.edu.vn",
     },
     {
-      icon: <BsFillHouseDoorFill size={30} />,
+      icon: <FcDepartment size={50} />,
       title: "Địa chỉ",
       href: "https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+C%C3%B4ng+ngh%E1%BB%87+Th%C3%B4ng+tin+-+%C4%90HQG+TP.HCM/@10.8700142,106.8008654,17z/data=!3m1!4b1!4m6!3m5!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!8m2!3d10.8700089!4d106.8030541!16s%2Fm%2F02qqlmm?hl=vi",
       content: "Khu phố 6, P.Linh Trung, Tp.Thủ Đức, Tp.Hồ Chí Minh",
     },
   ];
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [content, setContent] = useState("");
-  
-    function handleSubmit(e) {
-      e.preventDefault();
-      const postData = async () => {
-        const data = {
-          name: name,
-          email: email,
-          content: content
-        };
-  
-        const response = await fetch("/api/getinformation", {
-          method: "POST",
-          body: JSON.stringify(data),
-        });
-        return response.json();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [content, setContent] = useState("");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    const postData = async () => {
+      const data = {
+        name: name,
+        email: email,
+        content: content,
       };
-      postData().then(() => {
-        alert("Chúng tôi đã nhận được thông điệp của bạn!");
+
+      const response = await fetch("/api/getinformation", {
+        method: "POST",
+        body: JSON.stringify(data),
       });
-      alert("Chúng tôi đã nhận được thông điệp của bạn!");
-    }
+      return response.json();
+    };
+
+    postData();
+    alert("Chúng tôi đã nhận được thông điệp của bạn!");
+  }
 
   return (
-    <>
-      <Navbar />
+    <Layout>
       <main className="container mx-auto mt-10">
         <section className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="sm:basis-1/2">
@@ -75,12 +69,9 @@ const contact = () => {
                   key={index}
                   className="group my-2 flex items-center gap-4 rounded-lg p-2 duration-300 hover:shadow-xl hover:ring-1 hover:ring-black"
                 >
-                  {/* dùng cloneElement để copy icon và add thêm class */}
-                  {cloneElement(item.icon, {
-                    className:
-                      item.icon.props.className +
-                      " group-hover:text-sky-500 duration-300",
-                  })}
+                  {/* icon */}
+                  {item.icon}
+
                   <div className="w-full">
                     <h2 className="text-xl">{item.title}</h2>
                     <a
@@ -95,7 +86,11 @@ const contact = () => {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} action="" className={`${style.form} sm:basis-1/2`}>
+          <form
+            onSubmit={handleSubmit}
+            action=""
+            className={`${style.form} sm:basis-1/2`}
+          >
             <h1 className={style.headerCenter}>Gửi thông điệp của bạn</h1>
 
             <input
@@ -129,10 +124,7 @@ const contact = () => {
               rows="10"
             ></textarea>
 
-            <button
-              className={`${style.button} bg-blue-700`}
-              type="submit"
-            >
+            <button className={`${style.button} bg-blue-700`} type="submit">
               Gửi
             </button>
           </form>
@@ -148,9 +140,7 @@ const contact = () => {
           ></iframe>
         </section>
       </main>
-
-      <Footer />
-    </>
+    </Layout>
   );
 };
 

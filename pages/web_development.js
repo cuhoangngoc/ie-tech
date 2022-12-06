@@ -10,19 +10,14 @@ import Our_clients from "../components/Web_development/Our_clients";
 import Support_serrvice from "../components/Web_development/Support_serrvice";
 import Techonolody from "../components/Web_development/Techonolody";
 import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
-import Footer from "../components/Footer/Footer"
+import Footer from "../components/Footer/Footer";
 
-import { defaults } from 'autoprefixer'
-import React from 'react'
+import { defaults } from "autoprefixer";
+import React from "react";
 
 export const web_development = () => {
   return (
     <>
-      <Head>
-        <title>IE Solution</title>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-      </Head>
-
       <Navbar />
 
       {/* main */}
@@ -32,10 +27,10 @@ export const web_development = () => {
       <Techonolody></Techonolody>
       <Choose_plan></Choose_plan>
       <List_user></List_user>
-      <Our_clients></Our_clients>  
+      <Our_clients></Our_clients>
       {/* footer */}
-      <Footer/>
+      <Footer />
     </>
-  )
-}
-export default web_development
+  );
+};
+export default web_development;

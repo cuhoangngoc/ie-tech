@@ -3,63 +3,77 @@ import { FiArrowRight } from "react-icons/fi";
 const WhyChooseUs = () => {
   const reasons = [
     {
-      title: 'Product Design',
-      description: 'Our product design service lets you prototype, test and validate your ideas.',
-      imgLink: '#',
-      learnMoreLink: '#'
+      title: "Product Design",
+      description:
+        "Our product design service lets you prototype, test and validate your ideas.",
+      imgLink: "#",
+      learnMoreLink: "#",
     },
 
     {
-      title: 'Development',
-      description: 'Our product design service lets you prototype, test and validate your ideas.',
-      imgLink: '#',
-      learnMoreLink: '#'
+      title: "Development",
+      description:
+        "Our product design service lets you prototype, test and validate your ideas.",
+      imgLink: "#",
+      learnMoreLink: "#",
     },
 
     {
-      title: 'Data Analytics',
-      description: 'Our product design service lets you prototype, test and validate your ideas.',
-      imgLink: '#',
-      learnMoreLink: '#'
-
+      title: "Data Analytics",
+      description:
+        "Our product design service lets you prototype, test and validate your ideas.",
+      imgLink: "#",
+      learnMoreLink: "#",
     },
 
     {
-      title: 'Cyber Security',
-      description: 'Our product design service lets you prototype, test and validate your ideas.',
-      imgLink: '#',
-      learnMoreLink: '#'
-    }
-  ]
+      title: "Cyber Security",
+      description:
+        "Our product design service lets you prototype, test and validate your ideas.",
+      imgLink: "#",
+      learnMoreLink: "#",
+    },
+  ];
 
   return (
-    <section id="WhyChooseUs" className="flex flex-col justify-center items-center py-12">
-      <h1 className="mb-8 text-2xl md:text-3xl font-extrabold">Design the Concept of Your Business Idea Now</h1>
+    <section
+      id="WhyChooseUs"
+      className="flex flex-col items-center justify-center py-12"
+    >
+      <h1 className="mb-8 text-2xl font-extrabold md:text-3xl">
+        Design the Concept of Your Business Idea Now
+      </h1>
 
-      <div className="flex flex-col md:flex-row items-center sm:mb-2">
+      <div className="grid items-center sm:mb-2 md:grid-cols-2 xl:grid-cols-4">
         {reasons.map((reason, index) => (
-          <div className="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md md:mx-4 mb-4" key={index}>
+          <div
+            className="mb-4 max-w-sm rounded-lg border border-gray-200 bg-white shadow-md md:mx-4"
+            key={index}
+          >
             <a href="#">
               <img className="rounded-t-lg" src="" alt="" />
             </a>
-            <div className="group p-4 rounded-lg hover:bg-sky-200 duration-75">
-
-              <h5 className="mb-2 text-xl md:text-2xl font-bold text-sky-600 group-hover:text-white duration-75">
+            <div className="group rounded-lg p-4 duration-75 hover:bg-sky-200">
+              <h5 className="mb-2 text-xl font-bold text-sky-600 duration-75 group-hover:text-white md:text-2xl">
                 {reason.title.toUpperCase()}
               </h5>
 
-              <p className="mb-3 font-normal text-gray-700">{reason.description}</p>
-              <a href="#" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300">
+              <p className="mb-3 font-normal text-gray-700">
+                {reason.description}
+              </p>
+              <a
+                href="#"
+                className="inline-flex items-center rounded-lg bg-blue-700 py-2 px-3 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300"
+              >
                 Read more
-                <FiArrowRight className="ml-2 -mr-1 w-4 h-4" />
+                <FiArrowRight className="ml-2 -mr-1 h-4 w-4" />
               </a>
             </div>
           </div>
         ))}
       </div>
-
     </section>
-  )
-}
+  );
+};
 
-export default WhyChooseUs
+export default WhyChooseUs;

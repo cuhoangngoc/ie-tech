@@ -1,5 +1,5 @@
 .form {
-  @apply rounded-xl bg-sky-300 px-10 pt-10;
+  @apply rounded-xl bg-sky-300 px-10 pt-10 bg-gradient-to-r from-cyan-500 to-blue-500;
 }
 
 .input {

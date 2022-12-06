@@ -11,6 +11,7 @@ import Support_serrvice from "../components/Web_development/Support_serrvice";
 import Techonolody from "../components/Web_development/Techonolody";
 import WhyChooseUs from "../components/WhyChooseUs/WhyChooseUs";
 import Footer from "../components/Footer/Footer";
+import Choose_paln_index from "../components/Web_development/Choose_plan_index";
 
 import { defaults } from "autoprefixer";
 import React from "react";
@@ -25,7 +26,7 @@ export const web_development = () => {
       <About_service></About_service>
       <Support_serrvice></Support_serrvice>
       <Techonolody></Techonolody>
-      <Choose_plan></Choose_plan>
+      <Choose_paln_index></Choose_paln_index>
       <List_user></List_user>
       <Our_clients></Our_clients>
       {/* footer */}

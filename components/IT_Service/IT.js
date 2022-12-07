@@ -3,19 +3,32 @@ import { ImHtmlFive2 } from "react-icons/im";
 import { ImMobile } from "react-icons/im";
 import { ImDisplay } from "react-icons/im";
 import { ImFileText, ImStatsDots, ImSphere, ImPhone, ImMail } from "react-icons/im";
-import CS from "../Client_slider/cs"
+import CS from "../Client_slider/cs";
+import Plan_render from "./plan_render";
 import { useEffect, useState } from "react";
 const IT = () => {
     const [dataResponse, setdataResponse] = useState([]);
+    const [planRes, setPlanRes] = useState([]);
     useEffect(() => {
         async function getPageData() {
+            //Lấy client api
             const apiUrlEndpoint = `http://localhost:3000/api/getdata`;
+            //fetch dữ liệu client
             const response = await fetch(apiUrlEndpoint);
             const res = await response.json();
             setdataResponse(res);
+            //Lấy plan api
+            const planUrL = `http://localhost:3000/api/getPlanDataInIT`;
+            const respone_1 = await fetch(planUrL);
+            const res_1 = await respone_1.json();
+            setPlanRes(res_1);
         }
         getPageData();
+
     }, []);
+    planRes.forEach((item) => {
+        item.descriptionArr = item.description.split(", ");
+    });
     return (
         <>
             <div className="it  relative bg-[url('http://wpdemo.archiwp.com/engitech/wp-content/uploads/sites/4/2019/12/bg-pheader.jpg')] ">
@@ -87,47 +100,13 @@ const IT = () => {
                 <p className="font-thin my-4 text-gray-500" >We help businesses elevate their value through custom software development {'\n'}, product design, QA and consultancy services.</p>
 
 
-                <div className="grid  grid-cols-1 lg:grid-cols-3 gap-10 content-center mt-20">
-                    <section className="border-2 border-slate-300 p-20 bg-inherit">
-                        <h4 className="text-3xl font-semibold">Basic Plan</h4>
-                        <h2 className="text-5xl font-bold text-blue-500">$129.99</h2>
-                        <span className="text-gray-400 ">Monthly Package</span>
-                        <ul className="mt-10 space-y-5 text-2xl ">
-                            <li>Web Counsulting</li>
-                            <li>24/7 System Monitoring</li>
-                            <li>Machine and Deep Learning</li>
-                            <li className="text-gray-400">Data Quality Management</li>
-                            <li className="text-gray-400">Security Management</li>
-                        </ul>
-                        <button className="bg-blue-500 text-white font-bold py-2 px-4 mt-10">Choose Plan</button>
-                    </section>
-                    <section className="border-2 border-slate-300 p-20" >
-                        <h4 className="text-3xl font-semibold">Economy Plan</h4>
-                        <h2 className="text-5xl font-bold text-blue-500">$159.99</h2>
-                        <span className="text-gray-400">Monthly Package</span>
-                        <ul className="mt-10 space-y-5 text-2xl">
-                            <li>Web Counsulting</li>
-                            <li>24/7 System Monitoring</li>
-                            <li>Machine and Deep Learning</li>
-                            <li>Data Quality Management</li>
-                            <li className="text-gray-400">Security Management</li>
-                        </ul>
-                        <button className="bg-blue-500 text-white font-bold py-2 px-4 mt-10">Choose Plan</button>
-                    </section >
-                    <section className="border-2 border-slate-300 p-20">
-                        <h4 className="text-3xl font-semibold">Premium Plan</h4>
-                        <h2 className="text-5xl font-bold text-blue-500">$189.99</h2>
-                        <span className="text-gray-400">Monthly Package</span>
-                        <ul className="mt-10 space-y-5 text-2xl">
-                            <li>Web Counsulting</li>
-                            <li>24/7 System Monitoring</li>
-                            <li>Machine and Deep Learning</li>
-                            <li>Data Quality Management</li>
-                            <li>Security Management</li>
-                        </ul>
-                        <button className="bg-blue-500 text-white font-bold py-2 px-4 mt-10">Choose Plan</button>
-                    </section>
-                </div>
+            </div>
+
+            <div className='grid md:grid-cols-3 gap-8'>
+                {planRes.map((plan) => (
+                    <Plan_render key={plan.id} {...plan} />
+                ))}
+
             </div>
 
             {/* Phần thứ 3 */}
@@ -144,33 +123,7 @@ const IT = () => {
                 <CS {...dataResponse} />
             </div>
 
-            {/* Phần thứ 5 */}
-            <div className="mt-60">
-                <section className="bg-indigo-900 grid place-items-center pb-20">
-                    <div className='flex md:w-1/5 md:justify-center items-center cursor-pointer hover:animate-bounce'>
-                        <BiBot className="w-8 h-8 text-blue-500" />
-                        <span className="ml-2 py-4 text-white">ietech</span>
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-40 text-white text-center mt-10">
-                        <div className="grid place-items-center">
-                            <ImSphere className="w-8 h-8" />
-                            <p className="mt-5">411 University St, Seattle, USA</p>
-                            <h6 className="text-gray-400">Our Address</h6>
-                        </div>
-                        <div className="grid place-items-center">
-                            <ImMail className="w-8 h-8" />
-                            <p className="mt-5">contact@oceanthemes.net</p>
-                            <h6 className="text-gray-400">Our Email</h6>
-                        </div>
-                        <div className="grid place-items-center">
-                            <ImPhone className="w-8 h-8" />
-                            <p className="mt-5">+1 -800-456-478-23</p>
-                            <h6 className="text-gray-400">Our Phone</h6>
-                        </div>
-                    </div>
 
-                </section>
-            </div>
         </>
     )
 }

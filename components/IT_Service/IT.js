@@ -6,6 +6,7 @@ import { ImFileText, ImStatsDots, ImSphere, ImPhone, ImMail } from "react-icons/
 import CS from "../Client_slider/cs";
 import Plan_render from "./plan_render";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 const IT = () => {
     const [dataResponse, setdataResponse] = useState([]);
     const [planRes, setPlanRes] = useState([]);
@@ -48,42 +49,42 @@ const IT = () => {
                 </section>
             </div>
             <div className="grid grid-cols-3 gap-10 p-4 ml-10">
-                <section className="flex items-center">
+                <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImHtmlFive2 className="w-20 h-20 text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Web development</h5>
                         <p>We carry more than just good coding skills. Our experience makes us stand out from other web development.</p>
                     </div>
                 </section>
-                <section className="flex items-center">
+                <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImMobile className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Mobile development</h5>
                         <p>Create complex enterprise software, ensure reliable software integration, modernise your legacy system.</p>
                     </div>
                 </section>
-                <section className="flex items-center">
+                <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImDisplay className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">UI/UX Design</h5>
                         <p>Build the product you need on time with an experienced team that uses a clear and effective design process.</p>
                     </div>
                 </section>
-                <section className="flex items-center">
+                <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImFileText className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">QA {' & '} Testing</h5>
                         <p>Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software.</p>
                     </div>
                 </section>
-                <section className="flex items-center">
+                <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImStatsDots className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">IT Counsultancy</h5>
                         <p>Trust our top minds to eliminate workflow pain points, implement new tech, and consolidate app portfolios.</p>
                     </div>
                 </section>
-                <section className="flex items-center">
+                <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImSphere className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Dedicated Team</h5>
@@ -114,7 +115,10 @@ const IT = () => {
                 <section className="grid place-items-center pt-20">
                     <span className="text-white text-2xl">// Drop us a line! We are here to answer your questions 24/7</span>
                     <h2 className="text-3xl lg:text-7xl font-bold text-white mt-10">NEED A CONSULTATION?</h2>
-                    <button className="bg-blue-500 text-white font-bold py-2 px-4 mt-10 mb-40">CONTACT US</button>
+                    <div className="bg-blue-500 text-white font-bold py-2 px-4 mt-10 mb-20">
+                        <Link href='http://localhost:3000/contact'>CONTACT US</Link>
+                    </div>
+
                 </section>
             </div>
 

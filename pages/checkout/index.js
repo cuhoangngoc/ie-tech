@@ -8,7 +8,7 @@ const Checkout = () => {
   // Dùng useEffect để lấy dữ liệu từ API
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("/api/getPlanData");
+      const res = await fetch("http://localhost:3000/api/getPlanData");
       const data = await res.json();
       setCheckoutData(data); // Lưu dữ liệu vào state
     }

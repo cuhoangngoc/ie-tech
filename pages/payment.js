@@ -36,7 +36,7 @@ const payment = () => {
   return (
     <>
       <Navbar />
-      <main className="container mx-auto mt-10">
+      <main className="container mx-auto mt-10 max-w-[600px]">
       <form onSubmit={handleSubmit} action="" className={`${style.form} sm:basis-1/2`}>
             <h1 className={style.headerCenter}>Gửi yêu cầu nạp tiền</h1>
             <input

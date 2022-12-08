@@ -8,22 +8,20 @@ export const AboutCompany = () => {
   return (
     <div className='grid md:grid-cols-2'>
         <div className='mx-4 sm:mx-20'>
-            <h2 className='text-[50px] font-bold mb-6'>Your Partner for Software Innovation</h2>
-            <p className='leading-8'>Engitech is the partner of choice for many of the world's leading enterprises, SMEs and technology challengers.
-             We help businesses elevate their value through custom software development, product design, QA and consultancy 
-             services.
+            <h2 className='text-[50px] font-bold mb-6'>Đối tác đổi mới phần mềm của bạn</h2>
+            <p className='leading-8'>IE Tech là đối tác của nhiều doanh nghiệp hàng đầu thế giới, các doanh nghiệp vừa và nhỏ và những công nghệ cao lựa chọn. Chúng tôi giúp các doanh nghiệp nâng cao giá trị của họ thông qua phát triển phần mềm tùy chỉnh, thiết kế sản phẩm, QA và các dịch vụ tư vấn.
             </p>
             <div className='grid md:grid-cols-2 my-12'>
                 <div>  
                     <BsFillAwardFill size={50} color='#7141b1'></BsFillAwardFill>
-                    <h3 className='font-bold my-5 text-[20px]'>Experience</h3>
-                    <p>Our great team of more than 1400 software experts.</p>
+                    <h3 className='font-bold my-5 text-[20px]'>Kinh nghiệm</h3>
+                    <p>Đội ngũ tuyệt vời của chúng tôi gồm hơn 1400 chuyên gia phần mềm.</p>
                 </div>           
                 <div>
                     <AiFillSetting size={50} color='#7141b1'></AiFillSetting>
-                    <h3 className='font-bold my-5 text-[20px]'>Quick Support</h3>
+                    <h3 className='font-bold my-5 text-[20px]'>Hỗ trợ nhanh</h3>
                     <hr ></hr>
-                    <p>We'll help you test bold new ideas while sharing your.</p>
+                    <p>Chúng tôi sẽ giúp bạn thử nghiệm những ý tưởng táo bạo mới trong khi chia sẻ ý tưởng của bạn.</p>
                 </div>
             </div>
         </div>

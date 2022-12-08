@@ -12,7 +12,7 @@ const Gioithieu = () => (
           Mobile development
         </span>
       </h1>
-      <p className='mt-8 text-xl text-justify'>Mobile app development is the act or process by which a mobile app is developed for mobile devices, such as personal digital assistants, enterprise digital assistants or mobile phones. These software applications are designed to run on mobile devices, such as a smartphone or tablet computer. </p>
+      <p className='mt-8 text-xl text-justify'>Phát triển ứng dụng dành cho thiết bị di động là quy trình mà ứng dụng dành cho thiết bị di động được phát triển cho thiết bị di động, chẳng hạn như trợ lý kỹ thuật số cá nhân, trợ lý kỹ thuật số doanh nghiệp hoặc điện thoại di động. Các ứng dụng phần mềm này được thiết kế để chạy trên các thiết bị di động, chẳng hạn như điện thoại thông minh hoặc máy tính bảng. </p>
     </div>
 
   </section>

@@ -7,7 +7,7 @@ const Card = () => (
         <div className="flex flex-col px-8 mx-auto space-y-12 max-w-7xl xl:px-12">
             <div className="relative">
                 <h2 className="w-full text-3xl font-bold text-center sm:text-4xl md:text-5xl"> Mobile application development</h2>
-                <p className="w-full py-8 mx-auto -mt-2 text-lg text-center text-gray-700 intro sm:max-w-3xl">Add some nice touches to your interface with our latest designs, components, and templates. We've crafted a beautiful user experience that your visitors will love. </p>
+                <p className="w-full py-8 mx-auto -mt-2 text-lg text-center text-gray-700 intro sm:max-w-3xl">Thêm một số điểm nhấn đẹp mắt vào giao diện của bạn với các thiết kế, thành phần và mẫu mới nhất của chúng tôi. Chúng tôi đã tạo trải nghiệm người dùng đẹp mắt mà khách truy cập của bạn sẽ yêu thích. </p>
             </div>
             <div className="flex flex-col mb-8 animated fadeIn sm:flex-row">
                 <div className="flex items-center mb-8 sm:w-1/2 md:w-5/12 sm:order-last">

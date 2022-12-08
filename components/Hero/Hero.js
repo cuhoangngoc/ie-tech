@@ -10,7 +10,7 @@ const Hero = () => (
           Công Nghệ
         </span>
       </h1>
-      <p className='mt-8 text-xl text-justify'>IE Tech is the partner of choice for many of the world’s leading enterprises, SMEs and technology challengers. We help businesses elevate their value through custom software development, product design, QA and consultancy services.</p>
+      <p className='mt-8 text-xl text-justify'>IE Tech là đối tác của nhiều doanh nghiệp hàng đầu thế giới, các doanh nghiệp vừa và nhỏ và những công nghệ cao lựa chọn. Chúng tôi giúp các doanh nghiệp nâng cao giá trị của họ thông qua phát triển phần mềm tùy chỉnh, thiết kế sản phẩm, QA và các dịch vụ tư vấn.</p>
     </div>
 
     {/* image */}

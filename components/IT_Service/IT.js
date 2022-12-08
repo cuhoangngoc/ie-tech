@@ -45,7 +45,7 @@ const IT = () => {
             <div className="relative h-40 m-10">
                 <section className="pt-10">
                     <span className="font-semibold text-purple-800">// OUR SERVICES</span>
-                    <h2 className="text-4xl font-semibold">We Offer a Wide {'\n'} Variety of IT Services</h2>
+                    <h2 className="text-4xl font-semibold">Chúng tôi cung cấp {'\n'} nhiều loại dịch vụ IT</h2>
                 </section>
             </div>
             <div className="grid grid-cols-3 gap-10 p-4 ml-10">
@@ -53,42 +53,42 @@ const IT = () => {
                     <ImHtmlFive2 className="w-20 h-20 text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Web development</h5>
-                        <p>We carry more than just good coding skills. Our experience makes us stand out from other web development.</p>
+                        <p>Chúng tôi có nhiều kĩ năng hơn là chỉ có kỹ năng code tốt. Kinh nghiệm của chúng tôi khiến chúng tôi nổi bật so với các công ty phát triển web khác.</p>
                     </div>
                 </section>
                 <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImMobile className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Mobile development</h5>
-                        <p>Create complex enterprise software, ensure reliable software integration, modernise your legacy system.</p>
+                        <p>Tạo phần mềm doanh nghiệp phức tạp, đảm bảo tích hợp phần mềm đáng tin cậy, hiện đại hóa hệ thống cũ của bạn.</p>
                     </div>
                 </section>
                 <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImDisplay className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">UI/UX Design</h5>
-                        <p>Build the product you need on time with an experienced team that uses a clear and effective design process.</p>
+                        <p>Xây dựng sản phẩm bạn cần đúng thời hạn với đội ngũ giàu kinh nghiệm sử dụng quy trình thiết kế rõ ràng và hiệu quả.</p>
                     </div>
                 </section>
                 <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImFileText className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">QA {' & '} Testing</h5>
-                        <p>Turn to our experts to perform comprehensive, multi-stage testing and auditing of your software.</p>
+                        <p>Liên hệ với các chuyên gia của chúng tôi để thực hiện kiểm tra và kiểm tra phần mềm của bạn một cách toàn diện, nhiều giai đoạn.</p>
                     </div>
                 </section>
                 <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImStatsDots className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">IT Counsultancy</h5>
-                        <p>Trust our top minds to eliminate workflow pain points, implement new tech, and consolidate app portfolios.</p>
+                        <p>Hãy tin tưởng vào những bộ óc hàng đầu của chúng tôi để loại bỏ các điểm yếu trong quy trình làm việc, triển khai công nghệ mới và hợp nhất các danh mục ứng dụng.</p>
                     </div>
                 </section>
                 <section className="flex items-center border-2 border-transparent hover:border-black">
                     <ImSphere className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Dedicated Team</h5>
-                        <p>Over the past decade, our customers succeeded by leveraging Intellectsoft’s process of building, motivating.</p>
+                        <p>Trong thập kỷ qua, khách hàng của chúng tôi thành công bằng cách tận dụng quá trình xây dựng, dựa trên Intellectsoft.</p>
                     </div>
                 </section>
             </div>
@@ -97,8 +97,8 @@ const IT = () => {
             {/* Phần thứ 2 */}
             <div className="m-10 mt-60" >
                 <span className=" text-purple-800 font-semibold">// CHOOSE YOUR PLAN</span>
-                <h2 className="text-4xl font-semibold">Flexible Pricing Plans</h2>
-                <p className="font-thin my-4 text-gray-500" >We help businesses elevate their value through custom software development {'\n'}, product design, QA and consultancy services.</p>
+                <h2 className="text-4xl font-semibold">Các gói giá</h2>
+                <p className="font-thin my-4 text-gray-500" >Chúng tôi giúp các doanh nghiệp nâng cao giá trị của họ thông qua phát triển phần mềm tùy chỉnh, thiết kế sản phẩm, QA và các dịch vụ tư vấn.</p>
 
 
             </div>

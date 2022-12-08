@@ -11,15 +11,15 @@ export const Our_clients = () => {
   const index_our_clients_1 = [
     {
       title: "Moonkle LTD,",
-      decriptment: "Client of Company",
-      content: "Very well thought out and articulate communication. Clear milestones,deadlines and fast work. Patience. Infinite patience. No shortcuts. Even if the client is being careless. The best part...always solving problems with great original ideas!.",
+      decriptment: "Khách hàng của Công ty",
+      content: "Có tầm nhìn xa và giao tiếp rõ ràng. Đảm bảo các mốc quan trọng, thời hạn và làm việc nhanh chóng. Tính kiên nhẫn. Luôn điểm tỉnh. Ngay cả khi khách hàng đang bất cẩn. Điều hay nhất...luôn giải quyết vấn đề với những ý tưởng tuyệt vời!.",
       image_src: image_1,
       size_image: "25",
     },
     {
       title: "SoftTech,",
-      decriptment: "Manager of Company",
-      content: "Patience. Infinite patience. No shortcuts. Very well thought out and articulate communication. Clear milestones, deadlines and fast work. Even if the client is being careless. The best part...always solving problems with great original ideas!.",
+      decriptment: "Giám đốc Công ty",
+      content: "Có tầm nhìn xa và giao tiếp rõ ràng. Đảm bảo các mốc quan trọng, thời hạn và làm việc nhanh chóng. Tính kiên nhẫn. Luôn điểm tỉnh. Ngay cả khi khách hàng đang bất cẩn. Điều hay nhất...luôn giải quyết vấn đề với những ý tưởng tuyệt vời!.",
       image_src: image_2,
       size_image: "25",
     },
@@ -28,15 +28,15 @@ export const Our_clients = () => {
    
     {
       title: "SoftTech,",
-      decriptment: "Manager of Company",
-      content: "Patience. Infinite patience. No shortcuts. Very well thought out and articulate communication. Clear milestones, deadlines and fast work. Even if the client is being careless. The best part...always solving problems with great original ideas!.",
+      decriptment: "Giám đốc Công ty",
+      content: "Có tầm nhìn xa và giao tiếp rõ ràng. Đảm bảo các mốc quan trọng, thời hạn và làm việc nhanh chóng. Tính kiên nhẫn. Luôn điểm tỉnh. Ngay cả khi khách hàng đang bất cẩn. Điều hay nhất...luôn giải quyết vấn đề với những ý tưởng tuyệt vời!.",
       image_src: image_2,
       size_image: "25",
     },
     {
       title: "Moonkle LTD,",
-      decriptment: "Client of Company",
-      content: "Very well thought out and articulate communication. Clear milestones,deadlines and fast work. Patience. Infinite patience. No shortcuts. Even if the client is being careless. The best part...always solving problems with great original ideas!.",
+      decriptment: "Khách hàng của Công ty",
+      content: "Có tầm nhìn xa và giao tiếp rõ ràng. Đảm bảo các mốc quan trọng, thời hạn và làm việc nhanh chóng. Tính kiên nhẫn. Luôn điểm tỉnh. Ngay cả khi khách hàng đang bất cẩn. Điều hay nhất...luôn giải quyết vấn đề với những ý tưởng tuyệt vời!.",
       image_src: image_1,
       size_image: "25",
     },

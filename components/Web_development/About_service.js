@@ -6,22 +6,22 @@ export const About_service = () => {
         {
             number_:".01",
             title:"Java Development",
-            decripment:"We’re committed to building sustainable and high-quality Java solutions.",
+            decripment:"Chúng tôi cam kết xây dựng các giải pháp Java chất lượng cao và bền vững.",
         },
         {
             number_:".02",
             title:"PHP Development",
-            decripment:"We’re committed to building sustainable and high-quality PHP solutions.",
+            decripment:"Chúng tôi cam kết xây dựng các giải pháp PHP chất lượng cao và bền vững.",
         },
         {
             number_:".03",
             title:"C++ Development",
-            decripment:"We’re committed to building sustainable and high-quality C++ solutions.",
+            decripment:"Chúng tôi cam kết xây dựng các giải pháp C++ chất lượng cao và bền vững.",
         },
         {
             number_:".04",
             title:".NET Development",
-            decripment:"We’re committed to building sustainable and high-quality Qt solutions.",
+            decripment:"Chúng tôi cam kết xây dựng các giải pháp .NET chất lượng cao và bền vững.",
         },
     ]
   return (

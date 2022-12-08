@@ -6,19 +6,19 @@ export const Support_serrvice = () => {
     const index_support=[
         {
             title: "Machine Learning",
-            decription: "Support and Evolution",
+            decription: "Hỗ trợ và Phát triển",
             image_color: "#7141b1",
             
         },
         {
             title: "Artificial Intelligence",
-            decription: "Support and Evolution",
+            decription: "Hỗ trợ và Phát triển",
             image_color: "#43baff",
             
         },
         {
             title: "Augmented Reality",
-            decription: "Support and Evolution",
+            decription: "Hỗ trợ và Phát triển",
             image_color: "#221d48",
             
         }

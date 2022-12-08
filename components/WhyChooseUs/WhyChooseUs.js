@@ -5,7 +5,7 @@ const WhyChooseUs = () => {
     {
       title: "Product Design",
       description:
-        "Our product design service lets you prototype, test and validate your ideas.",
+        "Dịch vụ thiết kế sản phẩm của chúng tôi cho phép bạn tạo nguyên mẫu, thử nghiệm và xác thực ý tưởng của mình.",
       imgLink: "#",
       learnMoreLink: "#",
     },
@@ -13,7 +13,7 @@ const WhyChooseUs = () => {
     {
       title: "Development",
       description:
-        "Our product design service lets you prototype, test and validate your ideas.",
+        "Dịch vụ thiết kế sản phẩm của chúng tôi cho phép bạn tạo nguyên mẫu, thử nghiệm và xác thực ý tưởng của mình.",
       imgLink: "#",
       learnMoreLink: "#",
     },
@@ -21,7 +21,7 @@ const WhyChooseUs = () => {
     {
       title: "Data Analytics",
       description:
-        "Our product design service lets you prototype, test and validate your ideas.",
+        "Dịch vụ thiết kế sản phẩm của chúng tôi cho phép bạn tạo nguyên mẫu, thử nghiệm và xác thực ý tưởng của mình.",
       imgLink: "#",
       learnMoreLink: "#",
     },
@@ -29,7 +29,7 @@ const WhyChooseUs = () => {
     {
       title: "Cyber Security",
       description:
-        "Our product design service lets you prototype, test and validate your ideas.",
+        "Dịch vụ thiết kế sản phẩm của chúng tôi cho phép bạn tạo nguyên mẫu, thử nghiệm và xác thực ý tưởng của mình.",
       imgLink: "#",
       learnMoreLink: "#",
     },
@@ -41,7 +41,7 @@ const WhyChooseUs = () => {
       className="flex flex-col items-center justify-center py-12"
     >
       <h1 className="mb-8 text-2xl font-extrabold md:text-3xl">
-        Design the Concept of Your Business Idea Now
+        Thiết kế ý tưởng kinh doanh của bạn ngay bây giờ
       </h1>
 
       <div className="grid items-center sm:mb-2 md:grid-cols-2 xl:grid-cols-4">

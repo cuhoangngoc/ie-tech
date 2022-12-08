@@ -58,9 +58,7 @@ const contact = () => {
             <span>// Chi tiết liên hệ</span>
             <h1 className="text-4xl">Liên Hệ</h1>
             <p>
-              Give us a call or drop by anytime, we endeavour to answer all
-              enquiries within 24 hours on business days. We will be happy to
-              answer your questions.
+             Gọi cho chúng tôi hoặc ghé qua bất cứ lúc nào, chúng tôi cố gắng trả lời tất cả các câu hỏi trong vòng 24 giờ vào ngày làm việc. Rất hân hạnh được trả lời câu hỏi của bạn.
             </p>
 
             <div>

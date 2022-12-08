@@ -49,42 +49,42 @@ const IT = () => {
                 </section>
             </div>
             <div className="grid grid-cols-3 gap-10 p-4 ml-10">
-                <section className="flex items-center border-2 border-transparent hover:border-black">
+                <section className="flex border-2 border-transparent hover:border-black">
                     <ImHtmlFive2 className="w-20 h-20 text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Web development</h5>
                         <p>Chúng tôi có nhiều kĩ năng hơn là chỉ có kỹ năng code tốt. Kinh nghiệm của chúng tôi khiến chúng tôi nổi bật so với các công ty phát triển web khác.</p>
                     </div>
                 </section>
-                <section className="flex items-center border-2 border-transparent hover:border-black">
+                <section className="flex border-2 border-transparent hover:border-black">
                     <ImMobile className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Mobile development</h5>
                         <p>Tạo phần mềm doanh nghiệp phức tạp, đảm bảo tích hợp phần mềm đáng tin cậy, hiện đại hóa hệ thống cũ của bạn.</p>
                     </div>
                 </section>
-                <section className="flex items-center border-2 border-transparent hover:border-black">
+                <section className="flex border-2 border-transparent hover:border-black">
                     <ImDisplay className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">UI/UX Design</h5>
                         <p>Xây dựng sản phẩm bạn cần đúng thời hạn với đội ngũ giàu kinh nghiệm sử dụng quy trình thiết kế rõ ràng và hiệu quả.</p>
                     </div>
                 </section>
-                <section className="flex items-center border-2 border-transparent hover:border-black">
+                <section className="flex border-2 border-transparent hover:border-black">
                     <ImFileText className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">QA {' & '} Testing</h5>
                         <p>Liên hệ với các chuyên gia của chúng tôi để thực hiện kiểm tra và kiểm tra phần mềm của bạn một cách toàn diện, nhiều giai đoạn.</p>
                     </div>
                 </section>
-                <section className="flex items-center border-2 border-transparent hover:border-black">
+                <section className="flex border-2 border-transparent hover:border-black">
                     <ImStatsDots className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">IT Counsultancy</h5>
                         <p>Hãy tin tưởng vào những bộ óc hàng đầu của chúng tôi để loại bỏ các điểm yếu trong quy trình làm việc, triển khai công nghệ mới và hợp nhất các danh mục ứng dụng.</p>
                     </div>
                 </section>
-                <section className="flex items-center border-2 border-transparent hover:border-black">
+                <section className="flex border-2 border-transparent hover:border-black">
                     <ImSphere className="w-20 h-20  text-purple-800 hover:text-blue-500" />
                     <div className="ml-4">
                         <h5 className="font-bold">Dedicated Team</h5>
@@ -114,9 +114,9 @@ const IT = () => {
             <div className=" mt-60 bg-[url('http://wpdemo.archiwp.com/engitech/wp-content/uploads/sites/4/2020/03/bg-cta-home2.jpg')]">
                 <section className="grid place-items-center pt-20">
                     <span className="text-white text-2xl">// Drop us a line! We are here to answer your questions 24/7</span>
-                    <h2 className="text-3xl lg:text-7xl font-bold text-white mt-10">NEED A CONSULTATION?</h2>
+                    <h2 className="text-3xl lg:text-7xl font-bold text-white mt-10">Cần chuyên gia tư vấn?</h2>
                     <div className="bg-blue-500 text-white font-bold py-2 px-4 mt-10 mb-20">
-                        <Link href='http://localhost:3000/contact'>CONTACT US</Link>
+                        <Link href='http://localhost:3000/contact'>LIÊN HỆ CHÚNG TÔI</Link>
                     </div>
 
                 </section>

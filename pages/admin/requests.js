@@ -13,6 +13,11 @@ export default function Admin() {
 
     fetchData(); // Gọi hàm fetchData
   }, []);
+
+  const Check = (e) => {
+    
+  };
+
   return (
     <AdminLayout>
       <table className="bg-white">
@@ -36,7 +41,7 @@ export default function Admin() {
               <td>{service.date}</td>
               <td>{service.account_number}</td>
               <td>{service.test}</td>
-              <td><button>Duyệt</button></td>
+              <td><button onClick={Check}>Duyệt</button></td>
             </tr>
           ))}
         </tbody>

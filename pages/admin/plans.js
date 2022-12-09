@@ -224,31 +224,6 @@ export default function Admin() {
           Thêm
         </button>
       </form>
-      {/*}
-      <table className="bg-white">
-        <thead>
-          <tr>
-            <th>Plan Name</th>
-            <th>Price</th>
-            <th>Description</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {planData.map((plan) => (
-            <tr key={plan.id}>
-              <td>{plan.name}</td>
-              <td>{plan.price}</td>
-              <td>{plan.description}</td>
-              <td>
-                <button>Edit</button>
-                <button>Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-          {*/}
     </AdminLayout>
   );
 }

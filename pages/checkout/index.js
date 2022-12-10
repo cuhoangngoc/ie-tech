@@ -23,12 +23,12 @@ const Checkout = () => {
 
   return (
     <Layout>
-      <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-3">
-        {/* <Plan /> */}
-        {checkoutData.map((plan) => (
-          <Plan key={plan.id} {...plan} />
-        ))}
-      </div>
+        <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+          {/* <Plan /> */}
+          {checkoutData.map((plan) => (
+            <Plan key={plan.id} {...plan} />
+          ))}
+        </div>
     </Layout>
   );
 };

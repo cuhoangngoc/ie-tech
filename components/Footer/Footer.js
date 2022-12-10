@@ -37,7 +37,7 @@ export const Footer = () => {
           <div className="text-white text-center">Điện thoại</div>
         </div>
       </div>
-      <div className="hidden md:grid md:grid-cols-5 text-white px-60 text-lg mb-10">
+      <div className="hidden md:grid md:grid-cols-5 text-white px-60 text-lg mb-10 text-center">
         <a href="/" className="hover:text-blue-500">Trang chủ</a>
         <a href="IT" className="hover:text-blue-500">Dịch vụ IT</a>
         <a href="web_development" className="hover:text-blue-500">Web Development</a>

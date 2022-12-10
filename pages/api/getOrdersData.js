@@ -10,7 +10,8 @@ export default async function handler(req, res) {
   });
 
   try {
-    const query = "SELECT * FROM orders";
+    const query =
+      "SELECT orders.id id, user_id, users.name username, plans.name plan, services.name service, order_date, duration, total, status FROM orders, users, plans, services WHERE orders.user_id = users.id AND orders.plan_id = plans.id AND plans.service_id = services.id";
     const values = [];
     const [rows] = await connection.execute(query, values);
     connection.end();

@@ -40,6 +40,9 @@ export default function Admin() {
           <tr>
             <th>Mã đơn hàng</th>
             <th>Mã người dùng</th>
+            <th>Tên người dùng</th>
+            <th>Gói dịch vụ</th>
+            <th>Thời hạn</th>
             <th>Ngày đặt hàng</th>
             <th>Tổng tiền</th>
             <th>Trạng thái</th>
@@ -50,6 +53,11 @@ export default function Admin() {
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.user_id}</td>
+              <td>{item.username}</td>
+              <td>
+                {item.plan}&nbsp;{item.service}
+              </td>
+              <td>{item.duration} tháng</td>
               <td>{formatDate(item.order_date)}</td>
               <td>{item.total}$</td>
               <td>{item.status}</td>

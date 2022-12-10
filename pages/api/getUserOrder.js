@@ -12,6 +12,7 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
+      const { id } = JSON.parse(req.body);
       const query =
         "SELECT ORDERS.id, PLANS.name plan, SERVICES.name service, duration, total, order_date, status FROM ORDERS, USERS, PLANS, SERVICES WHERE ORDERS.user_id = USERS.id AND ORDERS.plan_id = PLANS.id AND PLANS.service_id = SERVICES.id AND USERS.id = ?";
       const values = [id];

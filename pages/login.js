@@ -79,7 +79,7 @@ const Login = () => {
 
           {/* Password */}
           <div className="mt-4">
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">Mật khẩu</Label>
 
             <Input
               id="password"
@@ -105,7 +105,7 @@ const Login = () => {
                 onChange={(event) => setShouldRemember(event.target.checked)}
               />
 
-              <span className="ml-2 text-sm text-gray-600">Remember me</span>
+              <span className="ml-2 text-sm text-gray-600">Lưu đăng nhập</span>
             </label>
           </div>
 
@@ -114,12 +114,12 @@ const Login = () => {
               href="/forgot-password"
               className="text-sm text-gray-600 underline hover:text-gray-900"
             >
-              Forgot your password?
+              Quên mật khẩu?
             </Link>
 
-            <Link href="/register">Register</Link>
+            <Link href="/register">Đăng ký</Link>
 
-            <Button className="ml-3">Login</Button>
+            <Button className="ml-3">Đăng nhập</Button>
           </div>
         </form>
       </AuthCard>

@@ -19,26 +19,29 @@ const VerifyEmail = () => {
       <AuthCard
         logo={
           <Link href="/">
-            <ApplicationLogo className="h-20 w-20 fill-current text-gray-500" />
+            <a>
+              <ApplicationLogo className="h-20 w-20 fill-current text-gray-500" />
+            </a>
           </Link>
         }
       >
         <div className="mb-4 text-sm text-gray-600">
-          Thanks for signing up! Before getting started, could you verify your
-          email address by clicking on the link we just emailed to you? If you
-          didn't receive the email, we will gladly send you another.
+          Cảm ơn bạn đã đăng ký! Trước khi bắt đầu, bạn có thể xác minh địa chỉ
+          email của mình bằng cách nhấp vào liên kết chúng tôi vừa gửi cho bạn
+          qua email không? Nếu bạn không nhận được email, chúng tôi sẽ sẵn lòng
+          gửi cho bạn một email khác.
         </div>
 
         {status === "verification-link-sent" && (
           <div className="mb-4 text-sm font-medium text-green-600">
-            A new verification link has been sent to the email address you
-            provided during registration.
+            Một liên kết xác minh mới đã được gửi đến địa chỉ email mà bạn cung
+            cấp.
           </div>
         )}
 
         <div className="mt-4 flex items-center justify-between">
           <Button onClick={() => resendEmailVerification({ setStatus })}>
-            Resend Verification Email
+            Gửi lại
           </Button>
 
           <button
@@ -46,7 +49,7 @@ const VerifyEmail = () => {
             className="text-sm text-gray-600 underline hover:text-gray-900"
             onClick={logout}
           >
-            Logout
+            Đăng xuất
           </button>
         </div>
       </AuthCard>

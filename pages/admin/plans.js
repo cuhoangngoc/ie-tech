@@ -1,6 +1,7 @@
 import AdminLayout from "../../components/Admin/AdminLayout";
 import { useState, useEffect } from "react";
 import Input from "../../components/Breeze/Input";
+import style from "../../styles/Admin.module.css";
 
 export default function Admin() {
   const [planData, setplanData] = useState([]);
@@ -21,14 +22,13 @@ export default function Admin() {
     fetchData(); // Gọi hàm fetchData
   }, []);
 
-
   //Hàm updatePlan có tác dụng lưu tạm thời các thay đổi trong form để hàm send_data_to_database gửi đến cơ sở dữ liệu
   function updatePlan(e) {
     e.preventDefault();
     // Lấy phần tử với id form và gán cho biến form
     const form = document.getElementById("form");
 
-    setID(e.target.getAttribute("id"))
+    setID(e.target.getAttribute("id"));
     // Lấy dữ liệu với thuộc tính name để set lại state name
     setName(e.target.getAttribute("name"));
     setPrice(e.target.getAttribute("price"));
@@ -56,19 +56,18 @@ export default function Admin() {
     alert("Cập nhật thông tin thành công!");
   }
 
-
   //Hàm xóa plan sử dụng id lấy từ thuộc tính  plan_id của nút xóa
   const deletePlan = async (e) => {
     e.preventDefault();
-    const id = e.target.getAttribute("plan_id")
+    const id = e.target.getAttribute("plan_id");
     // Hỏi người dùng, nếu không muốn xóa thì thoát
     if (!confirm("Bạn muốn xóa gói này")) return;
 
-    console.log(id)
+    console.log(id);
     const postData = async () => {
       const res = await fetch("/api/deletePlan", {
         method: "POST",
-        body: JSON.stringify({ id: id })
+        body: JSON.stringify({ id: id }),
       });
       return res.json();
     };
@@ -76,8 +75,7 @@ export default function Admin() {
     alert("Xóa gói thành công");
   };
 
-
-  //Hàm hiện và ẩn form insert 
+  //Hàm hiện và ẩn form insert
   function hiddenOrAppearFormInsert() {
     const form = document.getElementById("insert-form");
     form.classList.toggle("hidden");
@@ -91,7 +89,7 @@ export default function Admin() {
         name: name,
         description: description,
         price: price,
-        service_id: service_id
+        service_id: service_id,
       };
       console.log(id, name, description, price);
       const response = await fetch("/api/insertPlan", {
@@ -104,14 +102,15 @@ export default function Admin() {
     alert("Cập nhật thông tin thành công!");
   }
 
-
   return (
     <AdminLayout>
-      <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
-        <table className="bg-white">
+      <h1 className={`${style.header}`}>Quản lý gói dịch vụ</h1>
+      <div className="flex flex-col gap-4 lg:flex-row">
+        <table className="max-w-3xl bg-white">
           <thead>
             <tr>
               <th>Tên gói</th>
+              <th>Dịch vụ</th>
               <th>Giá</th>
               <th>Mô tả</th>
               <th>Thao tác</th>
@@ -120,8 +119,9 @@ export default function Admin() {
           <tbody>
             {planData?.map((plan) => (
               <tr key={plan.id}>
-                <td>{plan.name}</td>
-                <td>{plan.price}</td>
+                <td>{plan.plan}</td>
+                <td>{plan.service}</td>
+                <td>{plan.price}$</td>
                 <td>{plan.description}</td>
                 <td>
                   {/*Hiện form sửa */}
@@ -129,33 +129,34 @@ export default function Admin() {
                     onClick={updatePlan}
                     // gán dữ liệu cho hàm updatePlan ở trên
                     id={plan.id}
-                    name={plan.name}
+                    name={plan.plan}
                     price={plan.price}
                     description={plan.description}
                     className="rounded bg-blue-500 p-2 hover:bg-blue-700"
-                  >Sửa
+                  >
+                    Sửa
                   </button>
 
                   {/*Nút xóa dữ liệu */}
                   <button
-
                     // gán dữ liệu id cho hàm xóa dữ liệu
                     plan_id={plan.id}
-                    className="rounded bg-red-500 p-2 hover:bg-red-700 mt-1"
+                    className="mt-1 rounded bg-red-500 p-2 hover:bg-red-700"
                     onClick={deletePlan}
-                  >Xóa</button>
+                  >
+                    Xóa
+                  </button>
                 </td>
-
               </tr>
             ))}
           </tbody>
         </table>
         <form
           id="form"
-          className="mt-4 hidden flex-col items-center gap-4 bg-sky-400 p-4"
+          className="mt-4 hidden h-fit flex-col items-center gap-4 bg-sky-400 p-4"
           onSubmit={send_data_to_database}
         >
-          <h1 >Chỉnh sửa thông tin gói dịch vụ</h1>
+          <h1>Chỉnh sửa thông tin gói dịch vụ</h1>
           <Input
             type="text"
             id="name-update"
@@ -187,14 +188,17 @@ export default function Admin() {
       </div>
 
       {/* Nút bật tắt form thêm gói dịch vụ */}
-      <button onClick={hiddenOrAppearFormInsert} className="rounded bg-green-500 p-2 hover:bg-green-800 mt-2">
+      <button
+        onClick={hiddenOrAppearFormInsert}
+        className="mt-2 rounded bg-green-500 p-2 hover:bg-green-800"
+      >
         Thêm
       </button>
 
       {/*form thêm gói dịch vụ*/}
       <form
         id="insert-form"
-        className="mt-4 hidden flex-col items-center gap-4 bg-sky-400 p-4 "
+        className="mt-4 hidden max-w-md flex-col items-center gap-4 bg-sky-400 p-4"
         onSubmit={insertPlan}
       >
         <h1 className="font-bold">Thêm gói dịch vụ</h1>
@@ -224,7 +228,7 @@ export default function Admin() {
           onChange={(e) => setService_id(e.target.value)}
         />
         <button
-          className="w-fit rounded-md p-1 bg-green-400 hover:bg-green-600"
+          className="w-fit rounded-md bg-green-400 p-1 hover:bg-green-600"
           type="submit"
         >
           Thêm

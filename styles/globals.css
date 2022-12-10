@@ -5,7 +5,7 @@
 @layer base {
   body {
     /* TailWindCss must be running at jit mode to make bg-[#6B76FF] works*/
-    @apply bg-[#C8E4FE] text-black;
+    @apply bg-[#C8E4FE] font-serif text-black;
   }
 }
 

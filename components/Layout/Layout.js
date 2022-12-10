@@ -14,6 +14,7 @@ const AppLayout = ({ children }) => {
 
       <Navbar />
       <main className="container mx-auto px-2 md:px-4">{children}</main>
+      {/* <main>{children}</main> */}
       <Footer />
     </>
   );

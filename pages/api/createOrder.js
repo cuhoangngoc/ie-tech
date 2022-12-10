@@ -14,11 +14,6 @@ export default async function handler(req, res) {
       const { user_id, plan_id, duration, total, order_date, order_status } =
         JSON.parse(req.body);
 
-      const biggestIdQuery =
-        "SELECT ID AS id FROM ORDERS ORDER BY ID DESC LIMIT 1";
-      const [biggestId] = await connection.execute(biggestIdQuery);
-      const biggest_id = biggestId[0].id + 1;
-
       // format date
       const date = new Date(order_date);
       const year = date.getFullYear();
@@ -36,9 +31,7 @@ export default async function handler(req, res) {
       const formattedDate = `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`;
 
       const query =
-        'INSERT INTO ORDERS (ID, USER_ID, PLAN_ID, DURATION, TOTAL, ORDER_DATE, STATUS) VALUE ("' +
-        biggest_id +
-        '", "' +
+        'INSERT INTO ORDERS (USER_ID, PLAN_ID, DURATION, TOTAL, ORDER_DATE, STATUS) VALUE ("' +
         user_id +
         '", "' +
         plan_id +

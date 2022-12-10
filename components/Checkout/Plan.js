@@ -1,18 +1,17 @@
 import Link from "next/link";
-import { RiMoneyEuroCircleLine } from "react-icons/ri";
-import { BsCheckCircleFill, BsDashCircleFill } from "react-icons/bs";
+import { IoLogoUsd } from "react-icons/io";
+import { BsCheckCircleFill } from "react-icons/bs";
 import React from "react";
 
 const Plan = (props) => {
   return (
-    
-    <div className="group flex w-auto flex-col rounded-md bg-slate-300 p-8 shadow-lg duration-300 ease-in-out hover:skew-x-1 hover:skew-y-2 hover:bg-[#8D9EFF]">
+    <div className="group flex w-auto flex-col rounded-md bg-slate-300 p-8 shadow-lg duration-300 ease-in-out hover:scale-[1.02] hover:bg-[#8D9EFF]">
       <div className="my-2">
         <h3 className="text-[30px] font-bold text-black group-hover:text-[#ffff]">
-          {props.name}
+          {props.plan} {props.service}
         </h3>
         <div className="flex flex-row items-center text-center">
-          <RiMoneyEuroCircleLine size={35} className="text-[#6F38C5]" />
+          <IoLogoUsd size={30} className="text-[#6F38C5]" />
           <p className="text-[30px] font-bold text-[#6F38C5]">{props.price}</p>
         </div>
         <p className="group-hover:text-[#ffff]">Gói hàng tháng</p>
@@ -27,7 +26,8 @@ const Plan = (props) => {
               className={`${
                 item.match(/\d năm/i) ||
                 item.match(/chuẩn/i) ||
-                item.match(/^\d/i)
+                item.match(/^\d/i) ||
+                item.match(/^không/i)
                   ? "text-[#F49D1A]"
                   : "text-[#68B984]"
               } "group-hover:text-green-500"`}

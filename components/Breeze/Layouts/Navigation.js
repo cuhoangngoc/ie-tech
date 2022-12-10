@@ -32,8 +32,8 @@ const Navigation = ({ user }) => {
               </Link>
             </div>
 
-            <h1 className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-              Bảng điều khiển
+            <h1 className="hidden space-x-8 text-xl font-extrabold sm:-my-px sm:ml-10 sm:flex">
+              ietech
             </h1>
           </div>
 
@@ -63,7 +63,7 @@ const Navigation = ({ user }) => {
               }
             >
               {/* Authentication */}
-              <DropdownButton onClick={logout}>Logout</DropdownButton>
+              <DropdownButton onClick={logout}>Đăng xuất</DropdownButton>
             </Dropdown>
           </div>
 

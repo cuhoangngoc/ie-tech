@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { FcAdvance } from "react-icons/fc";
 
 const Order = (props) => {
   // Hook để lấy dữ liệu từ API
@@ -11,30 +10,22 @@ const Order = (props) => {
       const response = await fetch("/api/getUserOrder", {
         method: "POST",
         body: JSON.stringify({ id: props.user_id }),
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
       const data = await response.json();
       setOrder(data);
     };
     postData();
-  }, []);
+  }, [props.user_id]);
 
   return (
     <>
-      {order.length === 0 ? (
+      {order.length === 0 || !(order instanceof Array) ? (
         <div className="mt-10 flex items-center justify-center gap-2">
           <h1>Lịch sử mua hàng rỗng</h1>
-          <Link href="/checkout">
-            <a className="inline-flex w-fit items-center gap-2 rounded-sm bg-sky-300 p-2 hover:opacity-70">
-              Dịch vụ <FcAdvance />
-            </a>
-          </Link>
         </div>
       ) : (
         // Nếu có dữ liệu thì hiển thị
-        <table className="w-full">
+        <table className="my-8 w-full">
           <thead>
             <tr>
               <th>Mã đơn hàng</th>

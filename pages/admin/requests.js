@@ -1,4 +1,5 @@
 import AdminLayout from "../../components/Admin/AdminLayout";
+import style from "../../styles/Admin.module.css";
 import { useState, useEffect } from "react";
 
 export default function Admin() {
@@ -33,12 +34,14 @@ export default function Admin() {
       };
       postData();
       alert("Bạn vừa phê duyệt yêu cầu nạp tiền của khách hàng!");
-      location.reload()
+      location.reload();
     }
   };
 
   return (
     <AdminLayout>
+      <h1 className={`${style.header}`}>Yêu cầu nạp tiền</h1>
+
       <table className="bg-white">
         <thead>
           <tr>

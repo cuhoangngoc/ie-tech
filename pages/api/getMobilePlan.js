@@ -11,8 +11,10 @@ export default async function handler(req, res) {
 
   try {
     // const query = "SELECT plans.name  FROM plans, services WHERE plans.id = services.plan_id";
+    // const query =
+    //   "SELECT plans.id id, plans.name plan, description, price, services.name service FROM plans, services WHERE plans.service_id = services.id";
     const query =
-      "SELECT plans.id id, plans.name plan, description, price, services.name service FROM plans, services WHERE plans.service_id = services.id";
+      "SELECT plans.id id, plans.name plan, description, price, services.name service FROM plans, services WHERE plans.service_id = services.id AND service_id = 3";
     const values = [];
     const [rows] = await connection.execute(query, values);
     connection.end();

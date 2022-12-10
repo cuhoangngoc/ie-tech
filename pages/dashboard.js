@@ -1,11 +1,9 @@
 import AppLayout from "../components/Breeze/Layouts/AppLayout";
 import Head from "next/head";
-import Loader from "../components/Loader";
 import Order from "../components/Checkout/Order";
 import Link from "next/link";
 import Logo from "../public/asset/Logo-only.png";
-import Avatar from "../public/asset/avatar-svgrepo-com.svg";
-import { FcHome } from "react-icons/fc";
+import { FcHome, FcCurrencyExchange, FcAdvance } from "react-icons/fc";
 import { FcSupport } from "react-icons/fc";
 import { useState } from "react";
 import { useAuth } from "../hooks/auth";
@@ -17,10 +15,6 @@ const Dashboard = () => {
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [update, setUpdate] = useState(false);
-
-  if (!user) {
-    return <Loader />;
-  }
 
   function updateUserInfo(e) {
     e.preventDefault();
@@ -48,25 +42,16 @@ const Dashboard = () => {
     const usernameEl = document.getElementById("username");
     const phoneEl = document.getElementById("phone");
     const addressEl = document.getElementById("address");
-    const avatarEl = document.getElementById("avatar");
     const els = [usernameEl, phoneEl, addressEl];
     if (update) {
       els.forEach((el) => {
         el.disabled = false;
       });
-      avatarEl.hidden = false;
     } else {
       els.forEach((el) => {
         el.disabled = true;
       });
-      avatarEl.hidden = true;
     }
-  };
-  const payment = (e) => {
-    e.preventDefault();
-    const form = document.getElementById("insert-form");
-    form.classList.toggle("hidden");
-    form.classList.toggle("flex");
   };
 
   return (
@@ -98,14 +83,6 @@ const Dashboard = () => {
             </div>
 
             <div className="border-b border-gray-200 bg-white p-6">
-              <img
-                src={user?.avatar ? user.avatar : Avatar.src}
-                alt="avatar"
-                className="mx-auto max-w-[100px]"
-              />
-              <label htmlFor="">
-                <input type="file" id="avatar" hidden />
-              </label>
               <div>
                 Số dư:&nbsp;
                 <span className="text-[#5F8D4E]">
@@ -115,9 +92,16 @@ const Dashboard = () => {
                   $
                 </span>
               </div>
-              <div>
-                <Link href="/payment">Nạp tiền</Link>
+              <div className="mt-2 w-fit rounded-sm bg-[#7FBCD2] p-2 hover:opacity-80">
+                <Link href="/payment">
+                  <a className="inline-flex items-center gap-2">
+                    Nạp tiền <FcCurrencyExchange size={20} />
+                  </a>
+                </Link>
               </div>
+              <h1 className="text-center text-xl font-bold">
+                Thông tin người dùng
+              </h1>
               <form onSubmit={updateUserInfo} className="pt-4">
                 <table className="mt-4 w-full">
                   <tbody>
@@ -169,7 +153,7 @@ const Dashboard = () => {
 
                 <div className="flex justify-between">
                   <button
-                    className="mt-2 rounded-lg p-2 hover:bg-[#7FBCD2]"
+                    className="mt-2 rounded-lg px-1 hover:bg-[#7FBCD2]"
                     onClick={enableUpdate}
                   >
                     Chỉnh sửa
@@ -186,8 +170,15 @@ const Dashboard = () => {
 
             {/* Lịch sử mua hàng của người dùng */}
             <div className="border-b border-gray-200 bg-white p-6">
-              <h1> Lịch sử mua hàng </h1>
+              <h1 className="mb-4 text-center text-xl font-bold">
+                lịch sử mua hàng
+              </h1>
               <Order user_id={user?.id} />
+              <Link href="/checkout">
+                <a className="inline-flex w-fit items-center gap-2 rounded-sm bg-sky-300 p-2 hover:opacity-70">
+                  Dịch vụ <FcAdvance />
+                </a>
+              </Link>
             </div>
           </div>
         </div>

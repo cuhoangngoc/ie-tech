@@ -41,12 +41,17 @@ const checkout = () => {
     {
       id: "yearly",
       duration: 12,
-      total: checkoutData.price * 12 * 0.9, // giảm 10% nếu mua 1 năm
+      total: +(Math.round(checkoutData.price * 12 * 0.9 + "e+2") + "e-2"), // giảm 10% nếu mua 1 năm, làm tròn 2 chữ số thập phân
     },
   ];
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!order.total) {
+      alert("Vui lòng chọn thời hạn");
+      return;
+    }
+
     if (user?.balance < order.total) {
       alert("Số dư không đủ để thanh toán");
       return;
@@ -82,8 +87,25 @@ const checkout = () => {
     <Layout>
       <div className="mt-10">
         <div>
-          <h1>1. Chọn thời hạn</h1>
-          <div className="flex justify-center gap-2">
+          <div className="flex flex-col justify-between md:flex-row">
+            <h1 className="text-xl">
+              Bạn đang thực hiện giao dịch cho dịch vụ&nbsp;
+              <span className="font-bold">
+                {checkoutData.plan_name} {checkoutData.service_name}
+              </span>
+            </h1>
+            <span className="text-xl">
+              Số dư hiện tại:&nbsp;
+              <span className="text-[#2c4324]">
+                {user?.balance
+                  ? +(Math.round(user?.balance + "e+2") + "e-2")
+                  : 0}
+                $
+              </span>
+            </span>
+          </div>
+
+          <div className="mt-5 flex flex-col items-center justify-center gap-8 lg:flex-row">
             {duration.map((item, index) => (
               <div
                 key={index}
@@ -109,7 +131,7 @@ const checkout = () => {
                   />
                   <label htmlFor={item.id}>{item.duration} tháng</label>
                 </div>
-                <div className="text-2xl font-extrabold text-red-500">
+                <div className="text-2xl font-extrabold text-[#5F8D4E]">
                   {item.total}$
                 </div>
               </div>
@@ -122,65 +144,38 @@ const checkout = () => {
         id="payment-method"
         className="mt-10 flex justify-center gap-4 md:flex-row"
       >
-        {/* <form action="" className="flex flex-col">
-          <div className="inline-flex justify-between gap-4 bg-white">
-            <div>
-              <input type="radio" name="payment-method" id="credit-card" />
-              <label htmlFor="credit-card" className="ml-4">
-                Thẻ tín dụng
-              </label>
-            </div>
-            <img src={creditCard.src} alt="credit-card" />
-          </div>
-          <div className="inline-flex justify-between gap-4 bg-white">
-            <div>
-              <input type="radio" name="payment-method" id="google-pay" />
-              <label htmlFor="google-pay" className="ml-4">
-                Google Pay
-              </label>
-            </div>
-            <img src={googlePay.src} alt="google-pay" />
-          </div>
-          <div className="inline-flex justify-between gap-4 bg-white">
-            <div>
-              <input type="radio" name="payment-method" id="paypal" />
-              <label htmlFor="paypal" className="ml-4">
-                Paypal
-              </label>
-            </div>
-            <img src={paypal.src} alt="paypal" />
-          </div>
-        </form> */}
-
         <form
           onSubmit={handleSubmit}
           id="order"
-          className="m-w-[500px] flex flex-col divide-y divide-gray-200 bg-white p-4 text-xl"
+          className="divide flex w-[700px] flex-col divide-y divide-gray-700 rounded-md bg-[#F3E0B5] p-4 text-xl outline-dashed outline-2"
         >
-          <h1 className="text-center">Hóa đơn</h1>
-          <div className="flex justify-between gap-4">
+          <h1 className="mb-4 text-center text-2xl font-semibold">Hóa đơn</h1>
+          <div className="flex justify-between gap-4 py-2">
             <h1>
               Gói dịch vụ {checkoutData.plan_name} {checkoutData.service_name}
             </h1>
             <span> {checkoutData.price}$/tháng</span>
           </div>
-          <div className="flex justify-between gap-4">
+          <div className="flex justify-between gap-4 py-2">
             <h1>Thời hạn</h1>
             <span className="text-red-500">
               {order.duration ? `${order.duration} tháng` : "Hãy chọn thời hạn"}
             </span>
           </div>
-          <div className="flex justify-between gap-4">
+          <div className="flex justify-between gap-4 py-2">
             <h1>Tổng cộng</h1>
             <span className="font-extrabold text-[#5F8D4E]">
-              {order.total ? order.total : 0}$
+              <span className="text-red-700 line-through">
+                {order.duration === 12 ? `${checkoutData.price * 12}` : ""}
+              </span>
+              &emsp;{order.total ? order.total : 0}$
             </span>
           </div>
           <button
             type="submit"
-            className="mx-auto block rounded-md bg-[#00E7FF] p-2"
+            className="mx-auto block rounded-md bg-[#E5BA73] p-2 hover:opacity-80"
           >
-            Mua
+            Mua ngay
           </button>
         </form>
       </div>

@@ -2,7 +2,6 @@ import AdminLayout from "../../components/Admin/AdminLayout";
 import { useState, useEffect } from "react";
 import style from "../../styles/admin.module.css";
 import Input from "../../components/Breeze/Input";
-import { data } from "autoprefixer";
 
 export default function User() {
   const [usersData, setUsersData] = useState([]);

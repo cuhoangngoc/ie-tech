@@ -7,7 +7,7 @@ import { useAuth } from "../../hooks/auth";
 
 function Navbar() {
   const { user } = useAuth({ middleware: "guest" });
-
+  const { logout } = useAuth();
   const showMobileMenu = () => {
     const menuIconOpen = document.querySelector(".menu-icon-open");
     const menuIconClose = document.querySelector(".menu-icon-close");
@@ -25,7 +25,7 @@ function Navbar() {
     { name: "Giới thiệu", link: "/GioiThieu" },
     {
       name: "Dịch vụ",
-      link: "#",
+      link: "/checkout",
       subMenu: [
         { name: "Dịch vụ IT", link: "/IT" },
         { name: "Web development", link: "/web_development" },
@@ -37,7 +37,7 @@ function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-10 shadow-2xl">
+    <nav className="sticky top-0 z-10 shadow-xl">
       <div className="flex justify-between bg-slate-100 px-12 py-2 font-bold md:justify-around">
         {/* logo */}
         <Link href="/" legacyBehavior>
@@ -53,7 +53,7 @@ function Navbar() {
             navLink.name === "Dịch vụ" ? (
               <li className="group md:relative" key={index}>
                 <div className="flex items-center rounded-md p-2 duration-300 hover:bg-blue-400 hover:text-white">
-                  <button id="service-dropdown-list">Dịch vụ</button>
+                  <a href={navLink.link}>Dịch vụ</a>
                   <FiChevronDown className="h-5 w-5 items-center" />
                 </div>
 
@@ -92,17 +92,23 @@ function Navbar() {
             <FiSearch className="mr-4 h-6 w-6 hover:text-blue-800" />
           </button> */}
           {user ? (
-            <div>
+            <div className="group relative">
               <Link href="/dashboard">
                 <a className="flex w-fit rounded-full p-2 text-center text-black duration-300 hover:bg-blue-700 hover:text-white">
                   <FiUser size={25} />
                 </a>
               </Link>
+              <div className="absolute hidden w-[100px] flex-col rounded-md bg-white p-2 group-hover:flex">
+                <Link href="/dashboard">
+                  <a>Hồ sơ</a>
+                </Link>
+                <button onClick={logout}>Đăng xuất</button>
+              </div>
             </div>
           ) : (
             <Link href="/login">
               <a className="flex rounded-md bg-blue-500 p-1 text-center text-sm text-white duration-300 hover:bg-blue-700 md:text-base">
-                Get started
+                Bắt đầu
               </a>
             </Link>
           )}
@@ -129,14 +135,13 @@ function Navbar() {
               key={index}
             >
               <div className="flex items-center">
-                <button>{navLink.name}</button>
+                <a href={navLink.link}>{navLink.name}</a>
                 <FiChevronDown className="h-5 w-5 items-center" />
               </div>
 
               <ul className="hidden flex-col py-2 text-sm font-normal text-gray-700 group-hover:flex">
                 {navLink.subMenu.map((subMenu, index) => (
                   <li key={index}>
-                    {" "}
                     <a
                       href={subMenu.link}
                       className="block py-2 px-4 hover:bg-gray-200"

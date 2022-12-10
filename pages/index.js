@@ -17,13 +17,13 @@ export default function Home() {
   return (
     <Layout>
       {/* main */}
-        <Slider />
-        <Hero />
-        <List_user />
-        <AboutCompany />
-        <WhyChooseUs />
-        <WeCarry />
-        <Our_clients />
+      <Slider />
+      <Hero />
+      <List_user />
+      <AboutCompany />
+      <WhyChooseUs />
+      <WeCarry />
+      {/* <Our_clients /> */}
     </Layout>
   );
 }

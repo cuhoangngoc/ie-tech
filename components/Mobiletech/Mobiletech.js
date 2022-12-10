@@ -1,12 +1,29 @@
-import AI from '../../public/asset/AI.jpg'
-import Chatbot from '../../public/asset/Chatbot.jpg'
-import ThucTeAo from '../../public/asset/ThucTeAo.jpg'
-import IoT from '../../public/asset/IoT.jpg'
-import ttDD from '../../public/asset/ttDD.jpg'
-import blockchain from '../../public/asset/blockchain.jpg'
-const Mobiletech = () => (
-  <section className="bg-white dark:bg-gray-900">
-    <div className="container px-6 py-10 mx-auto">
+import AI from "../../public/asset/AI.jpg";
+import Chatbot from "../../public/asset/Chatbot.jpg";
+import ThucTeAo from "../../public/asset/ThucTeAo.jpg";
+import IoT from "../../public/asset/IoT.jpg";
+import ttDD from "../../public/asset/ttDD.jpg";
+import blockchain from "../../public/asset/blockchain.jpg";
+import { useState, useEffect } from "react";
+import Plan from "../Checkout/Plan";
+const Mobiletech = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("/api/getMobilePlan");
+      const data = await res.json();
+      setData(data);
+    };
+    fetchData();
+  }, []);
+
+  data.forEach((item) => {
+    item.descriptionArr = item.description.split(", ");
+  });
+
+  return (
+    <section className="bg-white dark:bg-gray-900">
+      {/* <div className="container px-6 py-10 mx-auto">
       <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">Xu hướng phát triển</h1>
 
       <div className="grid grid-cols-1 gap-8 mt-8 md:mt-16 md:grid-cols-2">
@@ -82,7 +99,18 @@ const Mobiletech = () => (
           </div>
         </div>
       </div>
-    </div>
-  </section>
-)
-export default Mobiletech
+    </div> */}
+      <div className="container mx-auto px-6 py-10">
+        <h1 className="text-3xl font-semibold capitalize text-gray-800 dark:text-white lg:text-4xl">
+          Các gói dịch vụ di động
+        </h1>
+        <div className="mt-8 grid grid-cols-1 gap-8 md:mt-16 lg:grid-cols-3">
+          {data.map((item) => (
+            <Plan key={item.id} {...item}></Plan>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+export default Mobiletech;

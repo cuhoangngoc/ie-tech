@@ -1,16 +1,18 @@
 import Link from "next/link";
 import {
   BsTerminalFill,
-  BsCardChecklist,
+  BsChatLeftTextFill,
   BsFillPersonFill,
   BsHouseDoorFill,
   BsPersonCircle,
-  BsReceipt,
+  BsCalendar2PlusFill,
   BsFillArchiveFill,
   BsBagCheckFill,
+  BsFillDoorOpenFill,
 } from "react-icons/bs";
-
+import { useAuth } from "../../hooks/auth";
 const Sidebar = () => {
+  const { logout } = useAuth();
   const adminLinks = [
     {
       name: "Trang chủ",
@@ -40,7 +42,7 @@ const Sidebar = () => {
     {
       name: "Plan",
       href: "/admin/plans",
-      icon: <BsReceipt />,
+      icon: <BsCalendar2PlusFill />,
     },
     {
       name: "Đơn hàng",
@@ -50,12 +52,12 @@ const Sidebar = () => {
     {
       name: "Yêu cầu",
       href: "/admin/requests",
-      icon: <BsCardChecklist />,
+      icon: <BsChatLeftTextFill />,
     },
   ];
 
   return (
-    <div className="h-screen bg-[#B1AFFF]">
+    <div className="absolute top-0 hidden h-screen bg-[#B9E0FF] md:sticky md:block">
       {adminLinks.map((link, index) => (
         <Link href={link.href} key={index}>
           <a className="my-2 flex items-center p-2 hover:bg-gray-200">
@@ -64,6 +66,13 @@ const Sidebar = () => {
           </a>
         </Link>
       ))}
+      <button
+        className="my-2 flex w-full items-center p-2 hover:bg-gray-200"
+        onClick={logout}
+      >
+        <BsFillDoorOpenFill />
+        <span className="ml-2">Đăng xuất</span>
+      </button>
     </div>
   );
 };

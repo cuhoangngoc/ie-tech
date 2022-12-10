@@ -33,9 +33,8 @@ const ForgotPassword = () => {
         }
       >
         <div className="mb-4 text-sm text-gray-600">
-          Forgot your password? No problem. Just let us know your email address
-          and we will email you a password reset link that will allow you to
-          choose a new one.
+          Quên mật khẩu? Nhập địa chỉ email của bạn và chúng tôi sẽ gửi cho bạn
+          liên kết đặt lại mật khẩu cho phép bạn chọn một mật khẩu mới.
         </div>
 
         {/* Session Status */}
@@ -60,7 +59,7 @@ const ForgotPassword = () => {
           </div>
 
           <div className="mt-4 flex items-center justify-end">
-            <Button>Email Password Reset Link</Button>
+            <Button>Gửi</Button>
           </div>
         </form>
       </AuthCard>

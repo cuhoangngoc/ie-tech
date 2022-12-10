@@ -55,7 +55,6 @@ const contact = () => {
       <main className="container mx-auto mt-10">
         <section className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="sm:basis-1/2">
-            <span>// Chi tiết liên hệ</span>
             <h1 className="text-4xl">Liên Hệ</h1>
             <p>
              Gọi cho chúng tôi hoặc ghé qua bất cứ lúc nào, chúng tôi cố gắng trả lời tất cả các câu hỏi trong vòng 24 giờ vào ngày làm việc. Rất hân hạnh được trả lời câu hỏi của bạn.

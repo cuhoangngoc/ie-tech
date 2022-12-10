@@ -5,6 +5,7 @@ import React from "react";
 
 const Plan = (props) => {
   return (
+    
     <div className="group flex w-auto flex-col rounded-md bg-slate-300 p-8 shadow-lg duration-300 ease-in-out hover:skew-x-1 hover:skew-y-2 hover:bg-[#8D9EFF]">
       <div className="my-2">
         <h3 className="text-[30px] font-bold text-black group-hover:text-[#ffff]">

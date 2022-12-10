@@ -62,6 +62,12 @@ const Dashboard = () => {
       avatarEl.hidden = true;
     }
   };
+  const payment = (e) => {
+    e.preventDefault();
+    const form = document.getElementById("insert-form");
+    form.classList.toggle("hidden");
+    form.classList.toggle("flex");
+  };
 
   return (
     <AppLayout
@@ -108,6 +114,9 @@ const Dashboard = () => {
                     : 0}
                   $
                 </span>
+              </div>
+              <div>
+                <Link href="/payment">Nạp tiền</Link>
               </div>
               <form onSubmit={updateUserInfo} className="pt-4">
                 <table className="mt-4 w-full">

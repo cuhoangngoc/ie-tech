@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { RiMoneyEuroCircleLine } from 'react-icons/ri'
 import { BsCheckCircleFill } from 'react-icons/bs'
@@ -11,12 +10,12 @@ const Plan_render = (plans) => {
 
             <div className='my-2'>
                 {/* in đậm với font bold cỡ chữ 30px chữ đen khi hover chuyển sang trắng */}
-                <h3 className='font-bold text-[30px] text-black group-hover:text-[#ffff]'>{plans.name}</h3>
+                <h3 className='font-bold text-[30px] text-black group-hover:text-white'>{plans.name}</h3>
                 <div className='flex flex-row'>
                     <RiMoneyEuroCircleLine size={35} className="text-[#6F38C5]"></RiMoneyEuroCircleLine>
-                    <p className='text-[#43baff] font-bold text-[30px]'>{plans.price}</p>
+                    <h2 className='text-blue-400 font-bold text-5xl'>{plans.price}</h2>
                 </div>
-                <p className='group-hover:text-[#ffff]'>Gói hàng tháng</p>
+                <p className='group-hover:text-white'>Gói hàng tháng</p>
             </div>
             <div>
                 {plans.descriptionArr.map((item, index) => (
@@ -31,14 +30,14 @@ const Plan_render = (plans) => {
                                 : "text-[#68B984]"
                                 } "group-hover:text-green-500"`}
                         />
-                        <p className=" mx-4 group-hover:text-[#fff]">{item}</p>
+                        <p className=" mx-4 group-hover:text-white">{item}</p>
                     </div>
                 ))}
             </div>
             <div className='flex justify-center '>
-                <div className='p-4 bg-[#44c8ff] w-[180px] rounded-xl group hover:bg-[#060606] text-center'>
-                    <Link href='#'>
-                        <p className='uppercase text-[#ffff] group-hover:text-white'>Mua gói</p>
+                <div className='p-4 bg-blue-400 w-[180px] rounded-xl group hover:bg-black text-center'>
+                    <Link href={`checkout/${plans.id}`}>
+                        <p className='uppercase text-white group-hover:text-white'>Mua gói</p>
                     </Link>
                 </div>
             </div>

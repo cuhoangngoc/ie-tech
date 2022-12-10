@@ -34,7 +34,7 @@ export const Choose_plan = (props) => {
               </div>
               <div className='flex justify-center cursor-pointer'>
                 <div className='p-4 bg-[#44c8ff] w-[180px] rounded-xl group hover:bg-[#060606] hover:scale-105 ease-in duration-300 text-center'>
-                  <Link href='#'>
+                  <Link href={`checkout/${props.id}`}>
                     <p className='uppercase text-[#ffff] group-hover:text-white'>choose plan</p>
                   </Link>
                 </div>

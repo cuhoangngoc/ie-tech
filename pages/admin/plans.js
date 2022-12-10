@@ -58,17 +58,17 @@ export default function Admin() {
 
 
   //Hàm xóa plan sử dụng id lấy từ thuộc tính  plan_id của nút xóa
-  const deletePlan = (e) => {
+  const deletePlan = async (e) => {
     e.preventDefault();
-    setID(e.target.getAttribute("plan_id"))
+    const id = e.target.getAttribute("plan_id")
     // Hỏi người dùng, nếu không muốn xóa thì thoát
     if (!confirm("Bạn muốn xóa gói này")) return;
-    const id_data = { id: id }
+
     console.log(id)
     const postData = async () => {
       const res = await fetch("/api/deletePlan", {
         method: "POST",
-        body: JSON.stringify(id_data)
+        body: JSON.stringify({ id: id })
       });
       return res.json();
     };
@@ -107,14 +107,14 @@ export default function Admin() {
 
   return (
     <AdminLayout>
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4">
         <table className="bg-white">
           <thead>
             <tr>
-              <th>Plan Name</th>
-              <th>Price</th>
-              <th>Description</th>
-              <th>Actions</th>
+              <th>Tên gói</th>
+              <th>Giá</th>
+              <th>Mô tả</th>
+              <th>Thao tác</th>
             </tr>
           </thead>
           <tbody>
@@ -135,14 +135,17 @@ export default function Admin() {
                     className="rounded bg-blue-500 p-2 hover:bg-blue-700"
                   >Sửa
                   </button>
+
+                  {/*Nút xóa dữ liệu */}
                   <button
-                    onClick={deletePlan}
+
                     // gán dữ liệu id cho hàm xóa dữ liệu
                     plan_id={plan.id}
-                    className="rounded bg-red-500 p-2 hover:bg-red-700"
-
+                    className="rounded bg-red-500 p-2 hover:bg-red-700 mt-1"
+                    onClick={deletePlan}
                   >Xóa</button>
                 </td>
+
               </tr>
             ))}
           </tbody>
@@ -157,21 +160,21 @@ export default function Admin() {
             type="text"
             id="name-update"
             defaultValue={name}
-            placeholder="Name"
+            placeholder="Tên"
             onChange={(e) => setName(e.target.value)}
           />
           <Input
             type="number"
             id="price-update"
             defaultValue={price}
-            placeholder="Price"
+            placeholder="Giá"
             onChange={(e) => setPrice(e.target.value)}
           />
           <Input
             type="text"
             id="desc-update"
             defaultValue={description}
-            placeholder="Description"
+            placeholder="Mô tả"
             onChange={(e) => setDesc(e.target.value)}
           />
           <button
@@ -182,6 +185,8 @@ export default function Admin() {
           </button>
         </form>
       </div>
+
+      {/* Nút bật tắt form thêm gói dịch vụ */}
       <button onClick={hiddenOrAppearFormInsert} className="rounded bg-green-500 p-2 hover:bg-green-800 mt-2">
         Thêm
       </button>
@@ -192,23 +197,24 @@ export default function Admin() {
         className="mt-4 hidden flex-col items-center gap-4 bg-sky-400 p-4 "
         onSubmit={insertPlan}
       >
+        <h1 className="font-bold">Thêm gói dịch vụ</h1>
         <Input
           type="text"
           id="name-insert"
-          placeholder="Name"
+          placeholder="Tên"
           onChange={(e) => setName(e.target.value)}
         />
         <Input
           type="number"
           step="any"
           id="price-insert"
-          placeholder="Price"
+          placeholder="Giá"
           onChange={(e) => setPrice(e.target.value)}
         />
         <Input
           type="text"
           id="desc-insert"
-          placeholder="Description"
+          placeholder="Mô tả"
           onChange={(e) => setDesc(e.target.value)}
         />
         <Input
@@ -218,7 +224,7 @@ export default function Admin() {
           onChange={(e) => setService_id(e.target.value)}
         />
         <button
-          className="w-fit rounded-md p-1 hover:bg-green-600"
+          className="w-fit rounded-md p-1 bg-green-400 hover:bg-green-600"
           type="submit"
         >
           Thêm

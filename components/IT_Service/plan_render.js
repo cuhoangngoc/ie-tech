@@ -36,7 +36,7 @@ const Plan_render = (plans) => {
             </div>
             <div className='flex justify-center '>
                 <div className='p-4 bg-blue-400 w-[180px] rounded-xl group hover:bg-black text-center'>
-                    <Link href='#'>
+                    <Link href={`checkout/${plans.id}`}>
                         <p className='uppercase text-white group-hover:text-white'>Mua gói</p>
                     </Link>
                 </div>

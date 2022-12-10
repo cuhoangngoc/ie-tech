@@ -66,7 +66,8 @@ export default function Admin() {
                 {item.name}
               </h5>
               <p className="mb-3 font-normal text-green-700">
-                {item.count} {item.name === "Doanh thu" ? "$" : ""}
+                {+(Math.round(item.count + "e+2") + "e-2")}{" "}
+                {item.name === "Doanh thu" ? "$" : ""}
               </p>
             </div>
           </a>

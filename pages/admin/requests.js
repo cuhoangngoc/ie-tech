@@ -38,6 +38,22 @@ export default function Admin() {
     }
   };
 
+  const formatDate = (req_date) => {
+    const date = new Date(req_date);
+    const year = date.getFullYear();
+    const month =
+      date.getMonth() + 1 > 9
+        ? date.getMonth() + 1
+        : "0" + (date.getMonth() + 1);
+    const day = date.getDate() > 9 ? date.getDate() : "0" + date.getDate();
+    const seconds =
+      date.getSeconds() > 9 ? date.getSeconds() : "0" + date.getSeconds();
+    const minutes =
+      date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes();
+    const hour = date.getHours() > 9 ? date.getHours() : "0" + date.getHours();
+    return `${year}-${month}-${day} ${hour}:${minutes}:${seconds}`;
+  };
+
   return (
     <AdminLayout>
       <h1 className={`${style.header}`}>Yêu cầu nạp tiền</h1>
@@ -45,12 +61,12 @@ export default function Admin() {
       <table className="bg-white">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>User Id</th>
-            <th>Amount</th>
-            <th>Date</th>
-            <th>Account Number</th>
-            <th>Test</th>
+            <th>Mã yêu cầu</th>
+            <th>Mã người dùng</th>
+            <th>Khoản tiền</th>
+            <th>Thời điểm</th>
+            <th>Số tài khoản</th>
+            <th>Tình trạng</th>
             <th>Thao tác</th>
           </tr>
         </thead>
@@ -60,7 +76,7 @@ export default function Admin() {
               <td>{request.id}</td>
               <td>{request.user_id}</td>
               <td>{request.amount}</td>
-              <td>{request.date}</td>
+              <td>{formatDate(request.date)}</td>
               <td>{request.account_number}</td>
               <td>{request.test}</td>
               <td>

@@ -36,7 +36,7 @@ const checkout = () => {
     {
       id: "quarterly",
       duration: 3,
-      total: checkoutData.price * 3,
+      total: +(Math.round(checkoutData.price * 3 + "e+2") + "e-2"),
     },
     {
       id: "yearly",

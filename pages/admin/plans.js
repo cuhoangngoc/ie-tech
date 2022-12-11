@@ -122,6 +122,7 @@ export default function Admin() {
       });
     };
     postData();
+    alert("Thêm plan thành công!");
     location.reload();
   }
 

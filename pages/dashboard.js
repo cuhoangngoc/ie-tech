@@ -3,18 +3,26 @@ import Head from "next/head";
 import Order from "../components/Checkout/Order";
 import Link from "next/link";
 import Logo from "../public/asset/Logo-only.png";
+import Payment from "../components/Checkout/Payment";
 import { FcHome, FcCurrencyExchange, FcAdvance } from "react-icons/fc";
 import { FcSupport } from "react-icons/fc";
 import { useState } from "react";
 import { useAuth } from "../hooks/auth";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 const Dashboard = () => {
+  const router = useRouter();
   const { user } = useAuth({ middleware: "auth" });
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [update, setUpdate] = useState(false);
+
+  useEffect(() => {
+    if (!user?.email_verified_at) router.push("/verify-email");
+  }, []);
 
   function updateUserInfo(e) {
     e.preventDefault();
@@ -153,14 +161,14 @@ const Dashboard = () => {
 
                 <div className="flex justify-between">
                   <button
-                    className="mt-2 rounded-lg px-1 hover:bg-[#7FBCD2]"
+                    className="mt-2 rounded-md p-2 hover:bg-[#7FBCD2]"
                     onClick={enableUpdate}
                   >
                     Chỉnh sửa
                   </button>
                   <button
                     type="submit"
-                    className="mt-2 rounded-lg p-2 hover:bg-[#7FBCD2]"
+                    className="mt-2 rounded-md p-2 hover:bg-[#7FBCD2]"
                   >
                     <FcSupport size={40} />
                   </button>
@@ -171,7 +179,7 @@ const Dashboard = () => {
             {/* Lịch sử mua hàng của người dùng */}
             <div className="border-b border-gray-200 bg-white p-6">
               <h1 className="mb-4 text-center text-xl font-bold">
-                lịch sử mua hàng
+                Lịch sử mua hàng
               </h1>
               <Order user_id={user?.id} />
               <Link href="/checkout">
@@ -179,6 +187,14 @@ const Dashboard = () => {
                   Dịch vụ <FcAdvance />
                 </a>
               </Link>
+            </div>
+
+            {/* Lịch sử nạp tiền của người dùng */}
+            <div className="border-b border-gray-200 bg-white p-6">
+              <h1 className="mb-4 text-center text-xl font-bold">
+                Lịch sử nạp tiền
+              </h1>
+              <Payment user_id={user?.id} />
             </div>
           </div>
         </div>

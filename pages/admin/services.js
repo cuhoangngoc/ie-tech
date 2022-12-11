@@ -22,14 +22,14 @@ export default function Admin() {
     form.classList.toggle("flex");
   };
 
-  const update = (e) =>{
+  const update = (e) => {
     e.preventDefault();
-    const form=document.getElementById("update-Serviceform");
+    const form = document.getElementById("update-Serviceform");
     setServiceName(e.target.getAttribute("data-name"));
     setServiceId(e.target.getAttribute("data-key"));
-    form.classList.toggle("hidden");    
+    form.classList.toggle("hidden");
     form.classList.toggle("flex");
-  }
+  };
   function insertService(e) {
     e.preventDefault();
     const postData = async () => {
@@ -59,8 +59,6 @@ export default function Admin() {
         id: serviceId,
       };
 
-      console.log(data);
-
       const response = await fetch("/api/updateServiceInfo", {
         method: "POST",
         body: JSON.stringify(data),
@@ -69,8 +67,9 @@ export default function Admin() {
     };
     postData();
     alert("Cập nhật dịch vụ thành công!");
+    location.reload();
   }
-  const deleteService = (e) =>{
+  const deleteService = (e) => {
     e.preventDefault();
     const id = e.target.getAttribute("data-key");
     console.log(id);
@@ -87,7 +86,8 @@ export default function Admin() {
       });
     };
     postData();
-    };
+    location.reload();
+  };
   return (
     <AdminLayout>
       <h1 className={`${style.header}`}>Quản lý dịch vụ</h1>
@@ -106,7 +106,7 @@ export default function Admin() {
               <td>{service.name}</td>
               <td>
                 <div className="flex gap-1">
-                  <button 
+                  <button
                     onClick={update}
                     data-name={service.name}
                     data-key={service.id}
@@ -128,19 +128,24 @@ export default function Admin() {
         </tbody>
       </table>
       <div className="mt-5 flex gap-4">
-      <button
-        onClick={insert}
-        className="rounded bg-green-500 p-2 hover:bg-green-700"
+        <button
+          onClick={insert}
+          className="rounded bg-green-500 p-2 hover:bg-green-700"
         >
-        Thêm dịch vụ
+          Thêm dịch vụ
         </button>
       </div>
       <form
         id="insert-Serviceform"
-        className="mt-4 hidden items-center gap-4 bg-sky-400 p-4"
+        className="mt-4 hidden max-w-[300px] flex-col items-center gap-4 bg-sky-400 p-4"
         onSubmit={insertService}
       >
-        <label htmlFor="ServiceName" className="rounded bg-sky-500 hover:bg-blue-700 px-4 py-2">Thêm dịch vụ </label>
+        <label
+          htmlFor="ServiceName"
+          className="text-center font-extrabold text-white"
+        >
+          Thêm dịch vụ
+        </label>
         <input
           type="text"
           id="ServiceName"
@@ -151,16 +156,21 @@ export default function Admin() {
         <button
           className="rounded-lg bg-blue-500 p-2 hover:bg-blue-700"
           type="submit"
-        > 
+        >
           Thêm
         </button>
       </form>
-      <form 
+      <form
         id="update-Serviceform"
-        className="mt-4 hidden items-center gap-4 bg-sky-400 p-4"
+        className="mt-4 hidden max-w-[400px] flex-col gap-4 bg-sky-400 p-4"
         onSubmit={updateServiceInfo}
       >
-        <label htmlFor="ServiceName" className="rounded bg-sky-500 hover:bg-blue-700 px-4 py-2">Chỉnh sửa tên dịch vụ </label>
+        <label
+          htmlFor="ServiceName"
+          className="text-center font-extrabold text-white"
+        >
+          Chỉnh sửa dịch vụ
+        </label>
         <input
           type="text"
           id="ServiceName"
@@ -175,6 +185,6 @@ export default function Admin() {
           Cập nhật
         </button>
       </form>
-      </AdminLayout>
+    </AdminLayout>
   );
 }

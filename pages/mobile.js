@@ -2,23 +2,17 @@ import TopMobileFrameWork from "../components/TopMobileFrameWork/TopMobileFrameW
 import Gioithieu from "../components/Gioithieu/Gioithieu";
 import Card from "../components/Card/Card";
 import Mobiletech from "../components/Mobiletech/Mobiletech";
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
-
+import Layout from "../components/Layout/Layout";
 
 export default function Mobile() {
   return (
-    <>
-      <Navbar />
-
+    <Layout>
       <section>
         <Gioithieu />
         <TopMobileFrameWork />
         <Card />
         <Mobiletech />
       </section>
-
-      <Footer />
-    </>
+    </Layout>
   );
 }

@@ -81,9 +81,12 @@ export const useAuth = ({ middleware, redirectIfAuthenticated } = {}) => {
         router.push("/login?reset=" + btoa(response.data.status))
       )
       .catch((error) => {
-        if (error.response.status !== 422) throw error;
-
+        if (!error.response) {
+          router.push("/login");
+          return;
+        } else if (error.response.status !== 422) throw error;
         setErrors(error.response.data.errors);
+        router.push("/login");
       });
   };
 

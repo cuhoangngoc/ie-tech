@@ -18,11 +18,13 @@ export default function Home() {
     <Layout>
       {/* main */}
       <Slider />
-      <Hero />
-      <List_user />
-      <AboutCompany />
-      <WhyChooseUs />
-      <WeCarry />
+      <div className="container mx-auto px-2 md:px-4">
+        <Hero />
+        <List_user />
+        <AboutCompany />
+        <WhyChooseUs />
+        <WeCarry />
+      </div>
       {/* <Our_clients /> */}
     </Layout>
   );

@@ -1,5 +1,5 @@
 .form {
-  @apply rounded-xl bg-sky-300 px-10 pt-10 bg-gradient-to-r from-cyan-500 to-blue-500;
+  @apply rounded-xl bg-sky-300 bg-gradient-to-r from-cyan-500 to-blue-500 px-10 py-10;
 }
 
 .input {
@@ -7,7 +7,7 @@
 }
 
 .button {
-  @apply mx-auto mb-8 block rounded-lg p-4 text-white placeholder-gray-500 hover:opacity-80;
+  @apply mx-auto block rounded-lg p-4 text-white placeholder-gray-500 hover:opacity-80;
 }
 
 .headerCenter {

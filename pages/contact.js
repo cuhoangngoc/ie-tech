@@ -57,7 +57,9 @@ const contact = () => {
           <div className="sm:basis-1/2">
             <h1 className="text-4xl">Liên Hệ</h1>
             <p>
-             Gọi cho chúng tôi hoặc ghé qua bất cứ lúc nào, chúng tôi cố gắng trả lời tất cả các câu hỏi trong vòng 24 giờ vào ngày làm việc. Rất hân hạnh được trả lời câu hỏi của bạn.
+              Gọi cho chúng tôi hoặc ghé qua bất cứ lúc nào, chúng tôi cố gắng
+              trả lời tất cả các câu hỏi trong vòng 24 giờ vào ngày làm việc.
+              Rất hân hạnh được trả lời câu hỏi của bạn.
             </p>
 
             <div>

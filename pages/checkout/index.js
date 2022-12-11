@@ -27,33 +27,35 @@ const Checkout = () => {
 
   return (
     <Layout>
-      <div className="mt-5">
-        <h1 className="text-2xl font-bold">
-          Xin chào&nbsp;
-          <span
-            className={`${
-              user
-                ? "bg-gradient-to-r from-blue-900 to-cyan-500 bg-clip-text font-extrabold text-transparent"
-                : ""
-            }`}
-          >
-            {user ? `${user?.name}` : "quý khách"}!
-          </span>
-        </h1>
-      </div>
-
-      <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
-        <div className="md:col-span-3">
-          <p className={`flex justify-center gap-4 text-2xl font-bold`}>
-            Tất cả dịch vụ chúng tôi cung cấp <FcRightDown2 size={30} />
-          </p>
+      <section className="container mx-auto px-2 md:px-4">
+        <div className="mt-5">
+          <h1 className="text-2xl font-bold">
+            Xin chào&nbsp;
+            <span
+              className={`${
+                user
+                  ? "bg-gradient-to-r from-blue-900 to-cyan-500 bg-clip-text font-extrabold text-transparent"
+                  : ""
+              }`}
+            >
+              {user ? `${user?.name}` : "quý khách"}!
+            </span>
+          </h1>
         </div>
 
-        {/* <Plan /> */}
-        {checkoutData.map((plan) => (
-          <Plan key={plan.id} {...plan} />
-        ))}
-      </div>
+        <div className="mt-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+          <div className="md:col-span-3">
+            <p className={`flex justify-center gap-4 text-2xl font-bold`}>
+              Tất cả dịch vụ chúng tôi cung cấp <FcRightDown2 size={30} />
+            </p>
+          </div>
+
+          {/* <Plan /> */}
+          {checkoutData.map((plan) => (
+            <Plan key={plan.id} {...plan} />
+          ))}
+        </div>
+      </section>
     </Layout>
   );
 };

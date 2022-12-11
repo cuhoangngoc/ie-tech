@@ -26,9 +26,10 @@ const Plan = (props) => {
               className={`${
                 item.match(/\d năm/i) ||
                 item.match(/chuẩn/i) ||
-                item.match(/^\d/i) ||
-                item.match(/^không/i)
+                item.match(/^\d/i)
                   ? "text-[#F49D1A]"
+                  : item.match(/^không quản|hỗ|cung/i)
+                  ? "text-red-800"
                   : "text-[#68B984]"
               } "group-hover:text-green-500"`}
             />

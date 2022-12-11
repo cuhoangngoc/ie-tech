@@ -54,6 +54,7 @@ export default function Admin() {
     };
     postData();
     alert("Cập nhật thông tin thành công!");
+    location.reload();
   }
 
   //Hàm xóa plan sử dụng id lấy từ thuộc tính  plan_id của nút xóa
@@ -73,6 +74,7 @@ export default function Admin() {
     };
     postData();
     alert("Xóa gói thành công");
+    location.reload();
   };
 
   //Hàm hiện và ẩn form insert
@@ -179,7 +181,7 @@ export default function Admin() {
             onChange={(e) => setDesc(e.target.value)}
           />
           <button
-            className="w-fit rounded-md p-1 hover:bg-green-600"
+            className="w-fit rounded-md p-1 hover:bg-blue-600"
             type="submit"
           >
             Lưu
@@ -228,7 +230,7 @@ export default function Admin() {
           onChange={(e) => setService_id(e.target.value)}
         />
         <button
-          className="w-fit rounded-md bg-green-400 p-1 hover:bg-green-600"
+          className="w-fit rounded-md bg-blue-400 p-1 hover:bg-blue-600"
           type="submit"
         >
           Thêm

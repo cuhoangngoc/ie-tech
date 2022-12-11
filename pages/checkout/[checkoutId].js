@@ -2,6 +2,7 @@ import Layout from "../../components/Layout/Layout";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { useAuth } from "../../hooks/auth";
+import round from "../../components/round";
 
 const checkout = () => {
   const { user } = useAuth({ middleware: "auth" }); //redirect tới đăng nhập nếu chưa đăng nhập
@@ -36,12 +37,12 @@ const checkout = () => {
     {
       id: "quarterly",
       duration: 3,
-      total: +(Math.round(checkoutData.price * 3 + "e+2") + "e-2"),
+      total: round(checkoutData.price * 3),
     },
     {
       id: "yearly",
       duration: 12,
-      total: +(Math.round(checkoutData.price * 12 * 0.9 + "e+2") + "e-2"), // giảm 10% nếu mua 1 năm, làm tròn 2 chữ số thập phân
+      total: round(checkoutData.price * 12 * 0.9), // giảm 10% nếu mua 1 năm, làm tròn 2 chữ số thập phân
     },
   ];
 
@@ -97,10 +98,7 @@ const checkout = () => {
             <span className="text-xl">
               Số dư hiện tại:&nbsp;
               <span className="text-[#2c4324]">
-                {user?.balance
-                  ? +(Math.round(user?.balance + "e+2") + "e-2")
-                  : 0}
-                $
+                {user?.balance ? round(user?.balance) : 0}$
               </span>
             </span>
           </div>
@@ -166,7 +164,9 @@ const checkout = () => {
             <h1>Tổng cộng</h1>
             <span className="font-extrabold text-[#5F8D4E]">
               <span className="text-red-700 line-through">
-                {order.duration === 12 ? `${checkoutData.price * 12}` : ""}
+                {order.duration === 12
+                  ? `${round(checkoutData.price * 12)}`
+                  : ""}
               </span>
               &emsp;{order.total ? order.total : 0}$
             </span>

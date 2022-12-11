@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "../../public/asset/Logo-only.png";
 import {
   BsTerminalFill,
   BsChatLeftTextFill,
@@ -9,6 +10,7 @@ import {
   BsFillArchiveFill,
   BsBagCheckFill,
   BsFillDoorOpenFill,
+  BsFillBellFill,
 } from "react-icons/bs";
 import { useAuth } from "../../hooks/auth";
 const Sidebar = () => {
@@ -54,10 +56,24 @@ const Sidebar = () => {
       href: "/admin/requests",
       icon: <BsChatLeftTextFill />,
     },
+    {
+      name: "Liên hệ",
+      href: "/admin/contact",
+      icon: <BsFillBellFill />,
+    },
   ];
 
   return (
     <div className="absolute top-0 hidden h-screen bg-[#B9E0FF] md:sticky md:block">
+      <div>
+        <Link href="/">
+          <a className="flex items-center justify-center gap-2 p-2 font-bold">
+            <img src={Logo.src} alt="logo" className="w-20" />
+            ietech
+          </a>
+        </Link>
+      </div>
+
       {adminLinks.map((link, index) => (
         <Link href={link.href} key={index}>
           <a className="my-2 flex items-center p-2 hover:bg-gray-200">

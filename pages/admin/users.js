@@ -63,6 +63,7 @@ export default function User() {
     };
     postData();
     alert("Cập nhật thông tin thành công!");
+    location.reload();
   }
 
   const deleteUser = (e) => {
@@ -85,6 +86,7 @@ export default function User() {
     };
     postData();
     alert("Xóa người dùng thành công");
+    location.reload();
   };
 
   return (
@@ -140,11 +142,11 @@ export default function User() {
 
       <form
         id="update-form"
-        className="mt-4 hidden flex-col items-center gap-4 bg-sky-400 p-4"
+        className="mt-4 hidden max-w-md flex-col items-center gap-4 bg-sky-400 p-4"
         onSubmit={updateUserInfo}
       >
         <h1 className={`${style.header}`}>Chỉnh sửa thông tin người dùng</h1>
-        <div>Email: {email} </div>
+        <div className="text-xl font-semibold text-white">Email: {email} </div>
         <Input
           type="text"
           id="name-update"
@@ -166,7 +168,7 @@ export default function User() {
           onChange={(e) => setAddress(e.target.value)}
         />
         <button
-          className="w-fit rounded-md p-1 hover:bg-green-600"
+          className="w-fit rounded-md p-1 hover:bg-blue-500"
           type="submit"
         >
           Lưu

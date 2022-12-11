@@ -5,7 +5,7 @@ import style from "../../styles/admin.module.css";
 export default function Admin() {
   const [servicesData, setServicesData] = useState([]);
   const [serviceId, setServiceId] = useState(0);
-  const [ServiceName, setServiceName] = useState(0);
+  const [ServiceName, setServiceName] = useState("");
   useEffect(() => {
     async function fetchData() {
       const res = await fetch("/api/getServicesData");
@@ -32,6 +32,11 @@ export default function Admin() {
   };
   function insertService(e) {
     e.preventDefault();
+    if (ServiceName === null || ServiceName === "") {
+      alert("Tên dịch vụ không được để trống");
+      return;
+    }
+
     const postData = async () => {
       const data = {
         name: ServiceName,
@@ -46,6 +51,8 @@ export default function Admin() {
       });
     };
     postData();
+    alert("Thêm dịch vụ thành công!");
+    location.reload();
   }
   function updateServiceInfo(e) {
     e.preventDefault();

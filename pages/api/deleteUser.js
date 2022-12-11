@@ -21,13 +21,16 @@ export default async function handler(req, res) {
       res.forEach(async (order) => {
         const query = "DELETE FROM orders WHERE id = ?";
         const values = [order.order_id];
-        const [rows] = await connection.execute(query, values);
+        await connection.execute(query, values);
       });
 
+      // Xóa payment của user
+      let query = "DELETE FROM payments WHERE user_id = ?";
+      await connection.execute(query, [req.body.id]);
+
       // Xóa user
-      const query = "DELETE FROM users WHERE id = ?";
-      const values = [req.body.id];
-      const [rows] = await connection.execute(query, values);
+      query = "DELETE FROM users WHERE id = ?";
+      await connection.execute(query, [req.body.id]);
       connection.end();
     } catch (e) {
       res.status(500).json({ message: e.message });

@@ -7,10 +7,10 @@ export default function Admin() {
   const [planData, setplanData] = useState([]);
   const [id, setID] = useState(0);
   const [name, setName] = useState("");
-  const [price, setPrice] = useState(null);
+  const [price, setPrice] = useState(0);
   const [description, setDesc] = useState("");
   const [service_id, setService_id] = useState(null);
-  const [update, setUpdate] = useState(false);
+  const [serviceData, setServiceData] = useState([]);
   // Dùng useEffect để lấy dữ liệu từ API
   useEffect(() => {
     async function fetchData() {
@@ -19,6 +19,15 @@ export default function Admin() {
       setplanData(data); // Lưu dữ liệu vào state
     }
 
+    fetchData(); // Gọi hàm fetchData
+  }, []);
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("/api/getServicesData");
+      const data = await res.json();
+      setServiceData(data); // Lưu dữ liệu vào state
+    }
     fetchData(); // Gọi hàm fetchData
   }, []);
 
@@ -38,6 +47,11 @@ export default function Admin() {
   }
   //Hàm send_data gửi các thay đổi tạm thời đến cơ sở dữ liệu biến chúng thành thay đổi vĩnh viễn
   function send_data_to_database() {
+    if (price <= 0) {
+      alert("Giá tiền phải lớn hơn 0");
+      return;
+    }
+
     const postData = async () => {
       const data = {
         id: id,
@@ -45,7 +59,7 @@ export default function Admin() {
         description: description,
         price: price,
       };
-      console.log(id, name, description, price);
+
       const response = await fetch("/api/updatePlanInfo", {
         method: "POST",
         body: JSON.stringify(data),
@@ -64,7 +78,6 @@ export default function Admin() {
     // Hỏi người dùng, nếu không muốn xóa thì thoát
     if (!confirm("Bạn muốn xóa gói này")) return;
 
-    console.log(id);
     const postData = async () => {
       const res = await fetch("/api/deletePlan", {
         method: "POST",
@@ -86,6 +99,15 @@ export default function Admin() {
   //Hàm insert dữ liệu từ form insert
   function insertPlan(e) {
     e.preventDefault();
+
+    if (price <= 0) {
+      alert("Giá tiền phải lớn hơn 0");
+      return;
+    } else if (service_id == null) {
+      alert("Hãy chọn dịch vụ");
+      return;
+    }
+
     const postData = async () => {
       const data = {
         name: name,
@@ -93,15 +115,14 @@ export default function Admin() {
         price: price,
         service_id: service_id,
       };
-      console.log(id, name, description, price);
+      console.log(data);
       const response = await fetch("/api/insertPlan", {
         method: "POST",
         body: JSON.stringify(data),
       });
-      return response.json();
     };
     postData();
-    alert("Cập nhật thông tin thành công!");
+    location.reload();
   }
 
   return (
@@ -223,12 +244,21 @@ export default function Admin() {
           placeholder="Mô tả"
           onChange={(e) => setDesc(e.target.value)}
         />
-        <Input
+        {/* <Input
           type="number"
           id="service_id insert"
           placeholder="service_id"
           onChange={(e) => setService_id(e.target.value)}
-        />
+        /> */}
+
+        <select className="p-2" onChange={(e) => setService_id(e.target.value)}>
+          <option value="">Chọn dịch vụ</option>
+          {serviceData?.map((service) => (
+            <option key={service.id} value={service.id}>
+              {service.name}
+            </option>
+          ))}
+        </select>
         <button
           className="w-fit rounded-md bg-blue-400 p-1 hover:bg-blue-600"
           type="submit"

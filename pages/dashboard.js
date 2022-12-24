@@ -42,6 +42,7 @@ const Dashboard = () => {
     };
     postData();
     alert("Cập nhật thông tin thành công!");
+    location.reload;
   }
 
   const enableUpdate = (e) => {

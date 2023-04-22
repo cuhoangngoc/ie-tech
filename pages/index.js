@@ -11,13 +11,18 @@ import Slider from "../components/Slider/Slider";
 import Layout from "../components/Layout/Layout";
 import { useAuth } from "../hooks/auth";
 
+import GlobalStyle from "./GlobalStyle.js";
+import { useSelector } from "react-redux";
 export default function Home() {
   const { user } = useAuth({ middleware: "guest" });
-
+  const { isDark } = useSelector((state) => {
+    return state.darklight;
+  });
   return (
     <Layout>
       {/* main */}
       <Slider />
+
       <div className="container mx-auto px-2 md:px-4">
         <Hero />
         <List_user />

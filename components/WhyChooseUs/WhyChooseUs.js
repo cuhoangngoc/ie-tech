@@ -1,53 +1,32 @@
 import { FiArrowRight } from "react-icons/fi";
-
+import { en, vi } from "../../pages/translate/language";
+import { useSelector } from "react-redux";
 const WhyChooseUs = () => {
-  const reasons = [
-    {
-      title: "Product Design",
-      description:
-        "Dịch vụ thiết kế sản phẩm của chúng tôi cho phép bạn tạo nguyên mẫu, thử nghiệm và xác thực ý tưởng của mình.",
-      imgLink: "#",
-      learnMoreLink: "#",
-    },
-
-    {
-      title: "Development",
-      description:
-        "Dịch vụ thiết kế sản phẩm của chúng tôi cho phép bạn tạo nguyên mẫu, thử nghiệm và xác thực ý tưởng của mình.",
-      imgLink: "#",
-      learnMoreLink: "#",
-    },
-
-    {
-      title: "Data Analytics",
-      description:
-        "Dịch vụ thiết kế sản phẩm của chúng tôi cho phép bạn tạo nguyên mẫu, thử nghiệm và xác thực ý tưởng của mình.",
-      imgLink: "#",
-      learnMoreLink: "#",
-    },
-
-    {
-      title: "Cyber Security",
-      description:
-        "Dịch vụ thiết kế sản phẩm của chúng tôi cho phép bạn tạo nguyên mẫu, thử nghiệm và xác thực ý tưởng của mình.",
-      imgLink: "#",
-      learnMoreLink: "#",
-    },
-  ];
-
+  const { isDark } = useSelector((state) => {
+    return state.darklight;
+  });
+  const { isEnglish } = useSelector((state) => {
+    return state.language;
+  });
+  const { whyChooseus } = isEnglish ? en : vi;
+  const reasons = whyChooseus.reasons;
   return (
     <section
       id="WhyChooseUs"
       className="flex flex-col items-center justify-center py-12"
     >
       <h1 className="mb-8 text-2xl font-extrabold md:text-3xl">
-        Thiết kế ý tưởng kinh doanh của bạn ngay bây giờ
+        {whyChooseus.title}
       </h1>
 
       <div className="grid items-center sm:mb-2 md:grid-cols-2 xl:grid-cols-4">
         {reasons.map((reason, index) => (
           <div
-            className="mb-4 max-w-sm rounded-lg border border-gray-200 bg-white shadow-md md:mx-4"
+            className={
+              isDark
+                ? "mb-4 max-w-sm rounded-lg border border-gray-200 bg-[#1b1b23] shadow-md md:mx-4"
+                : "mb-4 max-w-sm rounded-lg border border-gray-200 bg-white shadow-md md:mx-4"
+            }
             key={index}
           >
             <a href="#">
@@ -58,7 +37,13 @@ const WhyChooseUs = () => {
                 {reason.title.toUpperCase()}
               </h5>
 
-              <p className="mb-3 font-normal text-gray-700">
+              <p
+                className={
+                  isDark
+                    ? "mb-3 font-normal text-white"
+                    : "mb-3 font-normal text-gray-700"
+                }
+              >
                 {reason.description}
               </p>
               <a

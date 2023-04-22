@@ -4,8 +4,23 @@ import Link from "next/link";
 import Logo from "../../public/asset/Logo-only.png";
 import Image from "next/image";
 import { useAuth } from "../../hooks/auth";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  closeDark,
+  openDark,
+} from "../../pages/feature/darklight/darklightSlice";
+import { transVI, transEN } from "../../pages/feature/translate/translate";
+import { en, vi } from "../../pages/translate/language";
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const { isDark } = useSelector((state) => {
+    return state.darklight;
+  });
+  const { isEnglish } = useSelector((state) => {
+    return state.language;
+  });
+  const { nav } = isEnglish ? en : vi;
   const { user } = useAuth({ middleware: "guest" });
   const { logout } = useAuth();
   const showMobileMenu = () => {
@@ -21,24 +36,30 @@ function Navbar() {
   };
 
   const navLinks = [
-    { name: "Trang chủ", link: "/" },
-    { name: "Giới thiệu", link: "/GioiThieu" },
+    { name: nav.home, link: "/" },
+    { name: nav.aboutUs, link: "/GioiThieu" },
     {
-      name: "Dịch vụ",
+      name: nav.service.serviceNav,
       link: "/checkout",
       subMenu: [
-        { name: "Dịch vụ IT", link: "/IT" },
-        { name: "Web development", link: "/web_development" },
+        { name: nav.service.serviceIt, link: "/IT" },
+        { name: nav.service.serviceDev, link: "/web_development" },
         ,
-        { name: "Mobile development", link: "/mobile" },
+        { name: nav.service.serviceMob, link: "/mobile" },
       ],
     },
-    { name: "Liên hệ", link: "/contact" },
+    { name: nav.contract, link: "/contact" },
   ];
 
   return (
     <nav className="sticky top-0 z-10 shadow-xl">
-      <div className="flex justify-between bg-slate-100 px-12 py-2 font-bold md:justify-around">
+      <div
+        className={
+          isDark
+            ? "flex justify-between bg-black px-12 py-2 font-bold text-white md:justify-around"
+            : "flex justify-between bg-slate-100 px-12 py-2 font-bold md:justify-around"
+        }
+      >
         {/* logo */}
         <Link href="/" legacyBehavior>
           <a className="flex cursor-pointer items-center md:justify-center">
@@ -50,10 +71,10 @@ function Navbar() {
         {/* Navigation bar */}
         <ul className="hidden items-center space-x-2 md:flex md:justify-center">
           {navLinks.map((navLink, index) =>
-            navLink.name === "Dịch vụ" ? (
+            navLink.name === nav.service.serviceNav ? (
               <li className="group md:relative" key={index}>
                 <div className="flex items-center rounded-md p-2 duration-300 hover:bg-blue-400 hover:text-white">
-                  <a href={navLink.link}>Dịch vụ</a>
+                  <a href={navLink.link}>{nav.service.serviceNav}</a>
                   <FiChevronDown className="h-5 w-5 items-center" />
                 </div>
 
@@ -108,10 +129,40 @@ function Navbar() {
           ) : (
             <Link href="/login">
               <a className="flex rounded-md bg-blue-500 p-1 text-center text-sm text-white duration-300 hover:bg-blue-700 md:text-base">
-                Bắt đầu
+                {nav.ClickStart}
               </a>
             </Link>
           )}
+          <button
+            onClick={() => {
+              dispatch(closeDark());
+            }}
+          >
+            Sáng
+          </button>
+          <button
+            onClick={() => {
+              dispatch(openDark());
+            }}
+          >
+            Tối
+          </button>
+          ||
+          <button
+            onClick={() => {
+              dispatch(transVI());
+            }}
+          >
+            VIE
+          </button>
+          |||
+          <button
+            onClick={() => {
+              dispatch(transEN());
+            }}
+          >
+            EN
+          </button>
         </div>
 
         {/* Button for mobile menu */}

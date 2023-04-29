@@ -3,6 +3,7 @@ import { Chart } from "chart.js";
 
 const chart_plan = () => {
   const chartRef = useRef(null);
+  const chartInstance = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -56,10 +57,16 @@ const chart_plan = () => {
         },
       };
 
-      const myChart = new Chart(chartRef.current, chartConfig);
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
+      }
+
+      chartInstance.current = new Chart(chartRef.current, chartConfig);
 
       return () => {
-        myChart.destroy();
+        if (chartInstance.current) {
+          chartInstance.current.destroy();
+        }
       };
     };
 
@@ -71,7 +78,7 @@ const chart_plan = () => {
       <h1 className="mx-auto mt-14 w-[150px] text-xl font-semibold capitalize ">
         PLAN CHART
       </h1>
-      <div className="mx-auto my-auto flex w-[1100px] bg-slate-50">
+      <div className="mx-auto my-auto flex w-1/2 bg-slate-50">
         <div className="my-auto h-fit w-full rounded-xl  border border-gray-400 pt-0  shadow-xl">
           <canvas ref={chartRef} />
         </div>

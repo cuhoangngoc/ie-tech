@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Chart } from "chart.js";
+import { Chart } from 'chart.js/auto';
 
 const chart_user = () => {
   const chartRef = useRef(null);
+  const chartInstance = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,36 +14,45 @@ const chart_user = () => {
       const chartLabels = data.map((user) => user.month+ '/' + user.year); // Nhãn cho các giá trị trong biểu đồ từ API
 
       const chartConfig = {
-        type: "bar",
+        type: 'bar',
         data: {
           labels: chartLabels,
           datasets: [
             {
-              label: "Count user",
+              label: 'Count user',
               data: chartData,
-              backgroundColor: "rgba(255, 99, 132, 0.2)",
-              borderColor: "rgba(255, 99, 132, 1)",
+              backgroundColor: 'rgba(255, 99, 132, 0.2)',
+              borderColor: 'rgba(255, 99, 132, 1)',
               borderWidth: 1,
             },
           ],
         },
         options: {
           scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                },
-              },
-            ],
+            y: {
+              beginAtZero: true,
+            },
+          },
+          aspectRatio: 1.5,
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+            },
           },
         },
       };
 
-      const myChart = new Chart(chartRef.current, chartConfig);
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
+      }
+
+      chartInstance.current = new Chart(chartRef.current, chartConfig);
 
       return () => {
-        myChart.destroy();
+        if (chartInstance.current) {
+          chartInstance.current.destroy();
+        }
       };
     };
 
@@ -62,4 +72,5 @@ const chart_user = () => {
     </div>
   );
 };
+
 export default chart_user;

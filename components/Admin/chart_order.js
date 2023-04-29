@@ -3,6 +3,7 @@ import { Chart } from "chart.js";
 
 const chart_order = () => {
   const chartRef = useRef(null);
+  const chartInstance = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,7 +27,7 @@ const chart_order = () => {
               borderColor: "#1E88E5",
               borderWidth: 1,
               type: 'line',
-              fill: true,
+              fill: false,
             },
             {
                 label: "Count cancelled order",
@@ -59,10 +60,16 @@ const chart_order = () => {
         },
       };
 
-      const myChart = new Chart(chartRef.current, chartConfig);
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
+      }
+
+      chartInstance.current = new Chart(chartRef.current, chartConfig);
 
       return () => {
-        myChart.destroy();
+        if (chartInstance.current) {
+          chartInstance.current.destroy();
+        }
       };
     };
 

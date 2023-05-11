@@ -1,39 +1,39 @@
-import { FiMenu, FiChevronDown, FiX, FiUser } from "react-icons/fi";
-import style from "./Navbar.module.css";
-import Link from "next/link";
-import Logo from "../../public/asset/Logo-only.png";
-import Image from "next/image";
-import { useAuth } from "../../hooks/auth";
+import { FiMenu, FiChevronDown, FiX, FiUser } from 'react-icons/fi';
+import style from './Navbar.module.css';
+import Link from 'next/link';
+import Logo from '../../public/asset/Logo-only.png';
+import Image from 'next/image';
+import { useAuth } from '../../hooks/auth';
 
 function Navbar() {
-  const { user } = useAuth({ middleware: "guest" });
+  const { user } = useAuth({ middleware: 'guest' });
   const { logout } = useAuth();
   const showMobileMenu = () => {
-    const menuIconOpen = document.querySelector(".menu-icon-open");
-    const menuIconClose = document.querySelector(".menu-icon-close");
-    const mobileMenu = document.querySelector(".mobile-menu");
+    const menuIconOpen = document.querySelector('.menu-icon-open');
+    const menuIconClose = document.querySelector('.menu-icon-close');
+    const mobileMenu = document.querySelector('.mobile-menu');
 
-    menuIconOpen.classList.toggle("hidden");
-    menuIconClose.classList.toggle("hidden");
+    menuIconOpen.classList.toggle('hidden');
+    menuIconClose.classList.toggle('hidden');
 
-    mobileMenu.classList.toggle("hidden");
-    mobileMenu.classList.toggle("flex");
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
   };
 
   const navLinks = [
-    { name: "Trang chủ", link: "/" },
-    { name: "Giới thiệu", link: "/GioiThieu" },
+    { name: 'Trang chủ', link: '/' },
+    { name: 'Giới thiệu', link: '/introduction' },
     {
-      name: "Dịch vụ",
-      link: "/checkout",
+      name: 'Dịch vụ',
+      link: '/checkout',
       subMenu: [
-        { name: "Dịch vụ IT", link: "/IT" },
-        { name: "Web development", link: "/web_development" },
+        { name: 'Dịch vụ IT', link: '/IT' },
+        { name: 'Web development', link: '/web_development' },
         ,
-        { name: "Mobile development", link: "/mobile" },
+        { name: 'Mobile development', link: '/mobile' },
       ],
     },
-    { name: "Liên hệ", link: "/contact" },
+    { name: 'Liên hệ', link: '/contact' },
   ];
 
   return (
@@ -50,7 +50,7 @@ function Navbar() {
         {/* Navigation bar */}
         <ul className="hidden items-center space-x-2 md:flex md:justify-center">
           {navLinks.map((navLink, index) =>
-            navLink.name === "Dịch vụ" ? (
+            navLink.name === 'Dịch vụ' ? (
               <li className="group md:relative" key={index}>
                 <div className="flex items-center rounded-md p-2 duration-300 hover:bg-blue-400 hover:text-white">
                   <a href={navLink.link}>Dịch vụ</a>
@@ -65,9 +65,7 @@ function Navbar() {
                     {navLink.subMenu.map((subMenu, index) => (
                       <li key={index}>
                         <Link href={subMenu.link} legacyBehavior>
-                          <a className="block py-2 px-4 hover:bg-gray-100">
-                            {subMenu.name}
-                          </a>
+                          <a className="block py-2 px-4 hover:bg-gray-100">{subMenu.name}</a>
                         </Link>
                       </li>
                     ))}
@@ -116,10 +114,7 @@ function Navbar() {
 
         {/* Button for mobile menu */}
         <div className="flex items-center md:hidden">
-          <button
-            className="moblie-menu-btn hover:text-blue-500"
-            onClick={showMobileMenu}
-          >
+          <button className="moblie-menu-btn hover:text-blue-500" onClick={showMobileMenu}>
             <FiMenu className="menu-icon-open h-6 w-6" />
             <FiX className="menu-icon-close hidden h-6 w-6 hover:text-red-700" />
           </button>
@@ -129,11 +124,8 @@ function Navbar() {
       {/* Thêm md:hidden để ẩn đi khi resize từ sm lên md */}
       <ul className="mobile-menu hidden flex-col items-center space-y-2 divide-y-2 divide-zinc-300 bg-slate-100 font-bold drop-shadow-md md:hidden">
         {navLinks.map((navLink, index) =>
-          navLink.name === "Dịch vụ" ? (
-            <li
-              className="group flex items-center pt-2 hover:text-blue-500"
-              key={index}
-            >
+          navLink.name === 'Dịch vụ' ? (
+            <li className="group flex items-center pt-2 hover:text-blue-500" key={index}>
               <div className="flex items-center">
                 <a href={navLink.link}>{navLink.name}</a>
                 <FiChevronDown className="h-5 w-5 items-center" />
@@ -142,10 +134,7 @@ function Navbar() {
               <ul className="hidden flex-col py-2 text-sm font-normal text-gray-700 group-hover:flex">
                 {navLink.subMenu.map((subMenu, index) => (
                   <li key={index}>
-                    <a
-                      href={subMenu.link}
-                      className="block py-2 px-4 hover:bg-gray-200"
-                    >
+                    <a href={subMenu.link} className="block py-2 px-4 hover:bg-gray-200">
                       {subMenu.name}
                     </a>
                   </li>

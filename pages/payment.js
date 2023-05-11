@@ -1,14 +1,14 @@
-import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
-import { useState } from "react";
-import style from "../components/Contact/Contact.module.css";
-import { useAuth } from "../hooks/auth";
+import Navbar from '../components/Navbar/Navbar';
+import Footer from '../components/Footer/Footer';
+import { useState } from 'react';
+import style from '../components/Contact/Contact.module.css';
+import { useAuth } from '../hooks/auth';
 
-const payment = () => {
-  const { user } = useAuth({ middleware: "auth" });
-  const [account_number, setaccount_number] = useState("");
-  const [amount, setamount] = useState("");
-  const [date, setdate] = useState("");
+const Payment = () => {
+  const { user } = useAuth({ middleware: 'auth' });
+  const [account_number, setaccount_number] = useState('');
+  const [amount, setamount] = useState('');
+  const [date, setdate] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -20,15 +20,15 @@ const payment = () => {
         date: date,
       };
       console.log(data);
-      const response = await fetch("/api/getpaymentofclient", {
-        method: "POST",
+      const response = await fetch('/api/getpaymentofclient', {
+        method: 'POST',
         body: JSON.stringify(data),
       });
       return response.json();
     };
     postData();
     alert(
-      "Chúng tôi đã ghi nhận yêu cầu nạp tiền của bạn! Vui lòng chờ 12h để chúng tôi xét duyệt!"
+      'Chúng tôi đã ghi nhận yêu cầu nạp tiền của bạn! Vui lòng chờ 12h để chúng tôi xét duyệt!'
     );
   }
 
@@ -80,4 +80,4 @@ const payment = () => {
   );
 };
 
-export default payment;
+export default Payment;

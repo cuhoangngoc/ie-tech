@@ -1,34 +1,34 @@
-import Layout from "../components/Layout/Layout";
-import { FcDepartment, FcFeedback, FcPhone } from "react-icons/fc";
+import Layout from '../components/Layout/Layout';
+import { FcDepartment, FcFeedback, FcPhone } from 'react-icons/fc';
 
-import { useState } from "react";
-import style from "../components/Contact/Contact.module.css";
+import { useState } from 'react';
+import style from '../components/Contact/Contact.module.css';
 
-const contact = () => {
+const Contact = () => {
   const contactInfo = [
     {
       icon: <FcPhone size={50} />,
-      title: "Điện thoại",
-      href: "tel:0123456789",
-      content: "0123456789",
+      title: 'Điện thoại',
+      href: 'tel:0123456789',
+      content: '0123456789',
     },
     {
       icon: <FcFeedback size={50} />,
-      title: "Email",
-      href: "mailto:info@uit.edu.vn",
-      content: "info@uit.edu.vn",
+      title: 'Email',
+      href: 'mailto:info@uit.edu.vn',
+      content: 'info@uit.edu.vn',
     },
     {
       icon: <FcDepartment size={50} />,
-      title: "Địa chỉ",
-      href: "https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+C%C3%B4ng+ngh%E1%BB%87+Th%C3%B4ng+tin+-+%C4%90HQG+TP.HCM/@10.8700142,106.8008654,17z/data=!3m1!4b1!4m6!3m5!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!8m2!3d10.8700089!4d106.8030541!16s%2Fm%2F02qqlmm?hl=vi",
-      content: "Khu phố 6, P.Linh Trung, Tp.Thủ Đức, Tp.Hồ Chí Minh",
+      title: 'Địa chỉ',
+      href: 'https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+C%C3%B4ng+ngh%E1%BB%87+Th%C3%B4ng+tin+-+%C4%90HQG+TP.HCM/@10.8700142,106.8008654,17z/data=!3m1!4b1!4m6!3m5!1s0x317527587e9ad5bf:0xafa66f9c8be3c91!8m2!3d10.8700089!4d106.8030541!16s%2Fm%2F02qqlmm?hl=vi',
+      content: 'Khu phố 6, P.Linh Trung, Tp.Thủ Đức, Tp.Hồ Chí Minh',
     },
   ];
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [content, setContent] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [content, setContent] = useState('');
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -39,15 +39,15 @@ const contact = () => {
         content: content,
       };
 
-      const response = await fetch("/api/getinformation", {
-        method: "POST",
+      const response = await fetch('/api/getinformation', {
+        method: 'POST',
         body: JSON.stringify(data),
       });
       return response.json();
     };
 
     postData();
-    alert("Chúng tôi đã nhận được thông điệp của bạn!");
+    alert('Chúng tôi đã nhận được thông điệp của bạn!');
   }
 
   return (
@@ -57,9 +57,9 @@ const contact = () => {
           <div className="sm:basis-1/2">
             <h1 className="text-4xl">Liên Hệ</h1>
             <p>
-              Gọi cho chúng tôi hoặc ghé qua bất cứ lúc nào, chúng tôi cố gắng
-              trả lời tất cả các câu hỏi trong vòng 24 giờ vào ngày làm việc.
-              Rất hân hạnh được trả lời câu hỏi của bạn.
+              Gọi cho chúng tôi hoặc ghé qua bất cứ lúc nào, chúng tôi cố gắng trả lời tất cả các
+              câu hỏi trong vòng 24 giờ vào ngày làm việc. Rất hân hạnh được trả lời câu hỏi của
+              bạn.
             </p>
 
             <div>
@@ -73,10 +73,7 @@ const contact = () => {
 
                   <div className="w-full">
                     <h2 className="text-xl">{item.title}</h2>
-                    <a
-                      href={item.href}
-                      className="text-blue-500 hover:underline"
-                    >
+                    <a href={item.href} className="text-blue-500 hover:underline">
                       {item.content}
                     </a>
                   </div>
@@ -85,11 +82,7 @@ const contact = () => {
             </div>
           </div>
 
-          <form
-            onSubmit={handleSubmit}
-            action=""
-            className={`${style.form} sm:basis-1/2`}
-          >
+          <form onSubmit={handleSubmit} action="" className={`${style.form} sm:basis-1/2`}>
             <h1 className={style.headerCenter}>Gửi thông điệp của bạn</h1>
 
             <input
@@ -143,4 +136,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

@@ -1,9 +1,10 @@
-import { AiOutlineGlobal } from "react-icons/ai";
-import { AiFillMail } from "react-icons/ai";
-import { BsFillTelephoneFill } from "react-icons/bs";
-import Logo from "../../public/asset/Logo-only.png";
-import Image from "next/image";
-import { useState } from "react";
+import { AiOutlineGlobal } from 'react-icons/ai';
+import { AiFillMail } from 'react-icons/ai';
+import { BsFillTelephoneFill } from 'react-icons/bs';
+import Logo from '../../public/asset/Logo-only.png';
+import Image from 'next/image';
+import { useState } from 'react';
+import Link from 'next/link';
 
 export const Footer = () => {
   return (
@@ -16,10 +17,7 @@ export const Footer = () => {
       <div className="mb-10 grid md:mx-32 md:grid-cols-3">
         <div>
           <div className="flex flex-row justify-center">
-            <AiOutlineGlobal
-              size={40}
-              className="my-2 text-blue-500"
-            ></AiOutlineGlobal>
+            <AiOutlineGlobal size={40} className="my-2 text-blue-500"></AiOutlineGlobal>
           </div>
           <div className="text-center text-white ">
             <a
@@ -44,10 +42,7 @@ export const Footer = () => {
         </div>
         <div>
           <div className="flex flex-row justify-center">
-            <BsFillTelephoneFill
-              size={40}
-              className="my-2 text-blue-500"
-            ></BsFillTelephoneFill>
+            <BsFillTelephoneFill size={40} className="my-2 text-blue-500"></BsFillTelephoneFill>
           </div>
           <div className="text-center text-white">
             <a className="hover:text-blue-500" href="tel:0123456789">
@@ -58,21 +53,21 @@ export const Footer = () => {
         </div>
       </div>
       <div className="mb-10 hidden px-60 text-center text-lg text-white md:grid md:grid-cols-5">
-        <a href="/" className="hover:text-blue-500">
+        <Link href="/" className="hover:text-blue-500">
           Trang chủ
-        </a>
-        <a href="IT" className="hover:text-blue-500">
+        </Link>
+        <Link href="IT" className="hover:text-blue-500">
           Dịch vụ IT
-        </a>
-        <a href="web_development" className="hover:text-blue-500">
+        </Link>
+        <Link href="web_development" className="hover:text-blue-500">
           Web Development
-        </a>
-        <a href="mobile" className="hover:text-blue-500">
+        </Link>
+        <Link href="mobile" className="hover:text-blue-500">
           Mobile Development
-        </a>
-        <a href="contact" className="hover:text-blue-500">
+        </Link>
+        <Link href="contact" className="hover:text-blue-500">
           Liên hệ
-        </a>
+        </Link>
       </div>
       <div className="py-4 text-center text-white">
         Copyright © 2022 ietech. All Rights Reserved.

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const Order = (props) => {
   // Hook để lấy dữ liệu từ API
@@ -6,8 +6,8 @@ const Order = (props) => {
 
   useEffect(() => {
     const postData = async () => {
-      const response = await fetch("/api/getUserOrder", {
-        method: "POST",
+      const response = await fetch('/api/getUserOrder', {
+        method: 'POST',
         body: JSON.stringify({ id: props.user_id }),
       });
       const data = await response.json();
@@ -46,18 +46,14 @@ const Order = (props) => {
                 <td>{item.total}$</td>
                 <td>
                   {/* format thời gian theo kiểu Y/M/D H:M:S */}
-                  {new Date(item.order_date)
+                  {new Date(item.created_at)
                     .toISOString()
                     .slice(0, 19)
-                    .replace(/-/g, "/")
-                    .replace("T", " ")}
+                    .replace(/-/g, '/')
+                    .replace('T', ' ')}
                 </td>
                 <td
-                  className={`${
-                    item.status === "Hoàn thành"
-                      ? "text-green-700"
-                      : "text-red-500"
-                  }`}
+                  className={`${item.status === 'Thành công' ? 'text-green-700' : 'text-red-500'}`}
                 >
                   {item.status}
                 </td>

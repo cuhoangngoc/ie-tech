@@ -1,11 +1,13 @@
-import Layout from "../../components/Layout/Layout";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import { useAuth } from "../../hooks/auth";
-import round from "../../components/round";
+import Layout from '../../components/Layout/Layout';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import { useAuth } from '../../hooks/auth';
+import round from '../../components/round';
+import StripeContainer from '../../components/StripeContainer';
+import axios from 'axios';
 
-const checkout = () => {
-  const { user } = useAuth({ middleware: "auth" }); //redirect tới đăng nhập nếu chưa đăng nhập
+const Checkout = () => {
+  const { user } = useAuth({ middleware: 'auth' }); //redirect tới đăng nhập nếu chưa đăng nhập
   const router = useRouter();
   const { checkoutId } = router.query; // lấy checkoutId từ URL, trả về một string
   const [checkoutData, setCheckoutData] = useState({}); // khởi tạo state checkoutData với giá trị mặc định là object rỗng chua dữ liệu của checkout
@@ -14,11 +16,11 @@ const checkout = () => {
     if (checkoutId) {
       // kiểm tra checkoutId có tồn tại hay không
       const postData = async () => {
-        const response = await fetch("/api/getCheckoutData", {
-          method: "POST",
+        const response = await fetch('/api/getCheckoutData', {
+          method: 'POST',
           body: JSON.stringify({ id: checkoutId }),
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         });
         const data = await response.json();
@@ -30,58 +32,59 @@ const checkout = () => {
 
   const duration = [
     {
-      id: "monthly",
+      id: 'monthly',
       duration: 1,
       total: checkoutData.price,
     },
     {
-      id: "quarterly",
+      id: 'quarterly',
       duration: 3,
       total: round(checkoutData.price * 3),
     },
     {
-      id: "yearly",
+      id: 'yearly',
       duration: 12,
       total: round(checkoutData.price * 12 * 0.9), // giảm 10% nếu mua 1 năm, làm tròn 2 chữ số thập phân
     },
   ];
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!order.total) {
-      alert("Vui lòng chọn thời hạn");
-      return;
-    }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (!order.total) {
+  //     alert('Vui lòng chọn thời hạn');
+  //     return;
+  //   }
 
-    if (user?.balance < order.total) {
-      alert("Số dư không đủ để thanh toán");
-      return;
-    }
-    const postData = async () => {
-      console.log(
-        user?.id,
-        Number(checkoutId),
-        order.duration,
-        Number(order.total)
-      );
-      const response = await fetch("/api/createOrder", {
-        method: "POST",
-        body: JSON.stringify({
-          user_id: user?.id,
-          plan_id: Number(checkoutId),
-          duration: order.duration,
-          total: Number(order.total),
-          order_date: new Date(),
-          order_status: "Hoàn thành",
-        }),
-      });
-      const data = await response.json();
-      if (data.status === "success") {
-        router.push("/dashboard");
-      }
-    };
-    postData();
-    alert("Đặt mua và thanh toán thành công");
+  //   if (user?.balance < order.total) {
+  //     alert('Số dư không đủ để thanh toán');
+  //     return;
+  //   }
+  //   const postData = async () => {
+  //     console.log(user?.id, Number(checkoutId), order.duration, Number(order.total));
+  //     const response = await fetch('/api/createOrder', {
+  //       method: 'POST',
+  //       body: JSON.stringify({
+  //         user_id: user?.id,
+  //         plan_id: Number(checkoutId),
+  //         duration: order.duration,
+  //         total: Number(order.total),
+  //         order_status: 'Thành công',
+  //       }),
+  //     });
+  //     const data = await response.json();
+  //     if (data.status === 'success') {
+  //       router.push('/dashboard');
+  //     }
+  //   };
+  //   postData();
+  //   alert('Đặt mua và thanh toán thành công');
+  // };
+
+  const orderInfo = {
+    user_id: user?.id,
+    plan_id: Number(checkoutId),
+    duration: order.duration,
+    total: Number(order.total),
   };
 
   return (
@@ -97,18 +100,13 @@ const checkout = () => {
             </h1>
             <span className="text-xl">
               Số dư hiện tại:&nbsp;
-              <span className="text-[#2c4324]">
-                {user?.balance ? round(user?.balance) : 0}$
-              </span>
+              <span className="text-[#2c4324]">{user?.balance ? round(user?.balance) : 0}$</span>
             </span>
           </div>
 
           <div className="mt-5 flex flex-col items-center justify-center gap-8 lg:flex-row">
             {duration.map((item, index) => (
-              <div
-                key={index}
-                className="relative w-[200px] bg-white p-2 text-center"
-              >
+              <div key={index} className="relative w-[200px] bg-white p-2 text-center">
                 {item.duration === 12 ? (
                   <p className="absolute -top-6 left-[3rem] text-2xl font-semibold text-red-800 opacity-80">
                     giảm 10%
@@ -129,19 +127,14 @@ const checkout = () => {
                   />
                   <label htmlFor={item.id}>{item.duration} tháng</label>
                 </div>
-                <div className="text-2xl font-extrabold text-[#5F8D4E]">
-                  {item.total}$
-                </div>
+                <div className="text-2xl font-extrabold text-[#5F8D4E]">{item.total}$</div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <div
-        id="payment-method"
-        className="mt-10 flex justify-center gap-4 md:flex-row"
-      >
+      {/* <div id="payment-method" className="mt-10 flex justify-center gap-4 md:flex-row">
         <form
           onSubmit={handleSubmit}
           id="order"
@@ -157,16 +150,14 @@ const checkout = () => {
           <div className="flex justify-between gap-4 py-2">
             <h1>Thời hạn</h1>
             <span className="text-red-500">
-              {order.duration ? `${order.duration} tháng` : "Hãy chọn thời hạn"}
+              {order.duration ? `${order.duration} tháng` : 'Hãy chọn thời hạn'}
             </span>
           </div>
           <div className="flex justify-between gap-4 py-2">
             <h1>Tổng cộng</h1>
             <span className="font-extrabold text-[#5F8D4E]">
               <span className="text-red-700 line-through">
-                {order.duration === 12
-                  ? `${round(checkoutData.price * 12)}`
-                  : ""}
+                {order.duration === 12 ? `${round(checkoutData.price * 12)}` : ''}
               </span>
               &emsp;{order.total ? order.total : 0}$
             </span>
@@ -178,9 +169,11 @@ const checkout = () => {
             Mua ngay
           </button>
         </form>
-      </div>
+      </div> */}
+
+      <StripeContainer orderInfo={orderInfo} />
     </Layout>
   );
 };
 
-export default checkout;
+export default Checkout;

@@ -1,7 +1,7 @@
-import AdminLayout from "../../components/Admin/AdminLayout";
-import style from "../../styles/Admin.module.css";
-import { useState, useEffect } from "react";
-import formatDate from "../../components/formatDate";
+import AdminLayout from '../../components/Admin/AdminLayout';
+import style from '../../styles/Admin.module.css';
+import { useState, useEffect } from 'react';
+import formatDate from '../../components/formatDate';
 
 export default function Admin() {
   const [order, setOrderData] = useState([]);
@@ -9,7 +9,7 @@ export default function Admin() {
   // Dùng useEffect để lấy dữ liệu từ API
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("/api/getOrdersData");
+      const res = await fetch('/api/getOrdersData');
       const data = await res.json();
       setOrderData(data); // Lưu dữ liệu vào state
     }
@@ -43,7 +43,7 @@ export default function Admin() {
                 {item.plan}&nbsp;{item.service}
               </td>
               <td>{item.duration} tháng</td>
-              <td>{formatDate(item.order_date)}</td>
+              <td>{formatDate(item.created_at)}</td>
               <td>{item.total}$</td>
               <td>{item.status}</td>
             </tr>

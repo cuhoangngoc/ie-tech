@@ -5,6 +5,9 @@ import Avatar from "../../public/asset/avatar-svgrepo-com.svg";
 import Order from "../../public/admin/order-placed-purchased-icon.png";
 import Income from "../../public/admin/money.png";
 import Request from "../../public/admin/request.png";
+import Chart_user from "../../components/Admin/chart_user";
+import Chart_order from "../../components/Admin/chart_order";
+import Chart_plan from "../../components/Admin/chart_plan";
 
 export default function Admin() {
   const [data, setData] = useState([]);
@@ -73,6 +76,9 @@ export default function Admin() {
           </a>
         ))}
       </div>
+      <Chart_user></Chart_user>
+      <Chart_order></Chart_order>
+      <Chart_plan></Chart_plan>
     </AdminLayout>
   );
 }

@@ -1,5 +1,6 @@
-import Link from "next/link";
-import Logo from "../../public/asset/Logo-only.png";
+import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '../../public/asset/Logo-only.png';
 import {
   BsTerminalFill,
   BsChatLeftTextFill,
@@ -11,54 +12,54 @@ import {
   BsBagCheckFill,
   BsFillDoorOpenFill,
   BsFillBellFill,
-} from "react-icons/bs";
-import { useAuth } from "../../hooks/auth";
+} from 'react-icons/bs';
+import { useAuth } from '../../hooks/auth';
 const Sidebar = () => {
   const { logout } = useAuth();
   const adminLinks = [
     {
-      name: "Trang chủ",
-      href: "/",
+      name: 'Trang chủ',
+      href: '/',
       icon: <BsHouseDoorFill />,
     },
     {
-      name: "Hồ sơ",
-      href: "/dashboard",
+      name: 'Hồ sơ',
+      href: '/dashboard',
       icon: <BsPersonCircle />,
     },
     {
-      name: "Bảng điều khiển",
-      href: "/admin",
+      name: 'Bảng điều khiển',
+      href: '/admin',
       icon: <BsTerminalFill />,
     },
     {
-      name: "Người dùng",
-      href: "/admin/users",
+      name: 'Người dùng',
+      href: '/admin/users',
       icon: <BsFillPersonFill />,
     },
     {
-      name: "Dịch vụ",
-      href: "/admin/services",
+      name: 'Dịch vụ',
+      href: '/admin/services',
       icon: <BsFillArchiveFill />,
     },
     {
-      name: "Plan",
-      href: "/admin/plans",
+      name: 'Plan',
+      href: '/admin/plans',
       icon: <BsCalendar2PlusFill />,
     },
     {
-      name: "Đơn hàng",
-      href: "/admin/orders",
+      name: 'Đơn hàng',
+      href: '/admin/orders',
       icon: <BsBagCheckFill />,
     },
     {
-      name: "Yêu cầu",
-      href: "/admin/requests",
+      name: 'Yêu cầu',
+      href: '/admin/requests',
       icon: <BsChatLeftTextFill />,
     },
     {
-      name: "Liên hệ",
-      href: "/admin/contact",
+      name: 'Liên hệ',
+      href: '/admin/contact',
       icon: <BsFillBellFill />,
     },
   ];
@@ -68,7 +69,7 @@ const Sidebar = () => {
       <div>
         <Link href="/">
           <a className="flex items-center justify-center gap-2 p-2 font-bold">
-            <img src={Logo.src} alt="logo" className="w-20" />
+            <Image src={Logo} alt="logo" className="w-20" />
             ietech
           </a>
         </Link>
@@ -82,10 +83,7 @@ const Sidebar = () => {
           </a>
         </Link>
       ))}
-      <button
-        className="my-2 flex w-full items-center p-2 hover:bg-gray-200"
-        onClick={logout}
-      >
+      <button className="my-2 flex w-full items-center p-2 hover:bg-gray-200" onClick={logout}>
         <BsFillDoorOpenFill />
         <span className="ml-2">Đăng xuất</span>
       </button>

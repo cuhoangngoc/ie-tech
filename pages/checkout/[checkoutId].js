@@ -28,7 +28,7 @@ const Checkout = () => {
       };
       postData();
     }
-  }, [router.query.id, router.isReady]); // chỉ chạy khi checkoutId thay đổi
+  }, [router.query.id, router.isReady, checkoutId]); // chỉ chạy khi checkoutId thay đổi
 
   const duration = [
     {

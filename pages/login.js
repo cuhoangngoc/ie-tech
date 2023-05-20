@@ -1,26 +1,26 @@
-import ApplicationLogo from "../components/Breeze/ApplicationLogo";
-import AuthCard from "../components/Breeze/AuthCard";
-import AuthSessionStatus from "../components/Breeze/AuthSessionStatus";
-import Button from "../components/Breeze/Button";
-import GuestLayout from "../components/Breeze/Layouts/GuestLayout";
-import Input from "../components/Breeze/Input";
-import InputError from "../components/Breeze/InputError";
-import Label from "../components/Breeze/Label";
-import Link from "next/link";
-import { useAuth } from "../hooks/auth";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import Layout from "../components/Layout/Layout";
+import ApplicationLogo from '../components/Breeze/ApplicationLogo';
+import AuthCard from '../components/Breeze/AuthCard';
+import AuthSessionStatus from '../components/Breeze/AuthSessionStatus';
+import Button from '../components/Breeze/Button';
+import GuestLayout from '../components/Breeze/Layouts/GuestLayout';
+import Input from '../components/Breeze/Input';
+import InputError from '../components/Breeze/InputError';
+import Label from '../components/Breeze/Label';
+import Link from 'next/link';
+import { useAuth } from '../hooks/auth';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import Layout from '../components/Layout/Layout';
 
 const Login = () => {
   const router = useRouter();
   const { login } = useAuth({
-    middleware: "guest",
-    redirectIfAuthenticated: "/",
+    middleware: 'guest',
+    redirectIfAuthenticated: '/',
   });
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [shouldRemember, setShouldRemember] = useState(false);
   const [errors, setErrors] = useState([]);
   const [status, setStatus] = useState(null);
@@ -31,7 +31,7 @@ const Login = () => {
     } else {
       setStatus(null);
     }
-  });
+  }, [router.query.reset, errors]);
 
   const submitForm = async (event) => {
     event.preventDefault();

@@ -1,13 +1,14 @@
-import logo from "../../../public/asset/Logo-only.png";
-import ApplicationLogo from "../ApplicationLogo";
-import Dropdown from "../Dropdown";
-import Link from "next/link";
-import NavLink from "../NavLink";
-import ResponsiveNavLink, { ResponsiveNavButton } from "../ResponsiveNavLink";
-import { DropdownButton } from "../DropdownLink";
-import { useAuth } from "../../../hooks/auth";
-import { useRouter } from "next/router";
-import { useState } from "react";
+import logo from '../../../public/asset/Logo-only.png';
+import ApplicationLogo from '../ApplicationLogo';
+import Dropdown from '../Dropdown';
+import Link from 'next/link';
+import NavLink from '../NavLink';
+import ResponsiveNavLink, { ResponsiveNavButton } from '../ResponsiveNavLink';
+import { DropdownButton } from '../DropdownLink';
+import { useAuth } from '../../../hooks/auth';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import Image from 'next/image';
 
 const Navigation = ({ user }) => {
   const router = useRouter();
@@ -27,7 +28,7 @@ const Navigation = ({ user }) => {
               <Link href="/">
                 {/* <ApplicationLogo className="block h-10 w-auto fill-current object-scale-down text-gray-600" /> */}
                 <a>
-                  <img src={logo.src} alt="" className="w-[50px]" />
+                  <Image src={logo} alt="" className="w-[50px]" />
                 </a>
               </Link>
             </div>
@@ -73,12 +74,7 @@ const Navigation = ({ user }) => {
               onClick={() => setOpen((open) => !open)}
               className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:bg-gray-100 focus:text-gray-500 focus:outline-none"
             >
-              <svg
-                className="h-6 w-6"
-                stroke="currentColor"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
+              <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 {open ? (
                   <path
                     className="inline-flex"
@@ -128,12 +124,8 @@ const Navigation = ({ user }) => {
               </div>
 
               <div className="ml-3">
-                <div className="text-base font-medium text-gray-800">
-                  {user?.name}
-                </div>
-                <div className="text-sm font-medium text-gray-500">
-                  {user?.email}
-                </div>
+                <div className="text-base font-medium text-gray-800">{user?.name}</div>
+                <div className="text-sm font-medium text-gray-500">{user?.email}</div>
               </div>
             </div>
 

@@ -1,5 +1,6 @@
-import logo from "../../public/asset/Logo-only.png";
+import logo from '../../public/asset/Logo-only.png';
+import Image from 'next/image';
 
-const ApplicationLogo = (props) => <img src={logo.src} alt="ietech logo" />;
+const ApplicationLogo = (props) => <Image src={logo} alt="ietech logo" />;
 
 export default ApplicationLogo;

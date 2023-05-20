@@ -1,65 +1,66 @@
-import Avatar from "../../public/asset/avatar-svgrepo-com.svg";
-import { BsReddit, BsFacebook, BsGithub } from "react-icons/bs";
+import Avatar from '../../public/asset/avatar-svgrepo-com.svg';
+import Image from 'next/image';
+import { BsReddit, BsFacebook, BsGithub } from 'react-icons/bs';
 const Team = () => {
   const Leader = [
     {
-      name: "Hoàng Ngọc Cư",
-      role: "Nhóm Trưởng",
+      name: 'Hoàng Ngọc Cư',
+      role: 'Nhóm Trưởng',
       image: Avatar,
-      redditLink: "#",
-      facebookLink: "#",
-      githubLink: "#",
+      redditLink: '#',
+      facebookLink: '#',
+      githubLink: '#',
     },
   ];
 
   const team = [
     {
-      name: "Nguyễn Gia Huy",
-      role: "Thành viên",
+      name: 'Nguyễn Gia Huy',
+      role: 'Thành viên',
       image: Avatar,
-      redditLink: "#",
-      facebookLink: "#",
-      githubLink: "#",
+      redditLink: '#',
+      facebookLink: '#',
+      githubLink: '#',
     },
     {
-      name: "Nguyễn Đức Duy",
-      role: "Thành viên",
+      name: 'Nguyễn Đức Duy',
+      role: 'Thành viên',
       image: Avatar,
-      redditLink: "#",
-      facebookLink: "#",
-      githubLink: "#",
+      redditLink: '#',
+      facebookLink: '#',
+      githubLink: '#',
     },
     {
-      name: "Võ Lục Thanh Trà",
-      role: "Thành viên",
+      name: 'Võ Lục Thanh Trà',
+      role: 'Thành viên',
       image: Avatar,
-      redditLink: "#",
-      facebookLink: "#",
-      githubLink: "#",
+      redditLink: '#',
+      facebookLink: '#',
+      githubLink: '#',
     },
     {
-      name: "Vũ Tùng Lâm",
-      role: "Thành viên",
+      name: 'Vũ Tùng Lâm',
+      role: 'Thành viên',
       image: Avatar,
-      redditLink: "#",
-      facebookLink: "#",
-      githubLink: "#",
+      redditLink: '#',
+      facebookLink: '#',
+      githubLink: '#',
     },
     {
-      name: "Trần Tiến Đạt",
-      role: "Thành viên",
+      name: 'Trần Tiến Đạt',
+      role: 'Thành viên',
       image: Avatar,
-      redditLink: "#",
-      facebookLink: "#",
-      githubLink: "#",
+      redditLink: '#',
+      facebookLink: '#',
+      githubLink: '#',
     },
     {
-      name: "Hoàng Anh Tuấn",
-      role: "Thành viên",
+      name: 'Hoàng Anh Tuấn',
+      role: 'Thành viên',
       image: Avatar,
-      redditLink: "#",
-      facebookLink: "#",
-      githubLink: "#",
+      redditLink: '#',
+      facebookLink: '#',
+      githubLink: '#',
     },
   ];
 
@@ -82,10 +83,12 @@ const Team = () => {
                 key={index}
                 className="group mx-auto flex max-w-[500px] transform cursor-pointer flex-col items-center rounded-xl border from-blue-400 to-purple-600 p-8 transition-colors duration-300 hover:border-transparent hover:bg-gradient-to-r dark:border-gray-700 dark:hover:border-transparent"
               >
-                <img
-                  className="h-32 w-32 rounded-full object-cover ring-4 ring-gray-300 duration-300 group-hover:scale-110"
+                <Image
+                  className="rounded-full object-cover ring-4 ring-gray-300 duration-300 group-hover:scale-110"
                   src={member.image.src}
                   alt=""
+                  width={128}
+                  height={128}
                 />
                 <h1 className="mt-4 text-2xl font-semibold capitalize text-gray-700 group-hover:text-white dark:text-white">
                   {member.name}
@@ -132,11 +135,13 @@ const Team = () => {
                 key={index}
                 className="group group flex transform cursor-pointer flex-col items-center rounded-xl border from-blue-400 to-purple-600 p-8 transition-colors duration-300 hover:border-transparent hover:bg-gradient-to-r dark:border-gray-700 dark:hover:border-transparent"
               >
-                <img
-                  className="h-32 w-32 rounded-full object-cover ring-4 ring-gray-300 duration-300 group-hover:scale-110"
+                <Image
+                  className=" rounded-full object-cover ring-4 ring-gray-300 duration-300 group-hover:scale-110"
                   src={member.image.src}
                   alt=""
-                ></img>
+                  width={128}
+                  height={128}
+                />
                 <h1 className="mt-4 text-2xl font-semibold capitalize text-gray-700 group-hover:text-white dark:text-white">
                   {member.name}
                 </h1>

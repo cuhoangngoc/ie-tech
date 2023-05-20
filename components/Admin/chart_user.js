@@ -1,17 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
 
-const chart_user = () => {
+const ChartUser = () => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("/api/chart_admin/getChartUser");
+      const res = await fetch('/api/chart_admin/getChartUser');
       const data = await res.json();
 
       const chartData = data.map((user) => user.count); // Dữ liệu biểu đồ từ API
-      const chartLabels = data.map((user) => user.month+ '/' + user.year); // Nhãn cho các giá trị trong biểu đồ từ API
+      const chartLabels = data.map((user) => user.month + '/' + user.year); // Nhãn cho các giá trị trong biểu đồ từ API
 
       const chartConfig = {
         type: 'bar',
@@ -61,9 +61,7 @@ const chart_user = () => {
 
   return (
     <div>
-      <h1 className="mx-auto mt-14 w-[150px] text-xl font-semibold capitalize ">
-        USER CHART
-      </h1>
+      <h1 className="mx-auto mt-14 w-[150px] text-xl font-semibold capitalize ">USER CHART</h1>
       <div className="mx-auto my-auto flex w-[1100px] bg-slate-50">
         <div className="my-auto h-fit w-full rounded-xl  border border-gray-400 pt-0  shadow-xl">
           <canvas ref={chartRef} />
@@ -73,4 +71,4 @@ const chart_user = () => {
   );
 };
 
-export default chart_user;
+export default ChartUser;

@@ -1,13 +1,13 @@
-import AdminLayout from "../../components/Admin/AdminLayout";
-import style from "../../styles/Admin.module.css";
-import { useState, useEffect } from "react";
+import AdminLayout from '../../components/Admin/AdminLayout';
+import style from '../../styles/admin.module.css';
+import { useState, useEffect } from 'react';
 
 export default function Admin() {
   const [contactsData, setcontactsData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("/api/getcontact");
+      const res = await fetch('/api/getcontact');
       const data = await res.json();
       setcontactsData(data); // Lưu dữ liệu vào state
     }

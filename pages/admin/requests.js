@@ -1,14 +1,14 @@
-import AdminLayout from "../../components/Admin/AdminLayout";
-import style from "../../styles/Admin.module.css";
-import { useState, useEffect } from "react";
-import formatDate from "../../components/formatDate";
+import AdminLayout from '../../components/Admin/AdminLayout';
+import style from '../../styles/admin.module.css';
+import { useState, useEffect } from 'react';
+import formatDate from '../../components/formatDate';
 
 export default function Admin() {
   const [requestsData, setrequestsData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("/api/getrequest");
+      const res = await fetch('/api/getrequest');
       const data = await res.json();
       setrequestsData(data); // Lưu dữ liệu vào state
     }
@@ -17,16 +17,16 @@ export default function Admin() {
 
   const Check = (e) => {
     e.preventDefault();
-    const test = e.target.getAttribute("data-test");
+    const test = e.target.getAttribute('data-test');
     if (test == 1) {
-      alert("Bạn đã duyệt trước đó! Không thể tiếp tục duyệt!!!");
+      alert('Bạn đã duyệt trước đó! Không thể tiếp tục duyệt!!!');
     } else {
-      const id = e.target.getAttribute("data-id");
+      const id = e.target.getAttribute('data-id');
       const postData = async () => {
-        const response = fetch("/api/addMoney", {
-          method: "POST",
+        const response = fetch('/api/addMoney', {
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             id: id,
@@ -34,7 +34,7 @@ export default function Admin() {
         });
       };
       postData();
-      alert("Bạn vừa phê duyệt yêu cầu nạp tiền của khách hàng!");
+      alert('Bạn vừa phê duyệt yêu cầu nạp tiền của khách hàng!');
       location.reload();
     }
   };

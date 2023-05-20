@@ -1,5 +1,5 @@
 import AdminLayout from '../../components/Admin/AdminLayout';
-import style from '../../styles/Admin.module.css';
+import style from '../../styles/admin.module.css';
 import { useState, useEffect } from 'react';
 import formatDate from '../../components/formatDate';
 

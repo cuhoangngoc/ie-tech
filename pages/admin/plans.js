@@ -1,20 +1,20 @@
-import AdminLayout from "../../components/Admin/AdminLayout";
-import { useState, useEffect } from "react";
-import Input from "../../components/Breeze/Input";
-import style from "../../styles/Admin.module.css";
+import AdminLayout from '../../components/Admin/AdminLayout';
+import { useState, useEffect } from 'react';
+import Input from '../../components/Breeze/Input';
+import style from '../../styles/admin.module.css';
 
 export default function Admin() {
   const [planData, setplanData] = useState([]);
   const [id, setID] = useState(0);
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [price, setPrice] = useState(0);
-  const [description, setDesc] = useState("");
+  const [description, setDesc] = useState('');
   const [service_id, setService_id] = useState(null);
   const [serviceData, setServiceData] = useState([]);
   // Dùng useEffect để lấy dữ liệu từ API
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("/api/getPlanData");
+      const res = await fetch('/api/getPlanData');
       const data = await res.json();
       setplanData(data); // Lưu dữ liệu vào state
     }
@@ -24,7 +24,7 @@ export default function Admin() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch("/api/getServicesData");
+      const res = await fetch('/api/getServicesData');
       const data = await res.json();
       setServiceData(data); // Lưu dữ liệu vào state
     }
@@ -35,20 +35,20 @@ export default function Admin() {
   function updatePlan(e) {
     e.preventDefault();
     // Lấy phần tử với id form và gán cho biến form
-    const form = document.getElementById("form");
+    const form = document.getElementById('form');
 
-    setID(e.target.getAttribute("id"));
+    setID(e.target.getAttribute('id'));
     // Lấy dữ liệu với thuộc tính name để set lại state name
-    setName(e.target.getAttribute("name"));
-    setPrice(e.target.getAttribute("price"));
-    setDesc(e.target.getAttribute("description"));
-    form.classList.toggle("hidden");
-    form.classList.toggle("flex");
+    setName(e.target.getAttribute('name'));
+    setPrice(e.target.getAttribute('price'));
+    setDesc(e.target.getAttribute('description'));
+    form.classList.toggle('hidden');
+    form.classList.toggle('flex');
   }
   //Hàm send_data gửi các thay đổi tạm thời đến cơ sở dữ liệu biến chúng thành thay đổi vĩnh viễn
   function send_data_to_database() {
     if (price <= 0) {
-      alert("Giá tiền phải lớn hơn 0");
+      alert('Giá tiền phải lớn hơn 0');
       return;
     }
 
@@ -60,51 +60,51 @@ export default function Admin() {
         price: price,
       };
 
-      const response = await fetch("/api/updatePlanInfo", {
-        method: "POST",
+      const response = await fetch('/api/updatePlanInfo', {
+        method: 'POST',
         body: JSON.stringify(data),
       });
       return response.json();
     };
     postData();
-    alert("Cập nhật thông tin thành công!");
+    alert('Cập nhật thông tin thành công!');
     location.reload();
   }
 
   //Hàm xóa plan sử dụng id lấy từ thuộc tính  plan_id của nút xóa
   const deletePlan = async (e) => {
     e.preventDefault();
-    const id = e.target.getAttribute("plan_id");
+    const id = e.target.getAttribute('plan_id');
     // Hỏi người dùng, nếu không muốn xóa thì thoát
-    if (!confirm("Bạn muốn xóa gói này")) return;
+    if (!confirm('Bạn muốn xóa gói này')) return;
 
     const postData = async () => {
-      const res = await fetch("/api/deletePlan", {
-        method: "POST",
+      const res = await fetch('/api/deletePlan', {
+        method: 'POST',
         body: JSON.stringify({ id: id }),
       });
       return res.json();
     };
     postData();
-    alert("Xóa gói thành công");
+    alert('Xóa gói thành công');
     location.reload();
   };
 
   //Hàm hiện và ẩn form insert
   function hiddenOrAppearFormInsert() {
-    const form = document.getElementById("insert-form");
-    form.classList.toggle("hidden");
-    form.classList.toggle("flex");
+    const form = document.getElementById('insert-form');
+    form.classList.toggle('hidden');
+    form.classList.toggle('flex');
   }
   //Hàm insert dữ liệu từ form insert
   function insertPlan(e) {
     e.preventDefault();
 
     if (price <= 0) {
-      alert("Giá tiền phải lớn hơn 0");
+      alert('Giá tiền phải lớn hơn 0');
       return;
     } else if (service_id == null) {
-      alert("Hãy chọn dịch vụ");
+      alert('Hãy chọn dịch vụ');
       return;
     }
 
@@ -116,13 +116,13 @@ export default function Admin() {
         service_id: service_id,
       };
       console.log(data);
-      const response = await fetch("/api/insertPlan", {
-        method: "POST",
+      const response = await fetch('/api/insertPlan', {
+        method: 'POST',
         body: JSON.stringify(data),
       });
     };
     postData();
-    alert("Thêm plan thành công!");
+    alert('Thêm plan thành công!');
     location.reload();
   }
 
@@ -202,10 +202,7 @@ export default function Admin() {
             placeholder="Mô tả"
             onChange={(e) => setDesc(e.target.value)}
           />
-          <button
-            className="w-fit rounded-md p-1 hover:bg-blue-600"
-            type="submit"
-          >
+          <button className="w-fit rounded-md p-1 hover:bg-blue-600" type="submit">
             Lưu
           </button>
         </form>
@@ -260,10 +257,7 @@ export default function Admin() {
             </option>
           ))}
         </select>
-        <button
-          className="w-fit rounded-md bg-blue-400 p-1 hover:bg-blue-600"
-          type="submit"
-        >
+        <button className="w-fit rounded-md bg-blue-400 p-1 hover:bg-blue-600" type="submit">
           Thêm
         </button>
       </form>

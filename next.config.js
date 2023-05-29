@@ -16,6 +16,11 @@ const nextConfig = {
         hostname: 'viettourist.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 'img.freepik.com',
+        port: '',
+      },
     ],
   },
 };

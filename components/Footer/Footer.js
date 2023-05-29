@@ -10,7 +10,7 @@ export const Footer = () => {
   return (
     <div className="mt-10 bg-[#211e3b] pb-10">
       <a href="#" className="flex items-center justify-center gap-2">
-        <Image src={Logo} alt="logo" width={50} height={50} />
+        <Image src={Logo} alt="logo" width={64} height={71} />
         <span className="my-10 text-4xl text-white">ietech</span>
       </a>
 

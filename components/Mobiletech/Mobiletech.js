@@ -1,16 +1,16 @@
-import AI from "../../public/asset/AI.jpg";
-import Chatbot from "../../public/asset/Chatbot.jpg";
-import ThucTeAo from "../../public/asset/ThucTeAo.jpg";
-import IoT from "../../public/asset/IoT.jpg";
-import ttDD from "../../public/asset/ttDD.jpg";
-import blockchain from "../../public/asset/blockchain.jpg";
-import { useState, useEffect } from "react";
-import Plan from "../Checkout/Plan";
+import AI from '../../public/asset/AI.jpg';
+import Chatbot from '../../public/asset/Chatbot.jpg';
+import ThucTeAo from '../../public/asset/ThucTeAo.jpg';
+// import IoT from "../../public/asset/IoT.jpg";
+import ttDD from '../../public/asset/ttDD.jpg';
+import blockchain from '../../public/asset/blockchain.jpg';
+import { useState, useEffect } from 'react';
+import Plan from '../Checkout/Plan';
 const Mobiletech = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch("/api/getMobilePlan");
+      const res = await fetch('/api/getMobilePlan');
       const data = await res.json();
       setData(data);
     };
@@ -18,7 +18,7 @@ const Mobiletech = () => {
   }, []);
 
   data.forEach((item) => {
-    item.descriptionArr = item.description.split(", ");
+    item.descriptionArr = item.description.split(', ');
   });
 
   return (

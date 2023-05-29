@@ -85,10 +85,8 @@ const Team = () => {
               >
                 <Image
                   className="rounded-full object-cover ring-4 ring-gray-300 duration-300 group-hover:scale-110"
-                  src={member.image.src}
+                  src={member.image}
                   alt=""
-                  width={128}
-                  height={128}
                 />
                 <h1 className="mt-4 text-2xl font-semibold capitalize text-gray-700 group-hover:text-white dark:text-white">
                   {member.name}
@@ -136,11 +134,9 @@ const Team = () => {
                 className="group group flex transform cursor-pointer flex-col items-center rounded-xl border from-blue-400 to-purple-600 p-8 transition-colors duration-300 hover:border-transparent hover:bg-gradient-to-r dark:border-gray-700 dark:hover:border-transparent"
               >
                 <Image
-                  className=" rounded-full object-cover ring-4 ring-gray-300 duration-300 group-hover:scale-110"
-                  src={member.image.src}
+                  className="rounded-full object-cover ring-4 ring-gray-300 duration-300 group-hover:scale-110"
+                  src={member.image}
                   alt=""
-                  width={128}
-                  height={128}
                 />
                 <h1 className="mt-4 text-2xl font-semibold capitalize text-gray-700 group-hover:text-white dark:text-white">
                   {member.name}

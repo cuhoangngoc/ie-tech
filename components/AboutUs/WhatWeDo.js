@@ -42,8 +42,8 @@ const WhatWeDo = () => {
             className="h-96 w-full rounded-lg object-cover object-center lg:w-[30rem]"
             src="https://viettourist.com/resources/images/Blog-Khachdoan/teamb1.png"
             alt=""
-            width={500}
-            height={348}
+            width={1200}
+            height={1200}
           />
 
           <div className="mt-8 lg:mt-0 lg:px-10">

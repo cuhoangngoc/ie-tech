@@ -104,10 +104,10 @@ function Navbar() {
               </div>
             </div>
           ) : (
-            <Link href="/login">
-              <a className="flex rounded-md bg-blue-500 p-1 text-center text-sm text-white duration-300 hover:bg-blue-700 md:text-base">
-                Bắt đầu
-              </a>
+            <Link href="/login"> 
+            <a className="flex rounded-md bg-blue-700 p-1 text-center text-sm text-gray-100 duration-300 hover:bg-blue-900 md:text-base">
+              Bắt đầu
+            </a>
             </Link>
           )}
         </div>

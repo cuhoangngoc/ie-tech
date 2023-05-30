@@ -48,6 +48,8 @@ const Contact = () => {
   
     await postData();
     alert('Chúng tôi đã nhận được thông điệp của bạn!');
+    const iframe = document.querySelector('iframe');
+    iframe.addEventListener('touchstart', handleTouchStart, { passive: true });
   }
 
   return (
@@ -129,6 +131,7 @@ const Contact = () => {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            
           ></iframe>
         </section>
       </main>

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
+
 export const WeCarry = () => {
   return (
     <div className="m-auto flex h-[350px]  max-w-[1100px] flex-col bg-[url('../public/asset/contact.webp')] md:flex-row">
@@ -14,7 +15,13 @@ export const WeCarry = () => {
           CONTACT US
         </Link>
       </div>
+      <Image
+        src="../public/asset/contact.webp"
+        quality={75}
+        alt="Contact Image"
+      />
     </div>
   );
 };
+
 export default WeCarry;

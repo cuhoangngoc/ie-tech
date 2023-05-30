@@ -114,7 +114,7 @@ function Navbar() {
 
         {/* Button for mobile menu */}
         <div className="flex items-center md:hidden">
-          <button className="moblie-menu-btn hover:text-blue-500" onClick={showMobileMenu}>
+          <button id = 'colapse-menu' className="moblie-menu-btn hover:text-blue-500" onClick={showMobileMenu}>
             <FiMenu className="menu-icon-open h-6 w-6" />
             <FiX className="menu-icon-close hidden h-6 w-6 hover:text-red-700" />
           </button>

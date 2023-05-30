@@ -30,7 +30,7 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [content, setContent] = useState('');
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
     const postData = async () => {
       const data = {
@@ -38,15 +38,15 @@ const Contact = () => {
         email: email,
         content: content,
       };
-
+  
       const response = await fetch('/api/getinformation', {
         method: 'POST',
         body: JSON.stringify(data),
       });
       return response.json();
     };
-
-    postData();
+  
+    await postData();
     alert('Chúng tôi đã nhận được thông điệp của bạn!');
   }
 

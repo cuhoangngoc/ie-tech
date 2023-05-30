@@ -9,7 +9,7 @@ module.exports = {
     production: {
       key: 'key.pem',
       user: 'ubuntu',
-      host: '52.221.198.172',
+      host: '13.250.104.75',
       ref: 'origin/main',
       repo: 'git@github.com:buckpotter/ie-tech.git',
       path: '/home/ubuntu',

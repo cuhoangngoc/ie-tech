@@ -8,7 +8,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="vi">
         <Head>
           <link
             href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"

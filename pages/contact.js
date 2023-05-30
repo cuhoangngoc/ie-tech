@@ -30,7 +30,7 @@ const Contact = () => {
   const [email, setEmail] = useState('');
   const [content, setContent] = useState('');
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     const postData = async () => {
       const data = {
@@ -38,18 +38,16 @@ const Contact = () => {
         email: email,
         content: content,
       };
-  
+
       const response = await fetch('/api/getinformation', {
         method: 'POST',
         body: JSON.stringify(data),
       });
       return response.json();
     };
-  
-    await postData();
+
+    postData();
     alert('Chúng tôi đã nhận được thông điệp của bạn!');
-    const iframe = document.querySelector('iframe');
-    iframe.addEventListener('touchstart', handleTouchStart, { passive: true });
   }
 
   return (
@@ -131,7 +129,6 @@ const Contact = () => {
             allowFullScreen=""
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            
           ></iframe>
         </section>
       </main>

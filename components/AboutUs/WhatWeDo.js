@@ -42,7 +42,7 @@ const WhatWeDo = () => {
           <Image
             className="h-96 w-full rounded-lg object-cover object-center lg:w-[30rem]"
             src="https://viettourist.com/resources/images/Blog-Khachdoan/teamb1.png"
-            alt=""
+            alt="What we do."
             width={1200}
             height={1200}
           />
@@ -59,6 +59,7 @@ const WhatWeDo = () => {
 
                   <a
                     href={item.link}
+                    alt={`Learn more about ${item.title}`}
                     className="-mx-1 inline-flex transform items-center text-sm capitalize text-blue-500 transition-colors duration-300 hover:text-blue-600 hover:underline dark:text-blue-400 dark:hover:text-blue-500"
                   >
                     <span className="mx-1">read more</span>

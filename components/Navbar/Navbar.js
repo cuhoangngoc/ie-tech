@@ -114,10 +114,11 @@ function Navbar() {
 
         {/* Button for mobile menu */}
         <div className="flex items-center md:hidden">
-          <button className="moblie-menu-btn hover:text-blue-500" onClick={showMobileMenu} aria-label="Toggle mobile menu">
-            <FiMenu className="menu-icon-open h-6 w-6" />
-            <FiX className="menu-icon-close hidden h-6 w-6 hover:text-red-700" />
-          </button>
+        <button className="moblie-menu-btn hover:text-blue-500" onClick={showMobileMenu} aria-label="Toggle mobile menu">
+  <FiMenu className="menu-icon-open h-6 w-6" />
+  <FiX className="menu-icon-close hidden h-6 w-6 hover:text-red-700" />
+  Mobile Menu
+</button>
         </div>
       </div>
 

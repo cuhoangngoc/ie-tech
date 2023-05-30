@@ -5,24 +5,25 @@ const WhatWeDo = () => {
       title: 'PHP Website Development Services',
       content:
         'Ngôn ngữ PHP là từ viết tắt của Personal Home Page (hiện nay là Hypertext Preprocessor). Thuật ngữ này chỉ chuỗi ngôn ngữ kịch bản hay mã lệnh, phù hợp để phát triển cho các ứng dụng nằm trên máy chủ.',
-      link: '#',
+      link: 'https://www.php.net/',
     },
     {
       title: 'React JSX',
       content:
         'ReactJS là một thư viện viết bằng javascript, dùng để xây dựng giao diện người dùng (User Interface – UI). React có thể được dùng để phát triển các ứng dụng web single-page, hoặc trên các thiết bị di động.',
-      link: '#',
+      link: 'https://legacy.reactjs.org/docs/introducing-jsx.html',
     },
     {
       title: 'JavaScript',
       content:
         'JavaScript là ngôn ngữ lập trình phổ biến dùng để tạo ra các trang web tương tác. Được tích hợp và nhúng vào HTML giúp website trở nên sống động hơn. JavaScript đóng vai trò như một phần của trang web, thực thi cho phép Client-Side Script từ phía người dùng cũng như phía máy chủ (Nodejs) tạo ra các trang web động.',
-      link: '#',
+      link: 'https://www.w3schools.com/js/',
     },
     {
       title: 'CSS',
       content:
         'CSS là chữ viết tắt của Cascading Style Sheets, nó là một ngôn ngữ được sử dụng để tìm và định dạng lại các phần tử được tạo ra bởi các ngôn ngữ đánh dấu (HTML). Nói ngắn gọn hơn là ngôn ngữ tạo phong cách cho trang web.',
+      link: 'https://www.w3schools.com/css/',
     },
   ];
 
@@ -54,7 +55,7 @@ const WhatWeDo = () => {
                     {item.title}
                   </h1>
 
-                  <p className="text-gray-500 dark:text-gray-300">{item.content}</p>
+                  <p className="text-gray-100 dark:text-gray-300">{item.content}</p>
 
                   <a
                     href={item.link}

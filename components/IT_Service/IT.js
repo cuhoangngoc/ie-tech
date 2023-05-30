@@ -31,7 +31,7 @@ const IT = () => {
   });
   return (
     <>
-      <div className="it relative bg-[url('http://wpdemo.archiwp.com/engitech/wp-content/uploads/sites/4/2019/12/bg-pheader.jpg')] ">
+      <div className="it relative bg-[url('https://wpdemo.archiwp.com/engitech/wp-content/uploads/sites/4/2019/12/bg-pheader.jpg')] ">
         <div className="flex p-8">
           <section className="container">
             <header className="my-20 text-6xl font-bold text-white">IT Services</header>
@@ -128,7 +128,7 @@ const IT = () => {
         </div>
 
         {/* Phần thứ 3 */}
-        <div className=" mt-20 bg-[url('http://wpdemo.archiwp.com/engitech/wp-content/uploads/sites/4/2020/03/bg-cta-home2.jpg')]">
+        <div className=" mt-20 bg-[url('https://wpdemo.archiwp.com/engitech/wp-content/uploads/sites/4/2020/03/bg-cta-home2.jpg')]">
           <section className="grid place-items-center pt-20">
             <span className="text-2xl text-white">
               &#47;&#47; Drop us a line! We are here to answer your questions 24/7

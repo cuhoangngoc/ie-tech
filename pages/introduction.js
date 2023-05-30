@@ -9,7 +9,10 @@ import Layout from "../components/Layout/Layout";
 export default function GioiThieu() {
   return (
     <Layout>
-
+      <Head>
+        <title>Giới thiệu</title>
+        <meta name="description" content="Giới thiệu" />
+      </Head>
       <AboutUs />
       <Stat />
       <Cards />

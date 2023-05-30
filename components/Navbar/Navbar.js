@@ -42,7 +42,7 @@ function Navbar() {
         {/* logo */}
         <Link href="/" legacyBehavior>
           <a className="flex cursor-pointer items-center md:justify-center">
-            <Image src={Logo} alt="logo" width={50} height={50} layout="fixed" />
+            <Image src={Logo} alt="logo" width={64} height={64} />
             <span className="ml-2 py-4">ietech</span>
           </a>
         </Link>

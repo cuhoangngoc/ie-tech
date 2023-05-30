@@ -1,34 +1,33 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
+import missionImage from '../../public/asset/pexels-photo-3184311.jpeg';
+import visionImage from '../../public/asset/pexels-photo-3184338.jpeg';
+import strategyImage from '../../public/asset/pexels-photo-3184360.jpeg';
+import philosophyImage from '../../public/asset/pexels-photo-3184339.jpeg';
 const Cards = () => {
   const cardItems = [
     {
       title: 'Sứ mệnh',
       content:
         'Nhiệm vụ của chúng tôi là giúp duy trì và hiện đại hóa cơ sở hạ tầng CNTT của bạn và giải quyết các vấn đề cụ thể về cơ sở hạ tầng khác nhau.',
-      image:
-        'https://images.pexels.com/photos/3184311/pexels-photo-3184311.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;w=500',
+      image: missionImage,
     },
     {
       title: 'Tầm nhìn',
       content:
         'Chúng tôi cố gắng tạo ra cơ hội, tăng trưởng và tác động địa phương ở mọi quốc gia trên thế giới.',
-      image:
-        'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260',
+      image: visionImage,
     },
     {
       title: 'Triết lý',
       content: 'Triết lý mà chúng tôi nhắm đến là "Hiện đại, Sáng Tạo, Bền vững".',
-      image:
-        'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260',
+      image: philosophyImage,
     },
     {
       title: 'Chiến lược',
       content:
         'Chúng tôi cung cấp các giải pháp phần mềm tùy chỉnh, thiết kế sản phẩm, kiểm thử và các dịch vụ tư vấn.',
-      image:
-        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260',
+      image: strategyImage,
     },
   ];
 

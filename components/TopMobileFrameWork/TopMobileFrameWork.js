@@ -12,7 +12,7 @@ const TopMobileFrameWork = () => (
       </h2>
     </div>
     <div className="row-gap-5 sm:row-gap-6 mb-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      <Link href="/" aria-label="View Item">
+      <div aria-label="View Item">
         <div className="relative transform overflow-hidden rounded shadow-lg transition duration-200 hover:-translate-y-2 hover:shadow-2xl">
           <Image className="h-56 w-full object-fill md:h-64 xl:h-80" src={Swiftic} alt="Swiftic" />
           <div className="absolute inset-0 bg-black bg-opacity-75 px-6 py-4 opacity-0 transition-opacity duration-200 hover:opacity-100">
@@ -25,8 +25,8 @@ const TopMobileFrameWork = () => (
             </p>
           </div>
         </div>
-      </Link>
-      <Link href="/" aria-label="View Item">
+      </div>
+      <div aria-label="View Item">
         <div className="relative transform overflow-hidden rounded shadow-lg transition duration-200 hover:-translate-y-2 hover:shadow-2xl">
           <Image className="h-56 w-full object-fill md:h-64 xl:h-80" src={Xamarin} alt="Xamarin" />
           <div className="absolute inset-0 bg-black bg-opacity-75 px-6 py-4 opacity-0 transition-opacity duration-200 hover:opacity-100">
@@ -39,8 +39,8 @@ const TopMobileFrameWork = () => (
             </p>
           </div>
         </div>
-      </Link>
-      <a href="" aria-label="View Item">
+      </div>
+      <div aria-label="View Item">
         <div className="relative transform overflow-hidden rounded shadow-lg transition duration-200 hover:-translate-y-2 hover:shadow-2xl">
           <Image className="h-56 w-full object-fill md:h-64 xl:h-80" src={Flutter} alt="Flutter" />
           <div className="absolute inset-0 bg-black bg-opacity-75 px-6 py-4 opacity-0 transition-opacity duration-200 hover:opacity-100">
@@ -53,8 +53,8 @@ const TopMobileFrameWork = () => (
             </p>
           </div>
         </div>
-      </a>
-      <Link href="/" aria-label="View Item">
+      </div>
+      <div aria-label="View Item">
         <div className="relative transform overflow-hidden rounded shadow-lg transition duration-200 hover:-translate-y-2 hover:shadow-2xl">
           <Image
             className="h-56 w-full object-fill md:h-64 xl:h-80"
@@ -70,7 +70,7 @@ const TopMobileFrameWork = () => (
             </p>
           </div>
         </div>
-      </Link>
+      </div>
     </div>
   </div>
 );

@@ -49,7 +49,7 @@ const Contact = () => {
     postData();
     alert('Chúng tôi đã nhận được thông điệp của bạn!');
   }
-
+  window.addEventListener('scroll', handleScroll, { passive: true });
   return (
     <Layout>
       <main className="container mx-auto mt-10">

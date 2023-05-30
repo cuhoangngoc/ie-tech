@@ -24,6 +24,7 @@ const WhatWeDo = () => {
       content:
         'CSS là chữ viết tắt của Cascading Style Sheets, nó là một ngôn ngữ được sử dụng để tìm và định dạng lại các phần tử được tạo ra bởi các ngôn ngữ đánh dấu (HTML). Nói ngắn gọn hơn là ngôn ngữ tạo phong cách cho trang web.',
       link: 'https://www.w3schools.com/css/',
+      alt: 'CSS',
     },
   ];
 
@@ -59,7 +60,7 @@ const WhatWeDo = () => {
 
                   <a
                     href={item.link}
-                    alt={`Learn more about ${item.title}`}
+                    alt={item.alt}
                     className="-mx-1 inline-flex transform items-center text-sm capitalize text-blue-500 transition-colors duration-300 hover:text-blue-600 hover:underline dark:text-blue-400 dark:hover:text-blue-500"
                   >
                     <span className="mx-1">read more</span>

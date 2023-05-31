@@ -16,6 +16,10 @@ export default function Home() {
 
   return (
     <Layout>
+      <Head>
+        <title>Trang chủ</title>
+        <meta name="description" content="Trang chủ" />
+      </Head>
       {/* main */}
       {/* <Slider /> */}
       <div className="container mx-auto px-2 md:px-4">

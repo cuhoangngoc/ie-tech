@@ -10,10 +10,32 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <link
-            href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap"
-            rel="stylesheet"
-          />
+          <style>{`
+            @font-face {
+              font-family: 'Nunito';
+              font-style: normal;
+              font-weight: 400;
+              font-display: swap;
+              src: url('/fonts/Nunito-Regular.woff2') format('woff2'),
+                   url('/fonts/Nunito-Regular.woff') format('woff');
+            }
+            @font-face {
+              font-family: 'Nunito';
+              font-style: normal;
+              font-weight: 600;
+              font-display: swap;
+              src: url('/fonts/Nunito-SemiBold.woff2') format('woff2'),
+                   url('/fonts/Nunito-SemiBold.woff') format('woff');
+            }
+            @font-face {
+              font-family: 'Nunito';
+              font-style: normal;
+              font-weight: 700;
+              font-display: swap;
+              src: url('/fonts/Nunito-Bold.woff2') format('woff2'),
+                   url('/fonts/Nunito-Bold.woff') format('woff');
+            }
+          `}</style>
         </Head>
         <body className="antialiased">
           <Main />

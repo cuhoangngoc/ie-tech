@@ -12,6 +12,10 @@ import { defaults } from "autoprefixer";
 export const web_development = () => {
   return (
     <Layout>
+      <head>
+        <title>Web Development</title>
+        <meta name="description" content="Web Development" />
+      </head>
       {/* main */}
       <Main_header></Main_header>
       <div className="container mx-auto px-2 md:px-4">

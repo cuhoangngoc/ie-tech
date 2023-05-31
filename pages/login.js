@@ -47,6 +47,10 @@ const Login = () => {
 
   return (
     <Layout>
+      <head>
+        <title>Đăng nhập</title>
+        <meta name="description" content="Đăng nhập vào hệ thống" />
+      </head>
       <AuthCard
         logo={
           <Link href="/">

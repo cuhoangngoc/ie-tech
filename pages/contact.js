@@ -51,6 +51,10 @@ const Contact = () => {
   }
   return (
     <Layout>
+      <head>
+        <title>Liên Hệ</title>
+        <meta name="description" content="Liên Hệ" />
+      </head>
       <main className="container mx-auto mt-10">
         <section className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <div className="sm:basis-1/2">

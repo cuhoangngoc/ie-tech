@@ -20,7 +20,7 @@ const Hero = () => (
 
     {/* image */}
     <div className="flex w-full md:w-1/2">
-      <Image src={heroImg} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="hero" className="rounded-full object-scale-down shadow-lg" />
+    <Image src={heroImg} alt="hero" className="rounded-full object-scale-down shadow-lg" />
     </div>
   </section>
 );

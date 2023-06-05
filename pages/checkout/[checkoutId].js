@@ -133,7 +133,7 @@ const Checkout = () => {
             ))}
           </div>
         </div>
-        <GoolePayForm orderInfo={orderInfo} />
+        <GooglePayForm orderInfo={orderInfo} />
       </div>
 
       {/* <div id="payment-method" className="mt-10 flex justify-center gap-4 md:flex-row">

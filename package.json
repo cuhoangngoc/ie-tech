@@ -9,13 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-pay/button-react": "^3.0.9",
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.12",
     "@next/font": "^13.0.6",
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.52.1",
     "autoplay": "^0.0.4",
-    "axios": "^1.2.0",
+    "axios": "^1.4.0",
     "chart.js": "^4.3.0",
     "daisyui": "^2.51.5",
     "flowbite": "^1.6.5",

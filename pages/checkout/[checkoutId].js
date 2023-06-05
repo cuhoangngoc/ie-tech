@@ -5,6 +5,7 @@ import { useAuth } from '../../hooks/auth';
 import round from '../../components/round';
 import StripeContainer from '../../components/StripeContainer';
 import axios from 'axios';
+import GooglePayForm from '../../components/GooglePay/GooglePayForm';
 
 const Checkout = () => {
   const { user } = useAuth({ middleware: 'auth' }); //redirect tới đăng nhập nếu chưa đăng nhập
@@ -132,6 +133,7 @@ const Checkout = () => {
             ))}
           </div>
         </div>
+        <GoolePayForm orderInfo={orderInfo} />
       </div>
 
       {/* <div id="payment-method" className="mt-10 flex justify-center gap-4 md:flex-row">

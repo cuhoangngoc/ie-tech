@@ -5,64 +5,24 @@ import { useAuth } from '../../hooks/auth';
 import React, { Component } from 'react';
 import GooglePayButton from '@google-pay/button-react';
 import round from '../../components/round';
-import savePayment from '../../pages/api/payment/save-Payment';
 const GooglePayForm = ({ orderInfo }) => {
-    const { user } = useAuth({ middleware: 'auth' }); //redirect tới đăng nhập nếu chưa đăng nhập
-    const router = useRouter();
-    const { checkoutId } = router.query; // lấy checkoutId từ URL, trả về một string
-    const [checkoutData, setCheckoutData] = useState({}); // khởi tạo state checkoutData với giá trị mặc định là object rỗng chua dữ liệu của checkout
-    const [order, setOrder] = useState({}); // khởi tạo state totalPrice với giá trị mặc định là 0
-    useEffect(() => {
-        if (checkoutId) {
-            // kiểm tra checkoutId có tồn tại hay không
-            const postData = async () => {
-                const response = await fetch('/api/getCheckoutData', {
-                    method: 'POST',
-                    body: JSON.stringify({ id: checkoutId }),
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                });
-                const data = await response.json();
-                setCheckoutData(data[0]); // Kết quả trả về là mảng với 1 phần tử duy nhất và lấy phần tử đó
-            };
-            postData();
-        }
-    }, [router.query.id, router.isReady, checkoutId]); // chỉ chạy khi checkoutId thay đổi
-    useEffect(() => {
-        if (checkoutData) {
-            // kiểm tra checkoutData có tồn tại hay không
-            const order = {
-                total: orderInfo.total,
-                plan_id: checkoutData.plan_id,
-                plan_name: checkoutData.plan_name,
-                duration: checkoutData.duration,
-            };
-            setOrder(order);
-        }
-    }, [checkoutData]); // chỉ chạy khi checkoutData thay đổi
+    const order = orderInfo;
     const handlePayment = async (paymentData) => {
-        try {
-            const response = await fetch('/api/payment/save-payment', {
-                method: 'POST',
-                body: JSON.stringify({
-                    id: paymentData.paymentMethodData.tokenizationData.token,
-                    total: order.total,
-                    user_id: user.id,
-                    plan_id: order.plan_id,
-                    duration: order.duration,
-                }),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            });
-            const data = await response.json();
-            if (data.success) {
-                router.push('/payment/success');
-            }
-        }
-        catch (e) {
-            console.log(e);
+        // hàm xử lý khi thanh toán thành công
+        const { id } = paymentData; // lấy id của payment
+        const { total, plan_id, duration } = checkoutData; // lấy giá trị total từ state
+        const { id: user_id } = user; // lấy id của user từ state
+        const response = await fetch('/api/savePayment', {
+            method: 'POST',
+            body: JSON.stringify({ id, total, user_id, plan_id, duration }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const data = await response.json();
+        if (data.status === 'success') {
+            // nếu lưu thành công thì chuyển hướng tới trang profile
+            router.push('/profile');
         }
     };
     return (
@@ -84,39 +44,59 @@ const GooglePayForm = ({ orderInfo }) => {
                   tokenizationSpecification: {
                     type: 'PAYMENT_GATEWAY',
                     parameters: {
-                      gateway: 'ietech',
-                      gatewayMerchantId: checkoutData.plan_id,
+                      gateway: 'example',
+                      gatewayMerchantId: 'exampleGatewayMerchantId',
                     },
                   },
                 },
               ],
               merchantInfo: {
-                merchantId: checkoutData.plan_id,
-                merchantName: checkoutData.plan_name,
+                merchantId: '12345678901234567890',
+                merchantName: 'Demo Merchant',
               },
               transactionInfo: {
                 totalPriceStatus: 'FINAL',
                 totalPriceLabel: 'Total',
-                totalPrice: orderInfo.total,
+                totalPrice: order.total,
                 currencyCode: 'USD',
                 countryCode: 'US',
               },
-              shippingAddressRequired: true,
+              shippingAddressRequired: false,
+              emailRequired: true,
               callbackIntents: ['PAYMENT_AUTHORIZATION'],
+              paymentDataCallbacks: {
+                onPaymentAuthorized: (paymentData) => {
+                  console.log('Payment Authorised Success', paymentData);
+                  handlePayment(paymentData);
+                  return { transactionState: 'SUCCESS' };
+                },
+              },
+              PaymentDataRequest: {
+                transactionInfo: {
+                  totalPriceStatus: 'FINAL',
+                  totalPriceLabel: 'Total',
+                  totalPrice: order.total,
+                  currencyCode: 'USD',
+                  countryCode: 'US',
+                },
+                merchantInfo: {
+                  merchantInfo: {
+                    merchantId: order.user_id,
+                    merchantName: 'Demo Merchant',
+                  },
+                },
+              },
             }}
-            onLoadPaymentData={(paymentRequest) => {
-              console.log('Success', paymentRequest);
+            onLoadPaymentData={(paymentData) => {
+              paymentDataRequest.paymentDataCallbacks;
+              console.log('Success', paymentData);
             }}
             onPaymentAuthorized={(paymentData) => {
               console.log('Payment Authorised Success', paymentData);
               handlePayment(paymentData);
               return { transactionState: 'SUCCESS' };
             }}
-            onPaymentDataChanged={(paymentData) => {
-              console.log('On Payment Data Changed', paymentData);
-              return {};
-            }}
-            existingPaymentMethodRequired="false"
+            existingPaymentMethodRequired="true"
             buttonColor="black"
             buttonType="buy"
           />

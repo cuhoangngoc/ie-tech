@@ -5,6 +5,7 @@ import { useAuth } from '../../hooks/auth';
 import React, { Component } from 'react';
 import GooglePayButton from '@google-pay/button-react';
 import round from '../../components/round';
+import savePayment from '../../pages/api/payment/save-Payment';
 const GooglePayForm = ({ orderInfo }) => {
     const { user } = useAuth({ middleware: 'auth' }); //redirect tới đăng nhập nếu chưa đăng nhập
     const router = useRouter();
@@ -28,6 +29,42 @@ const GooglePayForm = ({ orderInfo }) => {
             postData();
         }
     }, [router.query.id, router.isReady, checkoutId]); // chỉ chạy khi checkoutId thay đổi
+    useEffect(() => {
+        if (checkoutData) {
+            // kiểm tra checkoutData có tồn tại hay không
+            const order = {
+                total: orderInfo.total,
+                plan_id: checkoutData.plan_id,
+                plan_name: checkoutData.plan_name,
+                duration: checkoutData.duration,
+            };
+            setOrder(order);
+        }
+    }, [checkoutData]); // chỉ chạy khi checkoutData thay đổi
+    const handlePayment = async (paymentData) => {
+        try {
+            const response = await fetch('/api/payment/save-payment', {
+                method: 'POST',
+                body: JSON.stringify({
+                    id: paymentData.paymentMethodData.tokenizationData.token,
+                    total: order.total,
+                    user_id: user.id,
+                    plan_id: order.plan_id,
+                    duration: order.duration,
+                }),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const data = await response.json();
+            if (data.success) {
+                router.push('/payment/success');
+            }
+        }
+        catch (e) {
+            console.log(e);
+        }
+    };
     return (
           <div className="mt-5 flex flex-col items-center justify-center gap-8 lg:flex-row">
         <div className="button">
@@ -72,6 +109,7 @@ const GooglePayForm = ({ orderInfo }) => {
             }}
             onPaymentAuthorized={(paymentData) => {
               console.log('Payment Authorised Success', paymentData);
+              handlePayment(paymentData);
               return { transactionState: 'SUCCESS' };
             }}
             onPaymentDataChanged={(paymentData) => {

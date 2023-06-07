@@ -5,15 +5,15 @@ export default async function handler(req, res) {
     const connection = await connPromise;
     const { name, email, phone, address } = JSON.parse(req.body);
     const query =
-      "UPDATE USERS SET NAME = '" +
+      "UPDATE users SET name = '" +
       name +
-      "', EMAIL = '" +
+      "', email = '" +
       email +
-      "', PHONE = '" +
+      "', phone = '" +
       phone +
-      "', ADDRESS = '" +
+      "', address = '" +
       address +
-      "' WHERE EMAIL = '" +
+      "' WHERE email = '" +
       email +
       "';";
     await connection.execute(query);

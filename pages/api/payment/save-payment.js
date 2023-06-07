@@ -22,7 +22,7 @@ export default async function handler(req, res) {
       // save payment to database
       const order_status = payment.status === 'succeeded' ? 'Thành công' : 'Đã hủy';
       const query =
-        'INSERT INTO ORDERS (USER_ID, PLAN_ID, DURATION, TOTAL, STATUS) VALUE ("' +
+        'INSERT INTO orders (user_id, plan_id, duration, total, status) VALUE ("' +
         user_id +
         '", "' +
         plan_id +

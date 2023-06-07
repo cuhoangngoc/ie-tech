@@ -65,11 +65,11 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="absolute top-0 hidden h-screen bg-[#B9E0FF] md:sticky md:block">
+    <div className="fixed top-0 hidden h-screen min-w-[160px] bg-[#B9E0FF] md:sticky md:block">
       <div>
         <Link href="/">
           <a className="flex items-center justify-center gap-2 p-2 font-bold">
-            <Image src={Logo} alt="logo" className="w-20" />
+            <Image src={Logo} alt="logo" width={80} height={80} />
             ietech
           </a>
         </Link>

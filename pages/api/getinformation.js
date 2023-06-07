@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     const connection = await connPromise;
     const { name, email, content } = JSON.parse(req.body);
     const query =
-      "INSERT INTO CONTACTS (NAME, EMAIL, CONTENT) VALUE ('" +
+      "INSERT INTO contacts (name, email, content) VALUE ('" +
       name +
       "', '" +
       email +

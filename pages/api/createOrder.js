@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       const { user_id, plan_id, duration, total, order_status } = JSON.parse(req.body);
 
       const query =
-        'INSERT INTO ORDERS (USER_ID, PLAN_ID, DURATION, TOTAL, STATUS) VALUE ("' +
+        'INSERT INTO orders (user_id, plan_id, duration, total, status) VALUE ("' +
         user_id +
         '", "' +
         plan_id +
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
       await connection.execute(query);
 
       const updateUserBalance =
-        'UPDATE USERS SET BALANCE = BALANCE - ' + total + ' WHERE ID = ' + user_id;
+        'UPDATE users SET balance = balance - ' + total + ' WHERE id = ' + user_id;
 
       await connection.execute(updateUserBalance);
       res.status(200).json({ status: 'success' });

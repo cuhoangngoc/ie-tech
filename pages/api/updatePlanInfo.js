@@ -5,13 +5,13 @@ export default async function handler(req, res) {
     const connection = await connPromise;
     const { id, name, description, price } = JSON.parse(req.body);
     const query =
-      "UPDATE PLANS SET NAME = '" +
+      "UPDATE plans SET NAME = '" +
       name +
-      "', DESCRIPTION = '" +
+      "', description = '" +
       description +
-      "', PRICE = '" +
+      "', price = '" +
       price +
-      "' WHERE ID = '" +
+      "' WHERE id = '" +
       id +
       "';";
     await connection.execute(query);

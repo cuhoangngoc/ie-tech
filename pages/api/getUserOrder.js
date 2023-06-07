@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       const connection = await connPromise;
       const { id } = JSON.parse(req.body);
       const query =
-        'SELECT ORDERS.id, PLANS.name plan, SERVICES.name service, duration, total, ORDERS.created_at, status FROM ORDERS, USERS, PLANS, SERVICES WHERE ORDERS.user_id = USERS.id AND ORDERS.plan_id = PLANS.id AND PLANS.service_id = SERVICES.id AND USERS.id = ?';
+        'SELECT orders.id, plans.name plan, services.name service, duration, total, orders.created_at, status FROM orders, users, plans, services WHERE orders.user_id = users.id AND orders.plan_id = plans.id AND plans.service_id = services.id AND users.id = ?';
       const values = [id];
       const [rows] = await connection.execute(query, values);
       res.status(200).json(rows);

@@ -36,17 +36,17 @@ const Checkout = () => {
     {
       id: 'monthly',
       duration: 1,
-      total: checkoutData.price,
+      total: checkoutData?.price,
     },
     {
       id: 'quarterly',
       duration: 3,
-      total: round(checkoutData.price * 3),
+      total: round(checkoutData?.price * 3),
     },
     {
       id: 'yearly',
       duration: 12,
-      total: round(checkoutData.price * 12 * 0.9), // giảm 10% nếu mua 1 năm, làm tròn 2 chữ số thập phân
+      total: round(checkoutData?.price * 12 * 0.9), // giảm 10% nếu mua 1 năm, làm tròn 2 chữ số thập phân
     },
   ];
 
@@ -97,7 +97,7 @@ const Checkout = () => {
             <h1 className="text-xl">
               Bạn đang thực hiện giao dịch cho dịch vụ&nbsp;
               <span className="font-bold">
-                {checkoutData.plan_name} {checkoutData.service_name}
+                {checkoutData?.plan_name} {checkoutData?.service_name}
               </span>
             </h1>
             {/* <span className="text-xl">

@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     const connection = await connPromise;
     const { name, description, price, service_id } = JSON.parse(req.body);
 
-    const check = 'SELECT * FROM SERVICES WHERE id = ?';
+    const check = 'SELECT * FROM services WHERE id = ?';
     const [res] = await connection.execute(check, [service_id]);
     if (res.length === 0) {
       res.status(500).json({ message: 'Service not found' });
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     }
 
     const query =
-      "INSERT INTO PLANS(name, description, price, service_id) VALUES ( '" +
+      "INSERT INTO plans(name, description, price, service_id) VALUES ( '" +
       name +
       "', '" +
       description +

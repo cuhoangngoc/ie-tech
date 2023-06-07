@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   mode: 'jit', // Just-in-time mode
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: [
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    'node_modules/preline/dist/*.js',
+  ],
   theme: {
     extend: {},
   },
-  plugins: [require('flowbite/plugin'), require('daisyui')],
+  plugins: [require('flowbite/plugin'), require('daisyui'), require('preline/plugin')],
   daisyui: {
     styled: true,
     themes: true,

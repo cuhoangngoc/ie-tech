@@ -1,6 +1,7 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
-import "../styles/globals.css";
+import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import '../styles/globals.css';
 
 // const roboto = Roboto({
 //   subsets: ["latin"],
@@ -12,6 +13,9 @@ import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
+  useEffect(() => {
+    import('preline');
+  }, []);
   return (
     <AnimatePresence exitBeforeEnter>
       <motion.div

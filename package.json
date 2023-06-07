@@ -9,9 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@google-pay/button-react": "^3.0.9",
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.12",
     "@next/font": "^13.0.6",
+    "@paypal/paypal-js": "^6.0.0",
     "@paypal/react-paypal-js": "^7.8.3",
     "@stripe/react-stripe-js": "^2.1.0",
     "@stripe/stripe-js": "^1.52.1",
@@ -25,6 +27,7 @@
     "mysql2": "^2.3.3",
     "net": "^1.0.2",
     "next": "^12.3.4",
+    "preline": "^1.8.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-countup": "^6.3.2",

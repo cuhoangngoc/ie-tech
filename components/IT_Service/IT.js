@@ -13,13 +13,13 @@ const IT = () => {
   useEffect(() => {
     async function getPageData() {
       //Lấy client api
-      const apiUrlEndpoint = `http://localhost:3000/api/getdata`;
+      const apiUrlEndpoint = `${process.env.NEXT_PUBLIC_BASE_URL}/api/getdata`;
       //fetch dữ liệu client
       const response = await fetch(apiUrlEndpoint);
       const res = await response.json();
       setdataResponse(res);
       //Lấy plan api
-      const planUrL = `http://localhost:3000/api/getPlanDataInIT`;
+      const planUrL = `${process.env.NEXT_PUBLIC_BASE_URL}/api/getPlanDataInIT`;
       const respone_1 = await fetch(planUrL);
       const res_1 = await respone_1.json();
       setPlanRes(res_1);

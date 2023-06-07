@@ -1,15 +1,8 @@
-import mysql from "mysql2/promise";
+import connPromise from '../../database/connect';
 export default async function handler(req, res) {
-  const connection = await mysql.createConnection({
-    host: "localhost",
-    database: "ietech",
-    user: "root",
-    password: "",
-    port: "3306",
-  });
-
   try {
-    const query = "SELECT plan_id, COUNT(*) AS num_orders FROM orders GROUP BY plan_id;";
+    const connection = await connPromise;
+    const query = 'SELECT plan_id, COUNT(*) AS num_orders FROM orders GROUP BY plan_id;';
     const [rows] = await connection.execute(query);
     res.status(200).json(rows);
   } catch (e) {

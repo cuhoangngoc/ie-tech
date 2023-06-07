@@ -1,20 +1,14 @@
-import mysql from "mysql2/promise";
-export default async function handler(req, res) {
-  const connection = await mysql.createConnection({
-    host: "localhost",
-    database: "ietech",
-    user: "root",
-    password: "",
-    port: "3306",
-  });
+import connPromise from '../../database/connect';
 
+export default async function handler(req, res) {
   try {
+    const connection = await connPromise;
     const { name, description, price, service_id } = JSON.parse(req.body);
 
-    const check = "SELECT * FROM SERVICES WHERE id = ?";
+    const check = 'SELECT * FROM SERVICES WHERE id = ?';
     const [res] = await connection.execute(check, [service_id]);
     if (res.length === 0) {
-      res.status(500).json({ message: "Service not found" });
+      res.status(500).json({ message: 'Service not found' });
       return;
     }
 

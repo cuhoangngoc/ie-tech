@@ -1,4 +1,4 @@
-import connPromise from '../../database/connect';
+import connPromise from '../../../database/connect';
 
 export default async function handler(req, res) {
   try {

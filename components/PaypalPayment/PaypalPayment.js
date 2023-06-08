@@ -1,7 +1,8 @@
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 
-const PaypalPayment = ({ orderInfo: { user_id, total, plan_id, duration } }) => {
-  const serverUrl = 'http://localhost:8888';
+const PaypalPayment = ({ orderInfo: { user_id, total = 0, plan_id, duration } }) => {
+  const serverUrl = process.env.NEXT_PUBLIC_PAYPAL_SERVER_URL;
+  console.log(user_id, total, plan_id, duration);
 
   const createOrder = (data) => {
     // Đơn hàng được tạo trên máy chủ và id đơn hàng được trả về
@@ -14,8 +15,8 @@ const PaypalPayment = ({ orderInfo: { user_id, total, plan_id, duration } }) => 
       // like product skus and quantities
       body: JSON.stringify({
         product: {
-          // description: "Thanh toán cho gói này",
-          cost: '129.99',
+          description: `Thanh toán cho gói dịch vụ mã số${plan_id} thời gian ${duration} tháng`,
+          cost: total,
         },
       }),
     })

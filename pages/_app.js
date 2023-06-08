@@ -3,7 +3,9 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../store';
+import { ToastContainer } from 'react-toastify';
 import '../styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 // const roboto = Roboto({
 //   subsets: ["latin"],
@@ -32,6 +34,7 @@ function MyApp({ Component, pageProps }) {
       >
         <Provider store={store}>
           <Component {...pageProps} />
+          <ToastContainer />
         </Provider>
       </motion.div>
     </AnimatePresence>

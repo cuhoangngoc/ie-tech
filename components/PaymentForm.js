@@ -1,6 +1,7 @@
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import axios from 'axios';
 import { useState } from 'react';
+import { showErrorToast, showSuccessToast } from './Toast';
 
 const CARD_OPTIONS = {
   iconStyle: 'solid',
@@ -50,7 +51,13 @@ const PaymentForm = ({ orderInfo: { user_id, total, plan_id, duration } }) => {
           duration,
         });
 
-        if (response.data.success) setSuccess(true);
+        if (!response.data.success) {
+          showSuccessToast('Thanh toán thất bại');
+          return;
+        }
+
+        setSuccess(true);
+        showSuccessToast('Thanh toán thành công');
       } catch (err) {
         console.log(`Error: ${err}`);
       }

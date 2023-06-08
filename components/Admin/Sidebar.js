@@ -69,7 +69,7 @@ const Sidebar = () => {
       <div>
         <Link href="/">
           <a className="flex items-center justify-center gap-2 p-2 font-bold">
-            <Image src={Logo} alt="logo" width={80} height={80} />
+            <Image src={Logo} alt="logo" width={82} height={91} />
             ietech
           </a>
         </Link>

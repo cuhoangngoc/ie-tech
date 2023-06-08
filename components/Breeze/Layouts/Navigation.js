@@ -28,7 +28,7 @@ const Navigation = ({ user }) => {
               <Link href="/">
                 {/* <ApplicationLogo className="block h-10 w-auto fill-current object-scale-down text-gray-600" /> */}
                 <a>
-                  <Image src={logo} alt="" width={50} height={50} />
+                  <Image src={logo} alt="" width={50} height={55} />
                 </a>
               </Link>
             </div>

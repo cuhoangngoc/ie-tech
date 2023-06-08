@@ -10,6 +10,7 @@ import Our_clients from '../components/Web_development/Our_clients';
 import Slider from '../components/Slider/Slider';
 import Layout from '../components/Layout/Layout';
 import { useAuth } from '../hooks/auth';
+import ChatBox from "../components/ChatBox/ChatBox";
 
 export default function Home() {
   const { user } = useAuth({ middleware: 'guest' });
@@ -17,6 +18,7 @@ export default function Home() {
   return (
     <Layout>
       {/* main */}
+      <ChatBox />
       {/* <Slider /> */}
       <div className="container mx-auto px-2 md:px-4">
         <Hero />

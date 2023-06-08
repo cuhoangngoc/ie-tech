@@ -5,11 +5,9 @@ import WhyChooseUs from '../components/WhyChooseUs/WhyChooseUs';
 import List_user from '../components/Web_development/List_user';
 import Layout from '../components/Layout/Layout';
 import { useAuth } from '../hooks/auth';
-import ChatBox from "../components/ChatBox/ChatBox";
-
+import ChatBox from '../components/ChatBox/ChatBox';
 export default function Home() {
   const { user } = useAuth({ middleware: 'guest' });
-
   return (
     <Layout>
       {/* main */}

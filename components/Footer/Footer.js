@@ -4,10 +4,13 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import Logo from '../../public/asset/Logo-only.png';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { useSelector } from 'react-redux';
 export const Footer = () => {
+  const { isDark } = useSelector((state) => {
+    return state.darklight;
+  });
   return (
-    <div className="mt-10 bg-[#211e3b] pb-10">
+    <div className={isDark ? 'mt-10 bg-[#1b1b23] pb-10' : 'mt-10 bg-[#211e3b] pb-10'}>
       <a href="#" className="flex items-center justify-center gap-2">
         <Image src={Logo} alt="logo" width={50} height={50} />
         <span className="my-10 text-4xl text-white">ietech</span>

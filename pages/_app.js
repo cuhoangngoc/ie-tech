@@ -1,6 +1,8 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../store';
 import '../styles/globals.css';
 
 // const roboto = Roboto({
@@ -28,7 +30,9 @@ function MyApp({ Component, pageProps }) {
           pageAnimate: { opacity: 1 },
         }}
       >
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
       </motion.div>
     </AnimatePresence>
   );

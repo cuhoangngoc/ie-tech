@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Chart } from 'chart.js';
+import { Chart } from 'chart.js/auto';
 
-const ChartOrder = () => {
+const ChartOrder = ({ month, year }) => {
+  console.log(month, year)
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api/chart_admin/getChartOrder');
+      const res = await fetch(`/api/chart_admin/getChartOrder?month=${month}&year=${year}`);
       const data = await res.json();
 
       const chartData = data.map((order) => order.order_count);
@@ -73,7 +74,7 @@ const ChartOrder = () => {
     };
 
     fetchData();
-  }, []);
+  }, [month, year]);
 
   return (
     <div>

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Chart } from 'chart.js/auto';
 
-const ChartUser = () => {
+const ChartUser = ({ month, year }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api/chart_admin/getChartUser');
+      const res = await fetch(`/api/chart_admin/getChartUser?month=${month}&year=${year}`);
       const data = await res.json();
 
       const chartData = data.map((user) => user.count); // Dữ liệu biểu đồ từ API
@@ -57,7 +57,7 @@ const ChartUser = () => {
     };
 
     fetchData();
-  }, []);
+  }, [month, year]);
 
   return (
     <div>

@@ -1,13 +1,12 @@
-import About_service from "../components/Web_development/About_service";
-import List_user from "../components/Web_development/List_user";
-import Main_header from "../components/Web_development/Main_header";
-import Our_clients from "../components/Web_development/Our_clients";
-import Support_serrvice from "../components/Web_development/Support_serrvice";
-import Techonolody from "../components/Web_development/Techonolody";
-import Choose_paln_index from "../components/Web_development/Choose_plan_index";
-import Layout from "../components/Layout/Layout";
+import About_service from '../components/Web_development/About_service';
+import List_user from '../components/Web_development/List_user';
+import Main_header from '../components/Web_development/Main_header';
+import Support_serrvice from '../components/Web_development/Support_serrvice';
+import Techonolody from '../components/Web_development/Techonolody';
+import Choose_paln_index from '../components/Web_development/Choose_plan_index';
+import Layout from '../components/Layout/Layout';
 
-import { defaults } from "autoprefixer";
+import { defaults } from 'autoprefixer';
 
 export const web_development = () => {
   return (

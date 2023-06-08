@@ -1,4 +1,3 @@
-import Image from 'next/image';
 const AboutUs = () => (
   <section className="bg-white dark:bg-gray-900">
     <div className="container mx-auto bg-white px-6 py-10">

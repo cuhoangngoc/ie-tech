@@ -1,5 +1,4 @@
 import { FiArrowRight } from 'react-icons/fi';
-import Image from 'next/image';
 
 const WhyChooseUs = () => {
   const reasons = [

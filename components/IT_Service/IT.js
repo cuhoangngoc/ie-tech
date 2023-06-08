@@ -1,4 +1,3 @@
-import { BiBot } from 'react-icons/bi';
 import { ImHtmlFive2 } from 'react-icons/im';
 import { ImMobile } from 'react-icons/im';
 import { ImDisplay } from 'react-icons/im';

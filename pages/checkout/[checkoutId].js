@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../../hooks/auth';
 import round from '../../components/round';
 import StripeContainer from '../../components/StripeContainer';
-import axios from 'axios';
 import PaypalPayment from '../../components/PaypalPayment/PaypalPayment';
 import GooglePay from '../../components/GooglePay/GooglePay';
 

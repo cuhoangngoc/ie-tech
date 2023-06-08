@@ -1,5 +1,4 @@
 import { FiMenu, FiChevronDown, FiX, FiUser } from 'react-icons/fi';
-import style from './Navbar.module.css';
 import Link from 'next/link';
 import Logo from '../../public/asset/Logo-only.png';
 import Image from 'next/image';

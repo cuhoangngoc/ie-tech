@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
-import { useAuth } from '../../hooks/auth';
+// import { useRouter } from 'next/router';
+// import { useState, useEffect } from 'react';
+// import { useAuth } from '../../hooks/auth';
 import React, { Component } from 'react';
 import GooglePayButton from '@google-pay/button-react';
 import round from '../round';

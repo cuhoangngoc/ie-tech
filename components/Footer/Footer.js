@@ -3,7 +3,6 @@ import { AiFillMail } from 'react-icons/ai';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import Logo from '../../public/asset/Logo-only.png';
 import Image from 'next/image';
-import { useState } from 'react';
 import Link from 'next/link';
 
 export const Footer = () => {

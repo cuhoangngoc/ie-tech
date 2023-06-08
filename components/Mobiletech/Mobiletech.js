@@ -1,9 +1,9 @@
-import AI from '../../public/asset/AI.jpg';
-import Chatbot from '../../public/asset/Chatbot.jpg';
-import ThucTeAo from '../../public/asset/ThucTeAo.jpg';
+// import AI from '../../public/asset/AI.jpg';
+// import Chatbot from '../../public/asset/Chatbot.jpg';
+// import ThucTeAo from '../../public/asset/ThucTeAo.jpg';
 // import IoT from "../../public/asset/IoT.jpg";
-import ttDD from '../../public/asset/ttDD.jpg';
-import blockchain from '../../public/asset/blockchain.jpg';
+// import ttDD from '../../public/asset/ttDD.jpg';
+// import blockchain from '../../public/asset/blockchain.jpg';
 import { useState, useEffect } from 'react';
 import Plan from '../Checkout/Plan';
 const Mobiletech = () => {

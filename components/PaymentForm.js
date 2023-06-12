@@ -51,7 +51,7 @@ const PaymentForm = ({ orderInfo: { user_id, total, plan_id, duration } }) => {
           duration,
         });
 
-        if (!response.data.success) {
+        if (response.status !== 200) {
           showSuccessToast('Thanh toán thất bại');
           return;
         }

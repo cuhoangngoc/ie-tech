@@ -9,10 +9,13 @@ const Payment = () => {
   const query = router.query;
   const orderInfo = {
     user_id: query.user_id,
-    plan_id: Number(query.checkoutId),
+    plan_id: Number(query.plan_id),
     duration: query.duration,
-    total: Number(query.total),
+    // làm tròn đến 2 chữ số thập phân
+    total: query.total,
   };
+
+  console.log(orderInfo);
 
   return (
     <Layout>

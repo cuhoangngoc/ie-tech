@@ -1,4 +1,5 @@
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
+import { showSuccessToast } from '../Toast';
 
 const PaypalPayment = ({ orderInfo: { user_id, total = 0, plan_id, duration } }) => {
   const serverUrl = process.env.NEXT_PUBLIC_PAYPAL_SERVER_URL;
@@ -48,6 +49,7 @@ const PaypalPayment = ({ orderInfo: { user_id, total = 0, plan_id, duration } })
           console.log(`Error: ${err}`);
         }
         console.log('Thanh toán thành công');
+        showSuccessToast('Thanh toán thành công');
         return response.json();
       })
       .then((data) => console.log(data));

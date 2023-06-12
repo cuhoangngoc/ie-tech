@@ -35,7 +35,7 @@ export default async function handler(req, res) {
         '");';
 
       await connection.execute(query);
-      res.json({ message: 'Thanh toán thành công', success: true });
+      res.status(200).json({ message: 'Thanh toán thành công', success: true });
     } catch (e) {
       res.status(500).json({ message: e.message, success: false });
     }

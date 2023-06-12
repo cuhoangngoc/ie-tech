@@ -1,24 +1,36 @@
 // import { useRouter } from 'next/router';
 // import { useState, useEffect } from 'react';
 // import { useAuth } from '../../hooks/auth';
+import { showErrorToast, showSuccessToast } from '../Toast';
 import React, { Component } from 'react';
 import GooglePayButton from '@google-pay/button-react';
 import round from '../round';
+import axios from 'axios';
 const GooglePay = ({ orderInfo }) => {
   const savePayment = async (paymentData) => {
     // hàm xử lý khi thanh toán thành công
-    const { id } = paymentData; // lấy id của payment
-    const { total, plan_id, duration } = checkoutData; // lấy giá trị total từ state
-    const { id: user_id } = user; // lấy id của user từ state
-    const response = await fetch('/api/payment/save-payment', {
+    const { id = 0 } = paymentData; // lấy id của payment
+
+    const { user_id, total, plan_id, duration } = orderInfo; // lấy giá trị total từ state
+
+    console.log(id, user_id, total, plan_id, duration);
+    // const response = await fetch('/api/payment/save-payment', {
+    //   method: 'POST',
+    //   body: JSON.stringify({ id, total, user_id, plan_id, duration }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/createOrder`, {
       method: 'POST',
-      body: JSON.stringify({ id, total, user_id, plan_id, duration }),
+      body: JSON.stringify({ user_id, plan_id, duration, total, status: 'Thành công' }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
-    const data = await response.json();
-    if (data.status === 'success') {
+
+    if (response.status === 200) {
       // nếu lưu thành công thì chuyển hướng tới trang profile
       router.push('/profile');
     }
@@ -59,6 +71,7 @@ const GooglePay = ({ orderInfo }) => {
       }}
       onLoadPaymentData={(paymentRequest) => {
         console.log('Success', paymentRequest);
+        showSuccessToast('Thanh toán thành công');
         savePayment(paymentRequest);
       }}
       onError={(error) => {
